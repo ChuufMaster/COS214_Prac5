@@ -6,6 +6,8 @@
   - [Code Organisation](#code-organisation)
   - [Documentation](#documentation)
   - [Useful Resources](#useful-resources)
+  - [Library usage](#library-usage)
+  - [Git Usage](#git-usage)
   - [Folders](#folders)
     - [Example](#example)
 
@@ -39,6 +41,18 @@
 - [ ] Do some research on how branching works for version control
 - [ ] Install markdown lint extension for vscode to make sure that the proper formatting for readme files is maintained
 - [ ] Install cSpell extension for vscode for spelling highlighting
+- [ ] Install the GitLens extension to see who worked on what
+
+## Library usage
+
+- [ ] We are using RayLib for the GUI
+
+## Git Usage
+
+- [ ] Whenever pushing to a branch or to the main, make sure to add descriptive summaries of what you did and what you changed to make sure that it is easy to track what changes we have made
+- [ ] Make sure that you do not work on the same parts of the project as someone else at the same time if you are not sure who is working on what just ask
+- [ ] To make sure that you are the only one working on a specific part of the project add a comment with your name at the top of the file/s that you are working on and then remove your comments when you are done, alternatively you can also send a message in the discord when you start working on something and when you are done
+- [ ] If all else fails and you aren't sure about something just ask on the group
 
 ## Folders
 
