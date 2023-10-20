@@ -8,10 +8,11 @@
 ## Coding Standards
 
 - [ ] Code should be clean and well formatted.
+- [ ] Use Prettier for code formatting (use the hotkey `alt+shift+f)
 
 ### Naming Conventions
 
-- [x] Classes/Types should always start with a capital letter
+- [ ] Classes/Types should always start with a capital letter
 - [ ] variables/attributes should always start with a lower case letter
 
 ### Code Organisation
