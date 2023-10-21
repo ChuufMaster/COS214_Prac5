@@ -53,9 +53,10 @@
 - [ ] Make sure that you do not work on the same parts of the project as someone else at the same time if you are not sure who is working on what just ask
 - [ ] To make sure that you are the only one working on a specific part of the project add a comment with your name at the top of the file/s that you are working on and then remove your comments when you are done, alternatively you can also send a message in the discord when you start working on something and when you are done
 - [ ] If all else fails and you aren't sure about something just ask on the group
+- [ ] 
 
 ## Folders
 
 ### Example
 
-- [ ] This is an example
+- [ ] This is an example of a sub heading for a folder
