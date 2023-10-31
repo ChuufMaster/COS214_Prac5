@@ -1,6 +1,6 @@
 #include "Plating.h"
-/// @brief Plating implementation
-/// @return 
+/// @brief All the different plating options that form part of the decorator design pattern.
+
 float Plating::getAddedCost() {
 	return this->_addedCost;
 }

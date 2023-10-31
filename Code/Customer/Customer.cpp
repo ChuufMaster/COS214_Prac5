@@ -1,5 +1,5 @@
 #include "Customer.h"
-
+/// @brief All of the code relating to the customer states.
 Customer::Customer() {
 	// TODO - implement Customer::Customer
 	throw "Not yet implemented";
