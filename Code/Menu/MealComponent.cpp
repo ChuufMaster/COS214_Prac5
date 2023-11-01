@@ -1,6 +1,6 @@
 #include "MealComponent.h"
 using namespace std;
-
+/// @brief A mel component forms part of a menuItem, it is the indiidual parts of a meal.
 float MealComponent::getCost() {
 	return this->_cost;
 }

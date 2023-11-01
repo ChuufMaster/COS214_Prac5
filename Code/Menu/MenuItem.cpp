@@ -1,6 +1,6 @@
 #include "MenuItem.h"
 using namespace std;
-
+/// @brief MenuItems make up the menu. they use the MealComponents to make up an item. They can also bmake a new submenu. 
 float MenuItem::getCost() {
 	return this->_cost;
 }
