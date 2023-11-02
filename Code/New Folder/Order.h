@@ -10,7 +10,7 @@ private:
 public:
 	Table* table;
 	Waiter* waiter;
-
+	std::vector<MenuItem>getOrder();
 	Order();
 };
 

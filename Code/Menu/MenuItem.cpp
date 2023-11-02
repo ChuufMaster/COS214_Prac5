@@ -25,7 +25,7 @@ void MenuItem::setPrepTime(int prepTime) {
 	this->_prepTime = prepTime;
 }
 
-void MenuItem::addMenu(Menu* Menu) {
+void MenuItem::addMenu(Menu* Menu){
 	nextItem.push_back(Menu);
 }
 
@@ -39,8 +39,22 @@ MenuItem::~MenuItem() {
 	}
 }
 
-MenuItem::MenuItem(MealComponent* mealComponentArr, Plating* plating) {
-	this->name = mealComponentArr->getName();
-	this->_cost = mealComponentArr->getCost() + plating->getAddedCost();
-	this->_prepTime = mealComponentArr->getPrepTime();
+std::vector<MealComponent*> MenuItem::getComponents()
+{
+	return this->components;
+}
+
+MenuItem::MenuItem(std::string name, std::vector<MealComponent*> mealComponent, Plating* plating) {
+	this->name = name;
+	this->_cost = plating->getAddedCost();
+	this->_prepTime = 0;
+	this->components = mealComponent;
+	for (MealComponent* component : mealComponent)
+	{
+		this->_cost += component->getCost();
+		if (component->getPrepTime() > _prepTime)
+		{
+			this->_prepTime = component->getPrepTime();
+		}
+	}
 }

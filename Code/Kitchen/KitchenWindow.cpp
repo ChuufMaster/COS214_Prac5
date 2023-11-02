@@ -1,35 +1,36 @@
 #include "KitchenWindow.h"
 
 void KitchenWindow::notifyWaiter() {
-	// TODO - implement KitchenWindow::notifyWaiter
-	throw "Not yet implemented";
+	waitingWaiters->update();
+	this->detach(waitingWaiters);
 }
 
 void KitchenWindow::startCooking(MenuItem Meal) {
-	this->Chefs->cook();
+	for (MealComponent* component : Meal.getComponents()) {
+		Chefs->cook(component);
+	}
+	//wait for prep time
+	this->notifyWaiter();
 }
 
 KitchenWindow::KitchenWindow(Chef* Chefs) {
-	// TODO - implement KitchenWindow::KitchenWindow
-	throw "Not yet implemented";
+	this->Chefs = Chefs;
+	this->Chefs = new MichelinChef(new MeatMaster(new FryCook(new BasicChef())));
 }
 
 void KitchenWindow::makeOrder(Order* order) {
-	// TODO - implement KitchenWindow::makeOrder
-	throw "Not yet implemented";
+	for (MenuItem item : order->getOrder())
+	{
+		this->startCooking(item);
+	}
 }
 
-KitchenWindow::KitchenWindow() {
-	// TODO - implement KitchenWindow::KitchenWindow
-	throw "Not yet implemented";
+void KitchenWindow::attach(Waiter* waiter) {
+	this->waitingWaiters = waiter;
+	this->full = true;
 }
 
-void KitchenWindow::attach(Waiter waiter) {
-	// TODO - implement KitchenWindow::attach
-	throw "Not yet implemented";
-}
-
-void KitchenWindow::detach(Waiter waiter) {
-	// TODO - implement KitchenWindow::detach
-	throw "Not yet implemented";
+void KitchenWindow::detach(Waiter* waiter) {
+	this->waitingWaiters = nullptr;
+	this->full = false;
 }

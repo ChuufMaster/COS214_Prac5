@@ -4,11 +4,9 @@
 class Plating
 {
 public:
-    Plating(float _addedCost = 0.0);
+    Plating();
     float getAddedCost();
     void setAddedCost(float cost);
-
-    virtual void plating() = 0;
     virtual ~Plating() {}
 
 private:
@@ -19,21 +17,18 @@ class Basic : public Plating
 {
 public:
     Basic();
-    void plating() override;
 };
 
 class Luxury : public Plating
 {
 public:
-    Luxury(int cost);
-    void plating() override;
+    Luxury();
 };
 
-class Halloween : public Plating
+class Bokke : public Plating
 {
 public:
-    Halloween(int cost);
-    void plating() override;
+    Bokke();
 };
 
 #endif // PLATING_H

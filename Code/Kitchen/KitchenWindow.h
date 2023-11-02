@@ -4,11 +4,16 @@
 #include "Waiter.h"
 #include "Order.h"
 #include "MenuItem.h"
+#include "MichelinChef.h"
+#include "FryCook.h"
+#include "MeatMaster.h"
+#include "BasicChef.h"
 
 class KitchenWindow {
 
 public:
 	Chef* Chefs;
+	bool full;
 private:
 	Waiter* waitingWaiters;
 
@@ -21,11 +26,9 @@ public:
 
 	void makeOrder(Order* order);
 
-	KitchenWindow();
+	void attach(Waiter* waiter);
 
-	void attach(Waiter waiter);
-
-	void detach(Waiter waiter);
+	void detach(Waiter* waiter);
 };
 
 #endif

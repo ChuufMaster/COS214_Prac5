@@ -1,11 +1,14 @@
 #include "MeatMaster.h"
 
-void MeatMaster::cook() {
-	// TODO - implement MeatMaster::cook
-	throw "Not yet implemented";
+void MeatMaster::cook(MealComponent* meal) {
+	if (meal->type == 2)
+	{
+		//wait for certain time
+	}else {
+		_successor->cook(meal);
+	}
 }
 
-MeatMaster::MeatMaster() {
-	// TODO - implement MeatMaster::MeatMaster
-	throw "Not yet implemented";
+MeatMaster::MeatMaster(Chef* chef) {
+	this->_successor = chef;
 }

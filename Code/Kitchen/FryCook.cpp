@@ -1,11 +1,14 @@
 #include "FryCook.h"
 
-void FryCook::cook() {
-	// TODO - implement FryCook::cook
-	throw "Not yet implemented";
+void FryCook::cook(MealComponent *meal) {
+	if (meal->type = 3)
+	{
+		//wait certain time
+	}else {
+		_successor->cook(meal);
+	}
 }
 
-FryCook::FryCook() {
-	// TODO - implement FryCook::FryCook
-	throw "Not yet implemented";
+FryCook::FryCook(Chef *chef) {
+	this->_successor = chef;
 }

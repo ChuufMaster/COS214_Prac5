@@ -1,12 +1,12 @@
 #ifndef MEALCOMPONENT_H
 #define MEALCOMPONENT_H
-
+#include <string>
 #include "Menu.h"
 
-class MealComponent : public Menu
+class MealComponent
 {
 public:
-    MealComponent(int prepTime, float cost, std::string name);
+    MealComponent(int prepTime, float cost, std::string name, int type);
 
     float getCost();
     void setCost(float cost);
@@ -17,9 +17,10 @@ public:
     int getPrepTime();
     void setPrepTime(int prepTime);
 
-    virtual ~MealComponent() {}
+    ~MealComponent() {}
 
     std::string name;
+    int type;
 
 private:
     float _cost;

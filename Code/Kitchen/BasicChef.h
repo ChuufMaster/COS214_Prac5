@@ -1,11 +1,11 @@
 #ifndef BASICCHEF_H
 #define BASICCHEF_H
-#include <chrono>
-class BasicChef {
+#include "Chef.h"
+class BasicChef : public Chef{
 
 
 public:
-	void cook();
+	void cook(MealComponent *meal);
 
 	BasicChef();
 };

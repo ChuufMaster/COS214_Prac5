@@ -1,13 +1,13 @@
 #ifndef MEATMASTER_H
 #define MEATMASTER_H
-
-class MeatMaster {
+#include "Chef.h"
+class MeatMaster: public Chef {
 
 
 public:
-	void cook();
+	void cook(MealComponent *meal);
 
-	MeatMaster();
+	MeatMaster(Chef* chef);
 };
 
 #endif

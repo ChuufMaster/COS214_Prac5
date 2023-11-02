@@ -1,13 +1,15 @@
 #ifndef MICHELINCHEF_H
 #define MICHELINCHEF_H
+// #include "MealComponent.h"
+#include "Chef.h"
 
-class MichelinChef {
+class MichelinChef : public Chef{
 
 
 public:
-	void cook();
+	void cook(MealComponent *meal);
 
-	MichelinChef();
+	MichelinChef(Chef* chef);
 };
 
 #endif

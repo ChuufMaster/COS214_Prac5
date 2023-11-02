@@ -1,11 +1,15 @@
 #include "MichelinChef.h"
 
-void MichelinChef::cook() {
-	// TODO - implement MichelinChef::cook
-	throw "Not yet implemented";
+void MichelinChef::cook(MealComponent * meal) {
+	if (meal->type == 1)
+	{
+		//wait certain time
+	}else{
+		_successor->cook(meal);
+	}
+
 }
 
-MichelinChef::MichelinChef() {
-	// TODO - implement MichelinChef::MichelinChef
-	throw "Not yet implemented";
+MichelinChef::MichelinChef(Chef* chef) {
+	this->_successor = chef;
 }

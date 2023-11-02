@@ -1,11 +1,14 @@
 #include "BasicChef.h"
 
-void BasicChef::cook() {
-	clock_t start_time = clock();
-    while (clock() < start_time);
+void BasicChef::cook(MealComponent *meal)
+{
+	if (meal->type == 4)
+	{
+		return;
+	}
 }
 
-BasicChef::BasicChef() {
-	// TODO - implement BasicChef::BasicChef
-	throw "Not yet implemented";
+BasicChef::BasicChef()
+{
+	_successor = nullptr;
 }
