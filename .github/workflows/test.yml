@@ -1,18 +1,17 @@
 name: Testing
 
 on:
-    pull_request:
-        branches: [ "testing-github-actions" ]
-    push:
-        branches: ["testing-github-actions"]
+  pull_request:
+    branches: ["testing-github-actions"]
+  push:
+    branches: ["testing-github-actions"]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - name: make
-              run: make -k
-            - name: run
-              run: ./buid/final_program
-        
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: make
+        run: make
+      - name: run
+        run: ./buid/final_program
