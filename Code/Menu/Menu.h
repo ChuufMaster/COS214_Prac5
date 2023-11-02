@@ -13,6 +13,8 @@ public:
 
     virtual void addMenu(Menu *menu) = 0;
     virtual void print() = 0;
+private:
+
 };
 
 #endif // Menu_H

@@ -24,7 +24,7 @@ public:
     int getPrepTime();
     void setPrepTime(int prepTime);
     
-    std::vector<MealComponent*> MenuItem::getComponents();
+    std::vector<MealComponent*> getComponents();
 
 private:
     float _cost;
