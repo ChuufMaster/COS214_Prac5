@@ -2,9 +2,9 @@ name: Testing
 
 on:
     pull_request:
-        branches: [ "main" ]
+        branches: [ "testing-github-actions" ]
     push:
-        branches: ["main"]
+        branches: ["testing-github-actions"]
 
 jobs:
     build:
