@@ -36,7 +36,7 @@ void Floor::print() {
 
 
     for(int c = 0; c < 8; c++) { 
-        //prints out the column indices
+        ///prints out the column indices
         std::cout  << " " << c+1 << " ";
     }
 
@@ -80,14 +80,14 @@ void Floor::print() {
                 }
                 ///Customers printed in green
                 else if (this->floor[r][c].getSym() == 'C') {
-                    std::cout << "\x1b[32m" << this->floor[r][c].getSym()<< "\x1b[0m"; // ANSI escape code for yellow text
+                    std::cout << "\x1b[32m" << this->floor[r][c].getSym()<< "\x1b[0m";
                 } 
                 ///Maitre D printed in red
                 else if(this->floor[r][c].getSym() == 'M') {
-                    std::cout << "\x1b[31m" << this->floor[r][c].getSym()<< "\x1b[0m"; // ANSI escape code for yellow text
+                    std::cout << "\x1b[31m" << this->floor[r][c].getSym()<< "\x1b[0m";
                 }
                 else {
-                    // Reset text color to default (usually white) and display other symbols
+                    /// Reset text color to default
                     std::cout << this->floor[r][c].getSym();
                 }
                     std::cout << "\x1b[0m|";
@@ -108,8 +108,14 @@ void Floor::changeTile(Tile* newTile) {
     int x = newTile->getx();
     int y = newTile->gety();
     if (x >= 0 && x < 8 && y >= 0 && y < 10) {
-        // Replace the tile at (x, y) with the newTile
+        /// Replace the tile at (x, y) with the newTile
         floor[x][y] = *newTile;
     }
     ///else invalid dimensions
+}
+
+Tile Floor::getTile(int x, int y) {
+    if (x >= 0 && x < 8 && y >= 0 && y < 10) {
+        return floor[x][y];
+    }
 }
