@@ -1,10 +1,10 @@
 #ifndef MAITRED_H
 #define MAITRED_H
-#include "Tile.h"
-#include "TableIterator.h"
+#include "../Floor/Tile.h"
+#include "../Floor/TableIterator.h"
 #include "Customer.h"
 
-class MaitreD : Tile {
+class MaitreD :public Tile {
 
 public:
 	Table* _head;

@@ -5,16 +5,16 @@ Table::Table(int numChairs, int x, int y):Tile(x,y) {
 	this->setSym('T');
 }
 
-void Table::addCustomer(Customer c){
+void Table::addCustomer(Customer* c){
 
 	this->customers.insert(customers.end(), c);
 }
 
-void Table::attach(Waiter waiter) {
+void Table::attach(Waiter* waiter) {
 	// this->waiter-> = waiter;
 }
 
-void Table::detach(Waiter waiter) {
+void Table::detach(Waiter* waiter) {
 	// TODO - implement Table::detach
 	throw "Not yet implemented";
 }

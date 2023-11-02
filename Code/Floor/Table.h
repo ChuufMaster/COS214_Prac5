@@ -4,26 +4,28 @@
 #include "Customer.h"
 #include "Waiter.h"
 
-class Table : Tile
+class Waiter;
+
+class Table :public Tile
 {
 
-public:
+	public:
 
 	bool _isOpen;
 
-	Waiter *waiter;
+	Waiter* waiter;
 
 	bool _isReserved;
 
-public:
-	
-	std::vector<Customer> customers;
+	public:
+
+	std::vector<Customer*> customers;
 
 	int tableNumber;
 
-	Table *next;
+	Table* next;
 
-	Table *previous;
+	Table* previous;
 
 	int numChairs;
 
@@ -32,12 +34,12 @@ public:
 	int readyToOrder;
 
 	Table(int numChairs, int x, int y);
-	
-	void addCustomer(Customer customer);
 
-	void attach(Waiter waiter);
+	void addCustomer(Customer* customer);
 
-	void detach(Waiter waiter);
+	void attach(Waiter* waiter);
+
+	void detach(Waiter* waiter);
 
 	void notify();
 };

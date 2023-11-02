@@ -1,5 +1,9 @@
 #include "Tile.h"
 
+Tile::Tile(){
+    
+}
+
 Tile::Tile(int x, int y) {
     this->xDim = x;
     this->yDim = y;
@@ -19,4 +23,12 @@ char Tile::getSym() {
 
 void Tile::setSym(char s) {
     this->symbol = s;
+}
+
+void Tile::setx(int x){
+    this->xDim=x;
+}
+
+void Tile::sety(int y){
+    this->yDim=y;
 }

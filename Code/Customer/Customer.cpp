@@ -27,11 +27,11 @@ void Customer::setState(CustomerReadyState* state) {
 }
 
 bool Customer::happy() {
-	this->_happyState->handle(this);
+	return this->_happyState->handle(this);
 }
 
 int Customer::readyToOrder() {
-	this->_readyState->handleWaiter(this);
+	return this->_readyState->handleWaiter(this);
 }
 
 CustomerHappinessState* Customer::getHappinessState() {

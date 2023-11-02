@@ -2,6 +2,7 @@
 #define CUSTOMERHAPPINESSSTATE_H
 #include "Customer.h"
 
+class Customer;
 class CustomerHappinessState {
 
 private:
@@ -10,7 +11,7 @@ private:
 public:
 	CustomerHappinessState();
 
-	~CustomerHappinessState();
+	virtual ~CustomerHappinessState();
 
 	virtual bool getHappiness() = 0;
 

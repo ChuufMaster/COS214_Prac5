@@ -7,5 +7,5 @@ CustomerHappinessState::CustomerHappinessState() {
 
 CustomerHappinessState::~CustomerHappinessState() {
 	// TODO - implement CustomerHappinessState::~CustomerHappinessState
-	throw "Not yet implemented";
+	//throw "Not yet implemented";
 }

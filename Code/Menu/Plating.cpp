@@ -1,6 +1,10 @@
 #include "Plating.h"
-/// @brief All the different plating options that form part of the decorator design pattern.
 
+Plating::Plating() {
+
+}
+
+/// @brief All the different plating options that form part of the decorator design pattern.
 float Plating::getAddedCost() {
 	return this->_addedCost;
 }
@@ -20,4 +24,3 @@ Luxury::Luxury() {
 Bokke::Bokke() {
 	this->setAddedCost(11.12);
 }
- 

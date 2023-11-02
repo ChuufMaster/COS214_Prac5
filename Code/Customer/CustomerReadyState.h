@@ -2,6 +2,7 @@
 #define CUSTOMERREADYSTATE_H
 #include "Customer.h"
 
+class Customer;
 class CustomerReadyState {
 
 private:
@@ -10,7 +11,7 @@ private:
 public:
 	CustomerReadyState();
 
-	~CustomerReadyState();
+	virtual ~CustomerReadyState();
 
 	virtual bool getReadyToOrder() = 0;
 

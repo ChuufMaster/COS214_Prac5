@@ -1,6 +1,6 @@
 #include "Waiter.h"
 
-void Waiter::placeOrder(KitchenWindow window, Order order) {
+void Waiter::placeOrder(KitchenWindow* window, Order* order) {
 	// TODO - implement Waiter::placeOrder
 	throw "Not yet implemented";
 }

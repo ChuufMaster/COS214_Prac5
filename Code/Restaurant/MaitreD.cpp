@@ -2,7 +2,7 @@
 
 MaitreD::MaitreD() {
 	// TODO - implement MaitreD::MaitreD
-	throw "Not yet implemented";
+	//throw "Not yet implemented";
 }
 
 TableIterator MaitreD::begin() {

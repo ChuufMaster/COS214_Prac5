@@ -2,8 +2,10 @@
 #define CUSTOMER_H
 #include "CustomerHappinessState.h"
 #include "CustomerReadyState.h"
-#include "../New Folder/Tile.h"
+#include "../Floor/Tile.h"
 
+class CustomerHappinessState;
+class CustomerReadyState;
 class Customer : Tile{
 
 private:

@@ -3,6 +3,10 @@
 #include "MenuItem.h"
 #include "Table.h"
 #include "Waiter.h"
+
+class Table;
+class Waiter;
+
 class Order {
 
 private:
@@ -15,3 +19,4 @@ public:
 };
 
 #endif
+

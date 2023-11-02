@@ -10,10 +10,13 @@ private:
 	int yDim;
 public:
     Tile(int x, int y); ///Must be modified in UML to include params
+    Tile();
     int getx();
     int gety();
+    void setx(int x);
+    void sety(int y);
     char getSym();
-    void setSym(char);
+    void setSym(char s);
 };
 
 #endif

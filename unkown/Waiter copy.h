@@ -1,5 +1,5 @@
-#ifndef WAITER_H
-#define WAITER_H
+#ifndef WAITER_COPY_H
+#define WAITER_COPY_H
 #include "Table.h"
 #include "KitchenWindow.h"
 #include "Order.h"
