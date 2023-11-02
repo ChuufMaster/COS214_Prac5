@@ -20,3 +20,4 @@ Luxury::Luxury() {
 Bokke::Bokke() {
 	this->setAddedCost(11.12);
 }
+ 
