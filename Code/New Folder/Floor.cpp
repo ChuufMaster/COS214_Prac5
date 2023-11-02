@@ -16,13 +16,17 @@ Floor::Floor()  {
     ///CHECK IF BELOW IS CORRECT!!!!!!!!!!
     
     ///Sets the first tile in 2D array to maitreD
-    MaitreD maitreDTile(0, 0);
+    MaitreD maitreDTile();
+    maitreDTile.setx(0);
+    maitreDTile.sety(0);
     floor.changeTile(&maitreDTile);
 
     ///Sets 6 tables on the board
     for(int r  = 1; r <= 7; r+=3) {
         for(int c = 2; c <= 5; c+=3) {
-            Table tableTile(r,c);
+            Table tableTile();
+            tableTile.setx(c);
+            tableTile.sety(r);
             floor.changeTile(&tableTile);
             //this->floor[r][c].setSym('T');
         }
