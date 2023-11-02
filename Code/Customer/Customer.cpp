@@ -1,8 +1,8 @@
 #include "Customer.h"
 /// @brief All of the code relating to the customer states.
-Customer::Customer() {
+Customer::Customer(int x, int y) : Tile(x,y) {
 	// TODO - implement Customer::Customer
-	throw "Not yet implemented";
+	this->setSym('C');
 }
 
 Customer::~Customer() {

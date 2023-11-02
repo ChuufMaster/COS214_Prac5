@@ -11,7 +11,7 @@ private:
 	CustomerReadyState* _readyState;
 
 public:
-	Customer();
+	Customer(int x, int y);
 
 	~Customer();
 

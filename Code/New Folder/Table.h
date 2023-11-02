@@ -29,7 +29,11 @@ public:
 
 	int numOccupied;
 
-	Table(int numChairs);
+	int readyToOrder;
+
+	Table(int numChairs, int x, int y);
+	
+	void addCustomer(Customer customer);
 
 	void attach(Waiter waiter);
 
