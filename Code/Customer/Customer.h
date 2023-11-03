@@ -15,6 +15,8 @@ class Customer : Tile {
 private:
   CustomerHappinessState *_happyState;
   CustomerReadyState *_readyState;
+  Table* table;
+  friend class Table;
 
 public:
   Customer(int x, int y);

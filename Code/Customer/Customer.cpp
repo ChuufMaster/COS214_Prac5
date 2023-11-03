@@ -21,12 +21,26 @@ void Customer::setState(CustomerHappinessState *state) {
 }
 
 void Customer::setState(CustomerReadyState *state) {
+
+  if(state->getReadyToOrder() == true){
+    table->readyToOrder++;
+  }
+
   this->_readyState = state;
+  
 }
 
-bool Customer::happy() { return this->_happyState->handle(this); }
+bool Customer::happy() {
 
-int Customer::readyToOrder() { return this->_readyState->handleWaiter(this); }
+  return this->_happyState->handle(this); 
+  
+  }
+
+int Customer::readyToOrder() { 
+
+  return this->_readyState->handleWaiter(this);
+
+   }
 
 CustomerHappinessState *Customer::getHappinessState() {
   return this->_happyState;
