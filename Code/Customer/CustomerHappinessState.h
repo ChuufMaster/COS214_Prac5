@@ -6,16 +6,16 @@ class Customer;
 class CustomerHappinessState {
 
 private:
-  bool _happy;
+  float _happy;
 
 public:
-  CustomerHappinessState();
+  CustomerHappinessState(float h);
 
   virtual ~CustomerHappinessState();
 
-  virtual bool getHappiness() = 0;
+  virtual bool getHappiness();
 
-  virtual bool handle(Customer *c) = 0;
+  virtual bool handle(Customer *c);
 };
 
 #endif

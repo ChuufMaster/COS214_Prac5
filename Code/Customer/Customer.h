@@ -3,6 +3,10 @@
 #include "../Floor/Tile.h"
 #include "CustomerHappinessState.h"
 #include "CustomerReadyState.h"
+#include "CustomerHappy.h"
+#include "CustomerUnhappy.h"
+#include "ReadyToOrder.h"
+#include "NotReadyToOrder.h"
 
 class CustomerHappinessState;
 class CustomerReadyState;

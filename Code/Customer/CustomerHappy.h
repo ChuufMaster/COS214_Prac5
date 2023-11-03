@@ -2,10 +2,13 @@
 #define CUSTOMERHAPPY_H
 #include "CustomerHappinessState.h"
 
-class CustomerHappy : CustomerHappinessState {
+class CustomerHappy : public CustomerHappinessState {
 
 public:
-  bool _happy;
+
+  CustomerHappy(float h);
+
+  float _happy;
 
   bool handle(Customer *c);
 
