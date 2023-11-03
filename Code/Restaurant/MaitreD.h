@@ -1,26 +1,26 @@
 #ifndef MAITRED_H
 #define MAITRED_H
-#include "../Floor/Tile.h"
 #include "../Floor/TableIterator.h"
+#include "../Floor/Tile.h"
 #include "Customer.h"
 
-class MaitreD :public Tile {
+class MaitreD : public Tile {
 
 public:
-	Table* _head;
-	std::vector<Customer*> Customers;
+  Table *_head;
+  std::vector<Customer *> Customers;
 
-	MaitreD();
+  MaitreD();
 
-	TableIterator begin();
+  TableIterator begin();
 
-	TableIterator end();
+  TableIterator end();
 
-	void seatCustomer(bool reserved, Customer* Customer);
+  void seatCustomer(bool reserved, Customer *Customer);
 
-	void executeRestaurant();
+  void executeRestaurant();
 
-	Customer* spawnCustomer();
+  Customer *spawnCustomer();
 };
 
 #endif
