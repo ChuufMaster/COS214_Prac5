@@ -5,14 +5,8 @@ MaitreD::MaitreD() {
 	//throw "Not yet implemented";
 }
 
-TableIterator MaitreD::begin() {
-	// TODO - implement MaitreD::begin
-	throw "Not yet implemented";
-}
+TableIterator MaitreD::createTableIterator() {
 
-TableIterator MaitreD::end() {
-	// TODO - implement MaitreD::end
-	throw "Not yet implemented";
 }
 
 void MaitreD::seatCustomer(bool reserved, Customer* Customer) {
@@ -20,7 +14,12 @@ void MaitreD::seatCustomer(bool reserved, Customer* Customer) {
 	throw "Not yet implemented";
 }
 
-void MaitreD::executeRestaurant() {
+void MaitreD::closeRestaurant() {
+	// TODO - implement MaitreD::executeRestaurant
+	throw "Not yet implemented";
+}
+
+void MaitreD::openRestaurant() {
 	// TODO - implement MaitreD::executeRestaurant
 	throw "Not yet implemented";
 }

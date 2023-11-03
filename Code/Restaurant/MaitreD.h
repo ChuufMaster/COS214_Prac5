@@ -5,20 +5,24 @@
 #include "Customer.h"
 
 class MaitreD : public Tile {
-
+private :
+_OpenCommand : Command*;
+_CloseCommand : Command*;
+_Iterator : TableIterator*;
 public:
   Table *_head;
   std::vector<Customer *> Customers;
 
+
   MaitreD();
 
-  TableIterator begin();
-
-  TableIterator end();
+  TableIterator createTableIterator();
 
   void seatCustomer(bool reserved, Customer *Customer);
 
-  void executeRestaurant();
+  void openRestaurant();
+
+  void closeRestaurant();
 
   Customer *spawnCustomer();
 };
