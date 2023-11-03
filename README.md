@@ -15,7 +15,7 @@
 
 - [ ] Code should be clean and well formatted.
 - [ ] Use the Prettier extension for code formatting (use the hotkey `alt+shift+f` to quickly format your code)
-- [ ] In the videos down below is explained how to use if statements as gaurd clauses to make code readable
+- [ ] In the videos down below is explained how to use if statements as guard clauses to make code readable
   - [ ] E.g. test if anything you are using is null at the top of the method then after the if statement the code you want to run should be outside of the if statement and not in an else statement
 
 ### Naming Conventions
@@ -37,7 +37,7 @@
 ## Useful Resources
 
 - [ ] Watch all the videos on this channel [CodeAesthetic](https://www.youtube.com/@CodeAesthetic/videos)
-- [ ] GitHub Desktop should be used for commiting to the main
+- [ ] GitHub Desktop should be used for committing to the main
 - [ ] Do some research on how branching works for version control
 - [ ] Install markdown lint extension for vscode to make sure that the proper formatting for readme files is maintained
 - [ ] Install cSpell extension for vscode for spelling highlighting
@@ -53,7 +53,6 @@
 - [ ] Make sure that you do not work on the same parts of the project as someone else at the same time if you are not sure who is working on what just ask
 - [ ] To make sure that you are the only one working on a specific part of the project add a comment with your name at the top of the file/s that you are working on and then remove your comments when you are done, alternatively you can also send a message in the discord when you start working on something and when you are done
 - [ ] If all else fails and you aren't sure about something just ask on the group
-- [ ] 
 
 ## Folders
 

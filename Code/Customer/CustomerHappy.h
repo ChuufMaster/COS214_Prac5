@@ -5,11 +5,11 @@
 class CustomerHappy : CustomerHappinessState {
 
 public:
-	bool _happy;
+  bool _happy;
 
-	bool handle(Customer* c);
+  bool handle(Customer *c);
 
-	bool getHappiness();
+  bool getHappiness();
 };
 
 #endif

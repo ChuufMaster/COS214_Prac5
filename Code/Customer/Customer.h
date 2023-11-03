@@ -1,38 +1,38 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
+#include "../Floor/Tile.h"
 #include "CustomerHappinessState.h"
 #include "CustomerReadyState.h"
-#include "../Floor/Tile.h"
 
 class CustomerHappinessState;
 class CustomerReadyState;
-class Customer : Tile{
+class Customer : Tile {
 
 private:
-	CustomerHappinessState* _happyState;
-	CustomerReadyState* _readyState;
+  CustomerHappinessState *_happyState;
+  CustomerReadyState *_readyState;
 
 public:
-	Customer(int x, int y);
+  Customer(int x, int y);
 
-	~Customer();
+  ~Customer();
 
-	bool getHappiness();
+  bool getHappiness();
 
-	bool getReadyToOrder();
+  bool getReadyToOrder();
 
-	void setState(CustomerHappinessState* state);
+  void setState(CustomerHappinessState *state);
 
-	void setState(CustomerReadyState* state);
+  void setState(CustomerReadyState *state);
 
-	bool happy();
+  bool happy();
 
-	int readyToOrder();
+  int readyToOrder();
 
 protected:
-	CustomerHappinessState* getHappinessState();
+  CustomerHappinessState *getHappinessState();
 
-	CustomerReadyState* getReadyState();
+  CustomerReadyState *getReadyState();
 };
 
 #endif
