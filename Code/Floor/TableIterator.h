@@ -5,11 +5,11 @@
 class TableIterator {
 
 protected:
-	Table* head;
-	Table* current;
+  Table *head;
+  Table *current;
 
 public:
-	TableIterator();
+  TableIterator();
 };
 
 #endif

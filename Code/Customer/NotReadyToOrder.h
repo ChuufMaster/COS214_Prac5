@@ -5,11 +5,11 @@
 class NotReadyToOrder : CustomerReadyState {
 
 public:
-	bool _readyToOrder;
+  bool _readyToOrder;
 
-	int handleWaiter(Customer* c);
+  int handleWaiter(Customer *c);
 
-	bool getReadyToOrder();
+  bool getReadyToOrder();
 };
 
 #endif

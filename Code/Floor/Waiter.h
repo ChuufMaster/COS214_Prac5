@@ -1,28 +1,28 @@
 #ifndef WAITER_H
 #define WAITER_H
-#include "Table.h"
 #include "../Kitchen/KitchenWindow.h"
 #include "Order.h"
+#include "Table.h"
+
 
 class Table;
 class KitchenWindow;
 class Order;
-class Waiter
-{
+class Waiter {
 
-	private:
-	std::vector<Table> _tables;
-	bool _readyState;
-	Table* subject;
+private:
+  std::vector<Table> _tables;
+  bool _readyState;
+  Table *subject;
 
-	public:
-	void placeOrder(KitchenWindow* window, Order* order);
+public:
+  void placeOrder(KitchenWindow *window, Order *order);
 
-	Waiter();
+  Waiter();
 
-	void update();
+  void update();
 
-	bool available;
+  bool available;
 };
 
 #endif

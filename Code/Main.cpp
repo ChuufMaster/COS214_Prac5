@@ -10,8 +10,8 @@ int main(int argc, const char **argv) {
     std::cout << "Open restaurant?";
     std::getline(std::cin >> std::ws, open);
     std::cout << open << std::endl;
-    if(open == "Y" || open == "y"){
-      //restaurant
+    if (open == "Y" || open == "y") {
+      // restaurant
     }
     restaurant.isOpen = false;
   }

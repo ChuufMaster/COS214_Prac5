@@ -1,34 +1,30 @@
 #ifndef PLATING_H
 #define PLATING_H
 
-class Plating
-{
+class Plating {
 public:
-    Plating();
-    float getAddedCost();
-    void setAddedCost(float cost);
-    virtual ~Plating() {}
+  Plating();
+  float getAddedCost();
+  void setAddedCost(float cost);
+  virtual ~Plating() {}
 
 private:
-    float _addedCost;
+  float _addedCost;
 };
 
-class Basic : public Plating
-{
+class Basic : public Plating {
 public:
-    Basic();
+  Basic();
 };
 
-class Luxury : public Plating
-{
+class Luxury : public Plating {
 public:
-    Luxury();
+  Luxury();
 };
 
-class Bokke : public Plating
-{
+class Bokke : public Plating {
 public:
-    Bokke();
+  Bokke();
 };
 
 #endif // PLATING_H

@@ -1,47 +1,45 @@
 #ifndef TABLE_H
 #define TABLE_H
-#include "Tile.h"
 #include "Customer.h"
+#include "Tile.h"
 #include "Waiter.h"
+
 
 class Waiter;
 
-class Table :public Tile
-{
+class Table : public Tile {
 
-	public:
+public:
+  bool _isOpen;
 
-	bool _isOpen;
+  Waiter *waiter;
 
-	Waiter* waiter;
+  bool _isReserved;
 
-	bool _isReserved;
+public:
+  std::vector<Customer *> customers;
 
-	public:
+  int tableNumber;
 
-	std::vector<Customer*> customers;
+  Table *next;
 
-	int tableNumber;
+  Table *previous;
 
-	Table* next;
+  int numChairs;
 
-	Table* previous;
+  int numOccupied;
 
-	int numChairs;
+  int readyToOrder;
 
-	int numOccupied;
+  Table(int numChairs, int x, int y);
 
-	int readyToOrder;
+  void addCustomer(Customer *customer);
 
-	Table(int numChairs, int x, int y);
+  void attach(Waiter *waiter);
 
-	void addCustomer(Customer* customer);
+  void detach(Waiter *waiter);
 
-	void attach(Waiter* waiter);
-
-	void detach(Waiter* waiter);
-
-	void notify();
+  void notify();
 };
 
 #endif

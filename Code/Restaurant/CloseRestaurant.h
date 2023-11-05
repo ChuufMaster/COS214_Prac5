@@ -5,9 +5,9 @@
 class CloseRestaurant : Command {
 
 public:
-	bool Restaurant;
+  bool Restaurant;
 
-	void executeRestaurant();
+  void executeRestaurant();
 };
 
 #endif

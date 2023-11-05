@@ -5,18 +5,19 @@
 class Tile {
 
 private:
-	char symbol = ' '; ///Default Symbol
-	int xDim;
-	int yDim;
+  char symbol = ' '; /// Default Symbol
+  int xDim;
+  int yDim;
+
 public:
-    Tile(int x, int y); ///Must be modified in UML to include params
-    Tile();
-    int getx();
-    int gety();
-    void setx(int x);
-    void sety(int y);
-    char getSym();
-    void setSym(char s);
+  Tile(int x, int y); /// Must be modified in UML to include params
+  Tile();
+  int getx();
+  int gety();
+  void setx(int x);
+  void sety(int y);
+  char getSym();
+  void setSym(char s);
 };
 
 #endif

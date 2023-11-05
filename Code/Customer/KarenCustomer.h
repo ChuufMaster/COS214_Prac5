@@ -4,9 +4,8 @@
 
 class KarenCustomer : Customer {
 
-
 public:
-	KarenCustomer(int x, int y);
+  KarenCustomer(int x, int y);
 };
 
 #endif

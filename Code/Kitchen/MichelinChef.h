@@ -3,13 +3,12 @@
 // #include "MealComponent.h"
 #include "Chef.h"
 
-class MichelinChef : public Chef{
-
+class MichelinChef : public Chef {
 
 public:
-	void cook(MealComponent *meal);
+  void cook(MealComponent *meal);
 
-	MichelinChef(Chef* chef);
+  MichelinChef(Chef *chef);
 };
 
 #endif

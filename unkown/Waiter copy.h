@@ -1,25 +1,25 @@
 #ifndef WAITER_COPY_H
 #define WAITER_COPY_H
-#include "Table.h"
 #include "KitchenWindow.h"
 #include "Order.h"
+#include "Table.h"
 
-class Waiter
-{
+
+class Waiter {
 
 private:
-	std::vector<Table> _tables;
-	bool _readyState;
-	Table *subject;
+  std::vector<Table> _tables;
+  bool _readyState;
+  Table *subject;
 
 public:
-	void placeOrder(KitchenWindow window, Order *order);
+  void placeOrder(KitchenWindow window, Order *order);
 
-	Waiter();
+  Waiter();
 
-	void update();
+  void update();
 
-	bool available;
+  bool available;
 };
 
 #endif

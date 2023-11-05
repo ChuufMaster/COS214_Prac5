@@ -1,6 +1,6 @@
 #include "OpenRestaurant.h"
 
 void OpenRestaurant::executeRestaurant() {
-	// TODO - implement OpenRestaurant::executeRestruant
-	throw "Not yet implemented";
+  // TODO - implement OpenRestaurant::executeRestruant
+  throw "Not yet implemented";
 }

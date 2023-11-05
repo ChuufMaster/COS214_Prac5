@@ -5,11 +5,11 @@
 class WealthyCustomer : Customer {
 
 public:
-	int _reservedTable;
+  int _reservedTable;
 
-	int getReservedTable();
+  int getReservedTable();
 
-	void setReservedTable(int reservedTable);
+  void setReservedTable(int reservedTable);
 };
 
 #endif

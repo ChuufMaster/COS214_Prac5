@@ -5,7 +5,6 @@
 #include "Command.h"
 #include "Customer.h"
 
-
 class MaitreD : public Tile {
 private:
   Command *_OpenCommand;
@@ -18,7 +17,7 @@ public:
 
   MaitreD();
 
-  TableIterator* createTableIterator();
+  TableIterator *createTableIterator();
 
   void seatCustomer(bool reserved, Customer *Customer);
 

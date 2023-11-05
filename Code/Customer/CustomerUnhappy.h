@@ -7,7 +7,7 @@
 class CustomerUnhappy : public CustomerHappinessState {
 
 private:
-	float _happy;
+  float _happy;
 
 public:
   CustomerUnhappy(float h);

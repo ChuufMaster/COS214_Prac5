@@ -4,9 +4,8 @@
 
 class NormalCustomer : Customer {
 
-
 public:
-	NormalCustomer(int x, int y);
+  NormalCustomer(int x, int y);
 };
 
 #endif

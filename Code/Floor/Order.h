@@ -10,13 +10,13 @@ class Waiter;
 class Order {
 
 private:
-	std::vector<MenuItem> order;
+  std::vector<MenuItem> order;
+
 public:
-	Table* table;
-	Waiter* waiter;
-	std::vector<MenuItem>getOrder();
-	Order();
+  Table *table;
+  Waiter *waiter;
+  std::vector<MenuItem> getOrder();
+  Order();
 };
 
 #endif
-

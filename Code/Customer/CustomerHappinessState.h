@@ -1,6 +1,6 @@
 #ifndef CUSTOMER_HAPPINESS_STATE_H
 #define CUSTOMER_HAPPINESS_STATE_H
-//#include "Customer.h"
+// #include "Customer.h"
 
 class Customer;
 class CustomerHappinessState {

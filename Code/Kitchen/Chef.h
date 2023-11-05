@@ -4,16 +4,17 @@
 class Chef {
 
 private:
-	int _cookingTime;
+  int _cookingTime;
+
 protected:
-	Chef *_successor;
+  Chef *_successor;
 
 public:
-	virtual void cook(MealComponent* meal) = 0;
+  virtual void cook(MealComponent *meal) = 0;
 
-	int getCookingTime();
+  int getCookingTime();
 
-	void setCookingTime(int cookingTime);
+  void setCookingTime(int cookingTime);
 };
 
 #endif

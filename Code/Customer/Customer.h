@@ -1,11 +1,12 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
+#include "../Floor/Table.h"
 #include "../Floor/Tile.h"
 #include "CustomerHappy.h"
 #include "CustomerUnhappy.h"
-#include "ReadyToOrder.h"
 #include "NotReadyToOrder.h"
-#include "../Floor/Table.h"
+#include "ReadyToOrder.h"
+
 
 class Table;
 class CustomerHappinessState;
@@ -15,7 +16,7 @@ class Customer : Tile {
 private:
   CustomerHappinessState *_happyState;
   CustomerReadyState *_readyState;
-  Table* table;
+  Table *table;
   friend class Table;
 
 public:

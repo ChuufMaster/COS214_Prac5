@@ -1,13 +1,12 @@
 #ifndef FRYCOOK_H
 #define FRYCOOK_H
 #include "Chef.h"
-class FryCook : public Chef{
-
+class FryCook : public Chef {
 
 public:
-	void cook(MealComponent *meal);
+  void cook(MealComponent *meal);
 
-	FryCook(Chef *chef);
+  FryCook(Chef *chef);
 };
 
 #endif
