@@ -3,10 +3,11 @@
 #include "../Floor/Order.h"
 #include "../Kitchen/KitchenWindow.h"
 
-
 Table::Table(int numChairs, int x, int y) : Tile(x, y) {
   this->numChairs = numChairs;
-  this->setSym('T');
+  // this->setSym('T');
+  customers = {new Customer(MenuItem()), new Customer(MenuItem()),
+               new Customer(MenuItem()), new Customer(MenuItem())};
 }
 
 void Table::addCustomer(Customer *c) {
@@ -31,11 +32,22 @@ void Table::notify(KitchenWindow *k) {
   }
 }
 
-/// function to decrement the ready value of all customers at a table, use once per round
+/// function to decrement the ready value of all customers at a table, use once
+/// per round
 
-void Table::decAll(){
-  for(unsigned int i = 0; i < customers.size(); i++){
+void Table::decAll() {
+  for (unsigned int i = 0; i < customers.size(); i++) {
     customers[i]->decReadiness();
     customers[i]->decHappiness();
   }
+}
+
+std::vector<std::vector<std::string>> Table::toString() {
+  std::vector<std::vector<std::string>> tile = {
+      {"╔ ", customers[0]->toString(), " ╗"}, /**< Top row */
+      {"╣" + customers[1]->toString(), symbol,
+       customers[2]->toString() + "╠"},        /**< Middle row */
+      {"╚ ", customers[3]->toString(), " ╝"} /**< Bottom row */
+  };
+  return tile;
 }

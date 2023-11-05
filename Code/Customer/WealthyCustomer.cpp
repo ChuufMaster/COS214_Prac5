@@ -10,30 +10,28 @@ void WealthyCustomer::setReservedTable(int reservedTable) {
   this->_reservedTable = reservedTable;
 }
 
-void WealthyCustomer::decHappiness(){
+void WealthyCustomer::decHappiness() {
 
-  float decBy = static_cast <float> (rand()) / static_cast <float> (RAND_MAX)*0.5f;
+  float decBy =
+      static_cast<float>(rand()) / static_cast<float>(RAND_MAX) * 0.5f;
 
   float happiness = this->getHappiness();
 
   float newHappiness = happiness - decBy;
 
-  if(newHappiness >= 5){
+  if (newHappiness >= 5) {
 
-    CustomerHappinessState* cs =  new CustomerHappy(newHappiness);
-
-    this->setState(cs);
-    
-  }
-  else if (0 < newHappiness && newHappiness < 5){
-
-    CustomerHappinessState* cs =  new CustomerUnhappy(newHappiness);
+    CustomerHappinessState *cs = new CustomerHappy(newHappiness);
 
     this->setState(cs);
 
-  }
-  else if (newHappiness <=0 ){
+  } else if (0 < newHappiness && newHappiness < 5) {
+
+    CustomerHappinessState *cs = new CustomerUnhappy(newHappiness);
+
+    this->setState(cs);
+
+  } else if (newHappiness <= 0) {
     // Remove customer from simulation
   }
-
 }

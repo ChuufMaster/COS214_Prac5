@@ -1,6 +1,7 @@
 #include "Floor.h"
 #include "../Restaurant/MaitreD.h"
 #include "Path.h"
+#include <sstream>
 
 /**
  * @brief Construct a new Floor:: Floor object taking in the MaitreDs
@@ -15,11 +16,11 @@ Floor::Floor(MaitreD *maitreDTile) {
   floor[3][0] = maitreDTile;
   maitreDTile->setx(3);
   maitreDTile->sety(0);
-  maitreDTile->setSym('M');
+  //  maitreDTile->setSym('M');
 
   for (int row = 0; row < rowSize; row++) {
     if (row != 3)
-      floor[row][0] = new Path(0, row);
+      floor[row][0] = new Path(row, 0);
   }
 
   for (int row = 0; row < rowSize; row++) {
@@ -59,11 +60,11 @@ void Floor::print() {
 
     std::cout << "   ";
     for (int c = 0; c < colSize; c++) {
-      if (this->floor[r][c]->getSym() == ' ') {
+      if (this->floor[r][c]->getSym() == " ") {
         std::cout << "   ";
       } else {
         if (r > 0) {
-          if (this->floor[r][c]->getSym() == ' ') {
+          if (this->floor[r][c]->getSym() == " ") {
             std::cout << "\x1b[0m"
                       << "___";
           } else {
@@ -80,21 +81,21 @@ void Floor::print() {
     std::cout << " " << r << " ";
 
     for (int c = 0; c < rowSize; c++) {
-      if (this->floor[r][c]->getSym() == ' ') {
+      if (this->floor[r][c]->getSym() == " ") {
         std::cout << "| |";
       } else {
         std::cout << "\x1b[0m|";
 
         /// Tables printed in yellow
-        if (this->floor[r][c]->getSym() == 'T') {
+        if (this->floor[r][c]->getSym() == "☐") {
           std::cout << "\x1b[33mT";
         }
         /// Customers printed in green
-        else if (this->floor[r][c]->getSym() == 'C') {
+        /*else if (this->floor[r][c]->getSym() == 'C') {
           std::cout << "\x1b[32m" << this->floor[r][c]->getSym() << "\x1b[0m";
-        }
+        }*/
         /// Maitre D printed in red
-        else if (this->floor[r][c]->getSym() == 'M') {
+        else if (this->floor[r][c]->getSym() == "M") {
           std::cout << "\x1b[31m" << this->floor[r][c]->getSym() << "\x1b[0m";
         } else {
           /// Reset text color to default
@@ -148,4 +149,29 @@ Tile *Floor::getTile(int x, int y) {
  *
  * @return std::string
  */
-std::string Floor::toString() { return ""; }
+std::string Floor::toString() {
+  std::ostringstream out;
+  for (int row = 0; row < rowSize; ++row) {
+
+    for (int cell_row = 0; cell_row < 3; ++cell_row) {
+
+      for (int col = 0; col < colSize; ++col) {
+
+        std::vector<std::vector<std::string>> tile_out(
+            3, std::vector<std::string>(3, " "));
+
+        std::string color = "";
+
+        if (this->floor[row][col] != nullptr) {
+          tile_out = this->floor[row][col]->toString();
+        }
+
+        for (int cell_col = 0; cell_col < 3; ++cell_col)
+          out << color << tile_out[cell_row][cell_col] << "\033[0m";
+      }
+      out << std::endl;
+    }
+  }
+
+  return out.str();
+}

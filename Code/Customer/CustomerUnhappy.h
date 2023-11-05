@@ -15,7 +15,6 @@ public:
   bool handle(Customer *c);
 
   float getHappiness();
-
 };
 
 #endif

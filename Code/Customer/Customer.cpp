@@ -4,13 +4,7 @@
 #include "CustomerReadyState.h"
 #include "ReadyToOrder.h"
 /// @brief All of the code relating to the customer states.
-Customer::Customer(int x, int y, MenuItem m) : Tile(x, y) {
-  // TODO - implement Customer::Customer
-  this->setSym('C');
-  this->order = m;
-  
-  
-}
+Customer::Customer(MenuItem m) { this->order = m; }
 
 Customer::~Customer() {
   delete _happyState;
@@ -45,16 +39,26 @@ CustomerHappinessState *Customer::getHappinessState() {
 
 CustomerReadyState *Customer::getReadyState() { return this->_readyState; }
 
-/// decrements ready time per round (with Table decAll() function), then if it reaches 0 sets readyState to readytoorder
+/// decrements ready time per round (with Table decAll() function), then if it
+/// reaches 0 sets readyState to readytoorder
 
-void Customer::decReadiness(){
-  if(readyTime > 0){
+void Customer::decReadiness() {
+  if (readyTime > 0) {
     readyTime--;
-  }
-  else{
-    CustomerReadyState* newState = new ReadyToOrder();
+  } else {
+    CustomerReadyState *newState = new ReadyToOrder();
     this->setState(newState);
   }
 }
 
-void Customer::decHappiness(){}
+void Customer::decHappiness() {}
+
+/**
+ * @brief Returns the Customers Representation
+ *
+ * @details Returns either a smiling or frowning face depending on if the
+ * customer is happy or not
+ *
+ * @return A string that represents the customer visually
+ */
+std::string Customer::toString() { return symbol; }

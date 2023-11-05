@@ -21,6 +21,11 @@ public:
 
   Order *order;
 
+  //std::string symbol = "☐ ";
+  //std::string symbol = "⛒";
+  //std::string symbol = "⚪";
+  std::string symbol = " ";
+
 public:
   std::vector<Customer *> customers;
 

@@ -18,9 +18,7 @@ int main(int argc, const char **argv) {
 
   Floor *test = new Floor(maitreD);
 
-  test->print();
-  std::cout << "⚪" << std::endl;
-  std::cout << "something" << std::endl;
+  std::cout << test->toString() << std::endl;
 
   return 0;
 }

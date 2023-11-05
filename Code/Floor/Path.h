@@ -5,12 +5,14 @@
 
 class Path : public Tile {
 private:
-  char symbol = '=';
+  std::string symbol = " ";
   int xDim;
   int yDim;
 
 public:
   Path(int, int);
+
+  std::vector<std::vector<std::string>> toString();
 };
 
 #endif // !PATH_H

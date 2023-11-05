@@ -5,7 +5,7 @@
 class NormalCustomer : Customer {
 
 public:
-  NormalCustomer(int x, int y, MenuItem m);
+  NormalCustomer(MenuItem m);
   void decHappiness();
 };
 

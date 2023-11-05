@@ -10,7 +10,7 @@ class Table;
 class CustomerHappinessState;
 class CustomerReadyState;
 class MenuItem;
-class Customer : Tile {
+class Customer {
 
 private:
   CustomerHappinessState *_happyState;
@@ -18,8 +18,10 @@ private:
   Table *table;
   friend class Table;
 
+  std::string symbol = "☺";
+
 public:
-  Customer(int x, int y, MenuItem m);
+  Customer(MenuItem);
 
   ~Customer();
 
@@ -42,6 +44,8 @@ public:
   void decReadiness();
 
   void decHappiness();
+
+  std::string toString();
 
 protected:
   CustomerHappinessState *getHappinessState();

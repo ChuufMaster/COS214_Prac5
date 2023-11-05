@@ -15,6 +15,8 @@ private:
 
   Table *_head;
 
+  std::string symbol = "M";
+
 public:
   std::vector<Customer *> Customers;
 
@@ -34,6 +36,8 @@ public:
   bool isEmpty();
   TableIterator begin();
   TableIterator end();
+
+  std::vector<std::vector<std::string>> toString();
 };
 
 #endif

@@ -11,9 +11,9 @@ int Tile::getx() { return this->xDim; }
 
 int Tile::gety() { return this->yDim; }
 
-char Tile::getSym() { return this->symbol; }
+std::string Tile::getSym() { return this->symbol; }
 
-void Tile::setSym(char s) { this->symbol = s; }
+void Tile::setSym(std::string s) { this->symbol = s; }
 
 void Tile::setx(int x) { this->xDim = x; }
 
