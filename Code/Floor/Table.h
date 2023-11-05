@@ -19,7 +19,7 @@ public:
 
   bool _isReserved;
 
-  Order* order;
+  Order *order;
 
 public:
   std::vector<Customer *> customers;
@@ -47,6 +47,8 @@ public:
   void notify(KitchenWindow *k);
 
   void decAll();
+
+  std::vector<std::vector<std::string>> toString();
 };
 
 #endif

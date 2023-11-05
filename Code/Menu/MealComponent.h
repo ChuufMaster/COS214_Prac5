@@ -3,7 +3,6 @@
 #include "Menu.h"
 #include <string>
 
-
 class MealComponent {
 public:
   MealComponent(int prepTime, float cost, std::string name, int type);

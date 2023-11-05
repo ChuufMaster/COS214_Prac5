@@ -4,7 +4,6 @@
 #include "Order.h"
 #include "Table.h"
 
-
 class Table;
 class KitchenWindow;
 class Order;

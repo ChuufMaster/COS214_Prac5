@@ -5,9 +5,10 @@
 
 class Path : public Tile {
 private:
-    char symbol = '=';
-    int xDim;
-    int yDim;
+  char symbol = '=';
+  int xDim;
+  int yDim;
+
 public:
   Path(int, int);
 };

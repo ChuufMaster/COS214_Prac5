@@ -4,7 +4,6 @@
 #include "Order.h"
 #include "Table.h"
 
-
 class Waiter {
 
 private:

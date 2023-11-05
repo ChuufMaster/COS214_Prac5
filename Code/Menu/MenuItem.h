@@ -5,7 +5,6 @@
 #include "Menu.h"
 #include "Plating.h"
 
-
 class MenuItem : public Menu {
 public:
   std::string name;

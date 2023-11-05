@@ -1,7 +1,8 @@
 #include "Table.h"
 #include "../Customer/Customer.h"
-#include "../Kitchen/KitchenWindow.h"
 #include "../Floor/Order.h"
+#include "../Kitchen/KitchenWindow.h"
+
 
 Table::Table(int numChairs, int x, int y) : Tile(x, y) {
   this->numChairs = numChairs;
@@ -19,20 +20,19 @@ void Table::attach(Waiter *waiter) { this->waiter = waiter; }
 
 void Table::detach(Waiter *waiter) { this->waiter = NULL; }
 
-void Table::notify(KitchenWindow* k) {
+void Table::notify(KitchenWindow *k) {
 
   if (this->readyToOrder == this->numOccupied) {
-    this->waiter->placeOrder(k,order); 
+    this->waiter->placeOrder(k, order);
     // notify can happen by round, checking if the readyToROder number is equal
     // to the chairs at the table
-  }
-  else{
+  } else {
     return;
   }
 }
 
-void Table::decAll(){
-  for(unsigned int i = 0; i < customers.size(); i++){
+void Table::decAll() {
+  for (unsigned int i = 0; i < customers.size(); i++) {
     customers[i]->decReadiness();
   }
 }

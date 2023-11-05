@@ -17,9 +17,9 @@ Floor::Floor(MaitreD *maitreDTile) {
   maitreDTile->sety(0);
   maitreDTile->setSym('M');
 
-  for(int row = 0; row < rowSize; row++){
-    if(row != 3)
-        floor[row][0] = new Path(0, row);
+  for (int row = 0; row < rowSize; row++) {
+    if (row != 3)
+      floor[row][0] = new Path(0, row);
   }
 
   for (int row = 0; row < rowSize; row++) {
@@ -139,6 +139,13 @@ Tile *Floor::getTile(int x, int y) {
   return NULL;
 }
 
-std::string Floor::toString(){
-    return "";
-}
+/**
+ * @brief Returns the String representation of the floor
+ *
+ * Goes over every single tile in the floor and calls its to string function
+ * that will each return a vector array of strings to print out each column one
+ * at a time
+ *
+ * @return std::string
+ */
+std::string Floor::toString() { return ""; }

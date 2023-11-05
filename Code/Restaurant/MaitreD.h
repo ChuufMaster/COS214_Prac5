@@ -19,7 +19,7 @@ public:
   std::vector<Customer *> Customers;
 
   MaitreD();
-  MaitreD(Command*, Command*);
+  MaitreD(Command *, Command *);
 
   void seatCustomer(bool reserved, Customer *Customer);
 

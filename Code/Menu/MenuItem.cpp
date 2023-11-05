@@ -74,4 +74,4 @@ MenuItem::MenuItem(std::string name, std::vector<MealComponent *> mealComponent,
   }
 }
 
-MenuItem::MenuItem(){}
+MenuItem::MenuItem() {}

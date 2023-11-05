@@ -2,10 +2,9 @@
 #define CUSTOMER_H
 #include "../Floor/Table.h"
 #include "../Floor/Tile.h"
+#include "../Menu/MenuItem.h"
 #include "CustomerHappy.h"
 #include "CustomerUnhappy.h"
-#include "../Menu/MenuItem.h"
-
 
 class Table;
 class CustomerHappinessState;
@@ -20,7 +19,7 @@ private:
   friend class Table;
 
 public:
-   Customer(int x, int y, MenuItem m);
+  Customer(int x, int y, MenuItem m);
 
   ~Customer();
 

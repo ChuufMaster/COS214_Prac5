@@ -19,7 +19,7 @@ public:
   Restaurant &operator=(const Restaurant &) = delete;
   ~Restaurant();
 
-  void setFloor(Floor*);
+  void setFloor(Floor *);
 };
 
 #endif

@@ -7,7 +7,6 @@ Customer::Customer(int x, int y, MenuItem m) : Tile(x, y) {
   // TODO - implement Customer::Customer
   this->setSym('C');
   this->order = m;
-  
 }
 
 Customer::~Customer() {
@@ -29,12 +28,13 @@ void Customer::setState(CustomerReadyState *state) {
 
   this->_readyState = state;
   readyToOrder();
-  
 }
 
 bool Customer::happy() { return this->_happyState->handle(this); }
 
-int Customer::readyToOrder() { return this->_readyState->handleWaiter(this->table); }
+int Customer::readyToOrder() {
+  return this->_readyState->handleWaiter(this->table);
+}
 
 CustomerHappinessState *Customer::getHappinessState() {
   return this->_happyState;
@@ -42,8 +42,8 @@ CustomerHappinessState *Customer::getHappinessState() {
 
 CustomerReadyState *Customer::getReadyState() { return this->_readyState; }
 
-void Customer::decReadiness(){
-  if(readyTime > 0){
+void Customer::decReadiness() {
+  if (readyTime > 0) {
     readyTime--;
   }
 }

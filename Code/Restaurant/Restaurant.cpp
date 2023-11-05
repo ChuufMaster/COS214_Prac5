@@ -15,6 +15,4 @@ Restaurant &Restaurant::_restaurant() {
   return onlyInstance_;
 }
 
-void Restaurant::setFloor(Floor* floor){
-  _floor = floor;
-}
+void Restaurant::setFloor(Floor *floor) { _floor = floor; }

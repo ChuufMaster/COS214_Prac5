@@ -9,7 +9,6 @@
 #include "MichelinChef.h"
 #include "Waiter.h"
 
-
 class Waiter;
 class Order;
 
