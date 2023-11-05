@@ -30,6 +30,12 @@ public:
   void closeRestaurant();
 
   Customer *spawnCustomer();
+
+  void addTable(Table *);
+  Table *removeTable(int);
+  bool isEmpty();
+  TableIterator begin();
+  TableIterator end();
 };
 
 #endif
