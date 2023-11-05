@@ -2,10 +2,10 @@
 
 int WealthyCustomer::getReservedTable() {
   // TODO - implement WealthyCustomer::getReservedTable
-  throw "Not yet implemented";
+  return this->_reservedTable;
 }
 
 void WealthyCustomer::setReservedTable(int reservedTable) {
   // TODO - implement WealthyCustomer::setReservedTable
-  throw "Not yet implemented";
+  this->_reservedTable = reservedTable;
 }
