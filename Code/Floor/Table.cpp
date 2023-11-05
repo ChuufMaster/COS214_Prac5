@@ -1,4 +1,5 @@
 #include "Table.h"
+#include "Customer.h"
 
 Table::Table(int numChairs, int x, int y) : Tile(x, y) {
   this->numChairs = numChairs;

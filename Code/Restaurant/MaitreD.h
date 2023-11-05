@@ -6,13 +6,17 @@
 #include "Customer.h"
 
 class MaitreD : public Tile {
+
+  friend class TableIterator;
+
 private:
   Command *_OpenCommand;
   Command *_CloseCommand;
   TableIterator *_Iterator;
 
-public:
   Table *_head;
+
+public:
   std::vector<Customer *> Customers;
 
   MaitreD();

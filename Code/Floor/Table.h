@@ -1,10 +1,10 @@
 #ifndef TABLE_H
 #define TABLE_H
-#include "Customer.h"
+
 #include "Tile.h"
 #include "Waiter.h"
 
-
+class Customer;
 class Waiter;
 
 class Table : public Tile {
