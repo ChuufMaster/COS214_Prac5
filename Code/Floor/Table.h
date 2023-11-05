@@ -16,6 +16,8 @@ public:
 
   bool _isReserved;
 
+  Order* order;
+
 public:
   std::vector<Customer *> customers;
 
@@ -39,7 +41,9 @@ public:
 
   void detach(Waiter *waiter);
 
-  void notify();
+  void notify(KitchenWindow *k);
+
+  void decAll();
 };
 
 #endif

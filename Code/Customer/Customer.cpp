@@ -38,3 +38,9 @@ CustomerHappinessState *Customer::getHappinessState() {
 }
 
 CustomerReadyState *Customer::getReadyState() { return this->_readyState; }
+
+void Customer::decReadiness(){
+  if(readyTime > 0){
+    readyTime--;
+  }
+}

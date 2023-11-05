@@ -26,6 +26,8 @@ public:
 
   MenuItem order;
 
+  int readyTime;
+
   bool getHappiness();
 
   bool getReadyToOrder();
