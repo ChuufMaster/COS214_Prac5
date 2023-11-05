@@ -6,6 +6,9 @@
 
 class Customer;
 class Waiter;
+class Customer;
+class KitchenWindow;
+class Order;
 
 class Table : public Tile {
 

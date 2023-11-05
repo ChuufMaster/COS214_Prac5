@@ -4,13 +4,13 @@
 #include "../Floor/Tile.h"
 #include "CustomerHappy.h"
 #include "CustomerUnhappy.h"
-#include "NotReadyToOrder.h"
-#include "ReadyToOrder.h"
+#include "../Menu/MenuItem.h"
 
 
 class Table;
 class CustomerHappinessState;
 class CustomerReadyState;
+class MenuItem;
 class Customer : Tile {
 
 private:

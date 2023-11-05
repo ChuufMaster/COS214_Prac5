@@ -2,7 +2,9 @@
 #define NOTREADYTOORDER_H
 #include "CustomerReadyState.h"
 
-class NotReadyToOrder : CustomerReadyState {
+class Table;
+
+class NotReadyToOrder : public CustomerReadyState {
 
 public:
   bool _readyToOrder;

@@ -3,7 +3,7 @@
 // #include "Customer.h"
 #include "../Floor/Table.h"
 
-class Customer;
+class Table;
 class CustomerReadyState {
 
 private:
