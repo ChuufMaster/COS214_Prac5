@@ -10,6 +10,8 @@ public:
   int getReservedTable();
 
   void setReservedTable(int reservedTable);
+
+  void decHappiness();
 };
 
 #endif

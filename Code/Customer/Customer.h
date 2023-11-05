@@ -27,7 +27,7 @@ public:
 
   int readyTime;
 
-  bool getHappiness();
+  float getHappiness();
 
   bool getReadyToOrder();
 
@@ -40,6 +40,8 @@ public:
   int readyToOrder();
 
   void decReadiness();
+
+  void decHappiness();
 
 protected:
   CustomerHappinessState *getHappinessState();

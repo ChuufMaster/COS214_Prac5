@@ -13,7 +13,8 @@ public:
 
   bool handle(Customer *c);
 
-  bool getHappiness();
+  float getHappiness();
+
 };
 
 #endif

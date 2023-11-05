@@ -6,6 +6,7 @@ class KarenCustomer : Customer {
 
 public:
   KarenCustomer(int x, int y, MenuItem m);
+  void decHappiness();
 };
 
 #endif

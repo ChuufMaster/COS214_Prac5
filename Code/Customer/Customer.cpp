@@ -2,11 +2,14 @@
 #include "../Menu/MenuItem.h"
 #include "CustomerHappinessState.h"
 #include "CustomerReadyState.h"
+#include "ReadyToOrder.h"
 /// @brief All of the code relating to the customer states.
 Customer::Customer(int x, int y, MenuItem m) : Tile(x, y) {
   // TODO - implement Customer::Customer
   this->setSym('C');
   this->order = m;
+  
+  
 }
 
 Customer::~Customer() {
@@ -14,7 +17,7 @@ Customer::~Customer() {
   delete _readyState;
 }
 
-bool Customer::getHappiness() { return this->_happyState->getHappiness(); }
+float Customer::getHappiness() { return this->_happyState->getHappiness(); }
 
 bool Customer::getReadyToOrder() {
   return this->_readyState->getReadyToOrder();
@@ -42,8 +45,16 @@ CustomerHappinessState *Customer::getHappinessState() {
 
 CustomerReadyState *Customer::getReadyState() { return this->_readyState; }
 
-void Customer::decReadiness() {
-  if (readyTime > 0) {
+/// decrements ready time per round (with Table decAll() function), then if it reaches 0 sets readyState to readytoorder
+
+void Customer::decReadiness(){
+  if(readyTime > 0){
     readyTime--;
   }
+  else{
+    CustomerReadyState* newState = new ReadyToOrder();
+    this->setState(newState);
+  }
 }
+
+void Customer::decHappiness(){}
