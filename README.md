@@ -9,7 +9,7 @@
   - [Library usage](#library-usage)
   - [Git Usage](#git-usage)
   - [Folders](#folders)
-    - [Example](#example)
+  - [Changes](#changes)
 
 ## Coding Standards
 
@@ -56,6 +56,7 @@
 
 ## Folders
 
-### Example
+## Changes
 
-- [ ] This is an example of a sub heading for a folder
+- [MaitreD](./MaitreD.md)
+- [TableIterator](./TableIterator)
