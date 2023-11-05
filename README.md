@@ -10,6 +10,7 @@
   - [Git Usage](#git-usage)
   - [Folders](#folders)
   - [Changes](#changes)
+  - [Main Flow](#main-flow)
 
 ## Coding Standards
 
@@ -60,3 +61,10 @@
 
 - [MaitreD](./MaitreD.md)
 - [TableIterator](./TableIterator)
+
+## Main Flow
+
+1. declare restaurant
+2. declare MaitreD
+3. open restaurant using MaitreD
+4. 

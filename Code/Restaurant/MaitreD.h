@@ -12,7 +12,6 @@ class MaitreD : public Tile {
 private:
   Command *_OpenCommand;
   Command *_CloseCommand;
-  TableIterator *_Iterator;
 
   Table *_head;
 
@@ -20,8 +19,7 @@ public:
   std::vector<Customer *> Customers;
 
   MaitreD();
-
-  TableIterator *createTableIterator();
+  MaitreD(Command*, Command*);
 
   void seatCustomer(bool reserved, Customer *Customer);
 
@@ -32,7 +30,7 @@ public:
   Customer *spawnCustomer();
 
   void addTable(Table *);
-  Table *removeTable(int);
+  Table *removeTable();
   bool isEmpty();
   TableIterator begin();
   TableIterator end();

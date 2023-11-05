@@ -1,26 +1,32 @@
 #include "MaitreD.h"
 
-MaitreD::MaitreD() {
-  // TODO - implement MaitreD::MaitreD
-  // throw "Not yet implemented";
-}
-
-TableIterator *MaitreD::createTableIterator() { return NULL; }
+/**
+ * @brief Construct a new Maitre D:: Maitre D object using the open command and
+ * close command
+ *
+ * @param openCommand
+ * @param closeCommand
+ */
+MaitreD::MaitreD(Command *openCommand, Command *closeCommand)
+    : _OpenCommand(openCommand), _CloseCommand(closeCommand) {}
 
 void MaitreD::seatCustomer(bool reserved, Customer *Customer) {
   // TODO - implement MaitreD::seatCustomer
   throw "Not yet implemented";
 }
 
-void MaitreD::closeRestaurant() {
-  // TODO - implement MaitreD::executeRestaurant
-  throw "Not yet implemented";
-}
+/**
+ * @brief Calls the execute function for the CloseCommand to close the
+ * restaurant
+ *
+ */
+void MaitreD::closeRestaurant() { _CloseCommand->executeRestaurant(); }
 
-void MaitreD::openRestaurant() {
-  // TODO - implement MaitreD::executeRestaurant
-  throw "Not yet implemented";
-}
+/**
+ * @brief Calls the execute function for OpenCommand to open the restaurant
+ *
+ */
+void MaitreD::openRestaurant() { _OpenCommand->executeRestaurant(); }
 
 Customer *MaitreD::spawnCustomer() {
   // TODO - implement MaitreD::spawnCustomer
@@ -33,20 +39,44 @@ Customer *MaitreD::spawnCustomer() {
  * Will add the passed in table to the list of tables that the MaitreD must look
  * at
  *
- * @param table The table to be added
+ * @param newTable The table to be added
  */
-void MaitreD::addTable(Table *table) {}
+void MaitreD::addTable(Table *newTable) {
+  if (isEmpty()) {
+    newTable->next = newTable;
+    newTable->previous = newTable;
+  } else {
+    newTable->next = _head;
+    newTable->previous = _head->previous;
+    _head->previous->next = newTable;
+    _head->previous = newTable;
+  }
+  _head = newTable;
+}
 
 /**
- * @brief Removes the table with the same tableNumber
+ * @brief Removes the table that is at the end of the list
  *
- * Searches through the list of tables for a table with the same table number
- * and removes that table
+ * Access the end of the table list and then removes if from the list and
+ * returns a pointer to the removed table
  *
- * @param tableNumber The table number of the table to be removed
- * @return A pointer to the table that is being removed
+ * @return A pointer to the table that is was removed
  */
-Table *MaitreD::removeTable(int tableNumber) { return 0; }
+Table *MaitreD::removeTable() {
+  if (isEmpty())
+    return 0;
+
+  if (_head->previous == _head) {
+    Table *temp = _head;
+    _head = 0;
+    return temp;
+  }
+
+  Table *tmp = _head->previous;
+  _head->previous = _head->previous->previous;
+  _head->previous->next = _head;
+  return tmp;
+}
 
 /**
  * @brief Checks if the list of tables is empty
@@ -57,7 +87,7 @@ Table *MaitreD::removeTable(int tableNumber) { return 0; }
  * @return true if the list is empty
  * @return false if the list has tables
  */
-bool MaitreD::isEmpty() { return false; }
+bool MaitreD::isEmpty() { return _head == 0; }
 
 /**
  * @brief Returns A tableIterator with current being the head

@@ -5,17 +5,29 @@
 #include <iostream>
 #include <vector>
 
-
+class MaitreD;
 class Floor {
 public:
-  Floor();      /// Default floor plan for the entire system (adjust UML)
-  void print(); /// prints the floor
-  void changeTile(
-      Tile *newTile); /// changing of the tile at that location on the floor
+  Floor(MaitreD *);
+  void print();
+  void changeTile(Tile *newTile);
   Tile *getTile(int x, int y);
+  std::string toString();
 
 private:
-  std::vector<std::vector<Tile *>> floor;
+  std::vector<std::vector<Tile *>>
+      floor; /** A 7x7 grid representing the floor*/
+
+  /**
+   * @brief The max number of rows allowed for the grid
+   */
+  const int rowSize = 7;
+
+  /**
+   * @brief The max number of columns allowed for the grid
+   *
+   */
+  const int colSize = 7;
 };
 
 #endif

@@ -23,6 +23,7 @@ public:
   Table &operator*();
   TableIterator operator++();
   bool operator==(const TableIterator &) const;
+  bool operator==(int) const;
 };
 
 #endif

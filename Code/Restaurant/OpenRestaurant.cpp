@@ -1,6 +1,6 @@
 #include "OpenRestaurant.h"
+#include "Command.h"
 
-void OpenRestaurant::executeRestaurant() {
-  // TODO - implement OpenRestaurant::executeRestruant
-  throw "Not yet implemented";
-}
+OpenRestaurant::OpenRestaurant() {}
+
+void OpenRestaurant::executeRestaurant() { restaurant.isOpen = true; }

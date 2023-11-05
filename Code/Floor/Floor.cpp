@@ -1,38 +1,46 @@
 #include "Floor.h"
 #include "../Restaurant/MaitreD.h"
+#include "Path.h"
 
-Floor::Floor() {
-  /// The board is of size 10x8
-  for (int r = 0; r < 10; r++) {
-    std::vector<Tile *> row;
-    for (int c = 0; c < 8; c++) {
-      /// Create a new Tile and add it to the current row
-      row.push_back(new Tile(r, c));
-    }
-    /// Add the row to the 2D vector
-    floor.push_back(row);
+/**
+ * @brief Construct a new Floor:: Floor object taking in the MaitreDs
+ *
+ * Creates the floor grid and assign all the paths and Tables with their default
+ * values and Also sets the MaitreD to be at the door
+ *
+ * @param MaitreD The MaitreD to be used at the door
+ */
+Floor::Floor(MaitreD *maitreDTile) {
+  this->floor.resize(rowSize, std::vector<Tile *>(colSize, nullptr));
+  floor[3][0] = maitreDTile;
+  maitreDTile->setx(3);
+  maitreDTile->sety(0);
+  maitreDTile->setSym('M');
+
+  for(int row = 0; row < rowSize; row++){
+    if(row != 3)
+        floor[row][0] = new Path(0, row);
   }
 
-  /// CHECK IF BELOW IS CORRECT!!!!!!!!!!
-
-  /// Sets the first tile in 2D array to maitreD
-  MaitreD *maitreDTile = new MaitreD();
-  maitreDTile->setx(0);
-  maitreDTile->sety(0);
-  this->changeTile(maitreDTile);
-
-  /// Sets 6 tables on the board
-  for (int r = 1; r <= 7; r += 3) {
-    for (int c = 2; c <= 5; c += 3) {
-      Table *tableTile = new Table(4, c, r);
-      tableTile->setx(c);
-      tableTile->sety(r);
-      this->changeTile(tableTile);
-      // this->floor[r][c].setSym('T');
+  for (int row = 0; row < rowSize; row++) {
+    for (int column = 1; column < colSize; column++) {
+      if (row % 2 > 0 && column % 2 == 0) {
+        Table *newTable = new Table(4, row, column);
+        floor[row][column] = newTable;
+        maitreDTile->addTable(newTable);
+      } else
+        floor[row][column] = new Path(row, column);
     }
   }
 }
 
+/**
+ * @brief Prints out the floor of the restaurant
+ *
+ * Uses the ToString() functions for all the Tiles to print out the floor
+ *
+ * @see ToString
+ */
 void Floor::print() {
   int outputLength = std::string("Below is the restaurant layout:").length();
   outputLength = (80 - outputLength) / 2;
@@ -40,17 +48,17 @@ void Floor::print() {
             << "Below is the restaurant layout:" << std::endl
             << "   ";
 
-  for (int c = 0; c < 8; c++) {
+  for (int c = 0; c < colSize; c++) {
     /// prints out the column indices
     std::cout << " " << c + 1 << " ";
   }
 
   std::cout << std::endl << "   ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾";
 
-  for (int r = 0; r < 10; r++) {
+  for (int r = 0; r < rowSize; r++) {
 
     std::cout << "   ";
-    for (int c = 0; c < 8; c++) {
+    for (int c = 0; c < colSize; c++) {
       if (this->floor[r][c]->getSym() == ' ') {
         std::cout << "   ";
       } else {
@@ -71,7 +79,7 @@ void Floor::print() {
 
     std::cout << " " << r << " ";
 
-    for (int c = 0; c < 8; c++) {
+    for (int c = 0; c < rowSize; c++) {
       if (this->floor[r][c]->getSym() == ' ') {
         std::cout << "| |";
       } else {
@@ -98,17 +106,26 @@ void Floor::print() {
 
     std::cout << std::endl << "   ";
 
-    for (int c = 0; c < 8; c++) {
+    for (int c = 0; c < colSize; c++) {
       std::cout << "‾‾‾";
     }
   }
   std::cout << std::endl;
 }
 
+/**
+ * @brief Replace the tile in the floor with the new tile that has the same
+ * coords
+ *
+ * Takes in A Tile pointer that then uses the x and y of that Tile to replace
+ * the Tile at the same coordinates in the floor with the new Tile
+ *
+ * @param newTile The tile that will be used to replace a Tile
+ */
 void Floor::changeTile(Tile *newTile) {
   int x = newTile->getx();
   int y = newTile->gety();
-  if (x >= 0 && x < 8 && y >= 0 && y < 10) {
+  if (x >= 0 && x < rowSize && y >= 0 && y < colSize) {
     /// Replace the tile at (x, y) with the newTile
     floor[x][y] = newTile;
   }
@@ -116,8 +133,12 @@ void Floor::changeTile(Tile *newTile) {
 }
 
 Tile *Floor::getTile(int x, int y) {
-  if (x >= 0 && x < 8 && y >= 0 && y < 10) {
+  if (x >= 0 && x < rowSize && y >= 0 && y < colSize) {
     return floor[x][y];
   }
   return NULL;
+}
+
+std::string Floor::toString(){
+    return "";
 }

@@ -1,6 +1,6 @@
 #ifndef RESTAURANT_H
 #define RESTAURANT_H
-#include "../Floor/Floor.h"
+#include "Floor.h"
 class Restaurant {
 
 private:
@@ -18,6 +18,8 @@ public:
   void incOccupancy(); // updateSingletonData()
   Restaurant &operator=(const Restaurant &) = delete;
   ~Restaurant();
+
+  void setFloor(Floor*);
 };
 
 #endif

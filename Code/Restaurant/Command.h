@@ -1,9 +1,12 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
+#include "Restaurant.h"
+//class Restaurant;
 class Command {
 public:
-  bool Restaurant;
+  Restaurant& restaurant = Restaurant::_restaurant();
+  Command();
   virtual void executeRestaurant() = 0;
 };
 

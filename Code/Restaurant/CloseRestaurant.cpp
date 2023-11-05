@@ -1,6 +1,6 @@
 #include "CloseRestaurant.h"
+#include "Command.h"
 
-void CloseRestaurant::executeRestaurant() {
-  // TODO - implement CloseRestaurant::executeRestruant
-  throw "Not yet implemented";
-}
+CloseRestaurant::CloseRestaurant() {}
+
+void CloseRestaurant::executeRestaurant() { restaurant.isOpen = false; }

@@ -2,11 +2,10 @@
 #define CLOSERESTAURANT_H
 #include "Command.h"
 
-class CloseRestaurant : Command {
+class CloseRestaurant : public Command {
 
 public:
-  bool Restaurant;
-
+  CloseRestaurant();
   void executeRestaurant();
 };
 

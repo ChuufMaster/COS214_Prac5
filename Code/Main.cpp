@@ -1,20 +1,25 @@
-#include "./Restaurant/MaitreD.h"
-#include "./Restaurant/Restaurant.h"
+#include "CloseRestaurant.h"
+#include "Command.h"
+#include "MaitreD.h"
+#include "OpenRestaurant.h"
+#include "Restaurant.h"
 #include <iostream>
 
 int main(int argc, const char **argv) {
 
   Restaurant &restaurant = Restaurant::_restaurant();
-  while (restaurant.isOpen) {
-    std::string open;
-    std::cout << "Open restaurant?";
-    std::getline(std::cin >> std::ws, open);
-    std::cout << open << std::endl;
-    if (open == "Y" || open == "y") {
-      // restaurant
-    }
-    restaurant.isOpen = false;
-  }
+  MaitreD *maitreD = new MaitreD(new OpenRestaurant(),
+                                 new CloseRestaurant());
+  maitreD->openRestaurant();
+
+  restaurant.setFloor(new Floor(maitreD));
+  /*while (restaurant.isOpen) {
+    
+  }*/
+
+  Floor* test = new Floor(maitreD);
+
+  test->print();
   std::cout << "something" << std::endl;
 
   return 0;

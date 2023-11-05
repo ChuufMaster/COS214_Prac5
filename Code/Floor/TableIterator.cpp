@@ -81,3 +81,7 @@ TableIterator TableIterator::operator++() {
 bool TableIterator::operator==(const TableIterator &rhs) const {
   return current->tableNumber == rhs.current->tableNumber;
 }
+
+bool TableIterator::operator==(int tableNumber) const {
+  return current->tableNumber == tableNumber;
+}
