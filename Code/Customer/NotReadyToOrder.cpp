@@ -1,4 +1,5 @@
 #include "NotReadyToOrder.h"
+#include "../Floor/Table.h"
 /// @brief this code that will execute when the customer is not ready to order
 /// yet.
 int NotReadyToOrder::handleWaiter(Table* t) {

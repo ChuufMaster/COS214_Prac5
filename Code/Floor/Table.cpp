@@ -1,4 +1,7 @@
 #include "Table.h"
+#include "../Customer/Customer.h"
+#include "../Kitchen/KitchenWindow.h"
+#include "../Floor/Order.h"
 
 Table::Table(int numChairs, int x, int y) : Tile(x, y) {
   this->numChairs = numChairs;
@@ -29,7 +32,7 @@ void Table::notify(KitchenWindow* k) {
 }
 
 void Table::decAll(){
-  for(int i = 0; i < customers.size(); i++){
+  for(unsigned int i = 0; i < customers.size(); i++){
     customers[i]->decReadiness();
   }
 }

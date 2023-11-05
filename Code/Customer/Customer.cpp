@@ -1,4 +1,7 @@
 #include "Customer.h"
+#include "../Menu/MenuItem.h"
+#include "CustomerHappinessState.h"
+#include "CustomerReadyState.h"
 /// @brief All of the code relating to the customer states.
 Customer::Customer(int x, int y, MenuItem m) : Tile(x, y) {
   // TODO - implement Customer::Customer
