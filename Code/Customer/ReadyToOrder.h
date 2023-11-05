@@ -7,7 +7,7 @@ class ReadyToOrder : CustomerReadyState {
 public:
   bool _readyToOrder;
 
-  int handleWaiter(Customer *c);
+  int handleWaiter(Table *c);
 
   bool getReadyToOrder();
 };

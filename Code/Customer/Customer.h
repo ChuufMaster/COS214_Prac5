@@ -20,9 +20,11 @@ private:
   friend class Table;
 
 public:
-  Customer(int x, int y);
+   Customer(int x, int y, MenuItem m);
 
   ~Customer();
+
+  MenuItem order;
 
   bool getHappiness();
 
@@ -35,6 +37,8 @@ public:
   bool happy();
 
   int readyToOrder();
+
+  void decReadiness();
 
 protected:
   CustomerHappinessState *getHappinessState();
