@@ -1,8 +1,10 @@
 #include "Customer.h"
 /// @brief All of the code relating to the customer states.
-Customer::Customer(int x, int y) : Tile(x, y) {
+Customer::Customer(int x, int y, MenuItem m) : Tile(x, y) {
   // TODO - implement Customer::Customer
   this->setSym('C');
+  this->order = m;
+  
 }
 
 Customer::~Customer() {
@@ -22,19 +24,23 @@ void Customer::setState(CustomerHappinessState *state) {
 
 void Customer::setState(CustomerReadyState *state) {
 
-  if (state->getReadyToOrder() == true) {
-    table->readyToOrder++;
-  }
-
   this->_readyState = state;
+  readyToOrder();
+  
 }
 
 bool Customer::happy() { return this->_happyState->handle(this); }
 
-int Customer::readyToOrder() { return this->_readyState->handleWaiter(this); }
+int Customer::readyToOrder() { return this->_readyState->handleWaiter(this->table); }
 
 CustomerHappinessState *Customer::getHappinessState() {
   return this->_happyState;
 }
 
 CustomerReadyState *Customer::getReadyState() { return this->_readyState; }
+
+void Customer::decReadiness(){
+  if(readyTime > 0){
+    readyTime--;
+  }
+}
