@@ -31,8 +31,11 @@ void Table::notify(KitchenWindow* k) {
   }
 }
 
+/// function to decrement the ready value of all customers at a table, use once per round
+
 void Table::decAll(){
   for(unsigned int i = 0; i < customers.size(); i++){
     customers[i]->decReadiness();
+    customers[i]->decHappiness();
   }
 }

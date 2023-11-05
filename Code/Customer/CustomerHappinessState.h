@@ -13,7 +13,7 @@ public:
 
   virtual ~CustomerHappinessState();
 
-  virtual bool getHappiness() = 0;
+  virtual float getHappiness() = 0;
 
   virtual bool handle(Customer *c) = 0;
 };
