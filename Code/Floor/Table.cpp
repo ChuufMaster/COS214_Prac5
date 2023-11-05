@@ -5,9 +5,9 @@ Table::Table(int numChairs, int x, int y):Tile(x,y) {
 	this->setSym('T');
 }
 
-void Table::addCustomer(Customer& c){
+void Table::addCustomer(Customer* c){
 
-	c.table = this;
+	c->table = this;
 	this->customers.insert(customers.end(), c);
 }
 
@@ -16,12 +16,10 @@ void Table::attach(Waiter* waiter) {
 }
 
 void Table::detach(Waiter* waiter) {
-	// TODO - implement Table::detach
 	this->waiter = NULL;
 }
 
 void Table::notify() {
-	// TODO - implement Table::notify
 
 	if(this->readyToOrder == this->numOccupied){
 		// this->waiter->placeOrder 

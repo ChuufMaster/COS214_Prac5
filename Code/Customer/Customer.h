@@ -1,13 +1,13 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 #include "../Floor/Tile.h"
-#include "CustomerHappinessState.h"
-#include "CustomerReadyState.h"
 #include "CustomerHappy.h"
 #include "CustomerUnhappy.h"
 #include "ReadyToOrder.h"
 #include "NotReadyToOrder.h"
+#include "../Floor/Table.h"
 
+class Table;
 class CustomerHappinessState;
 class CustomerReadyState;
 class Customer : Tile {

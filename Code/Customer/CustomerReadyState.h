@@ -1,6 +1,6 @@
 #ifndef CUSTOMERREADYSTATE_H
 #define CUSTOMERREADYSTATE_H
-#include "Customer.h"
+//#include "Customer.h"
 
 class Customer;
 class CustomerReadyState {

@@ -19,7 +19,7 @@ class Table :public Tile
 
 	public:
 
-	std::vector<Customer&> customers;
+	std::vector<Customer*> customers;
 
 	int tableNumber;
 
@@ -35,12 +35,9 @@ class Table :public Tile
 
 	Table(int numChairs, int x, int y);
 
-	void addCustomer(Customer& customer);
+	void addCustomer(Customer* customer);
 
 	void attach(Waiter* waiter);
-
-	void attach(Waiter* waiter);
-
 
 	void detach(Waiter* waiter);
 

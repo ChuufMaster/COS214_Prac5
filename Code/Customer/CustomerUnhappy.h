@@ -1,15 +1,20 @@
-#ifndef CUSTOMERUNHAPPY_H
-#define CUSTOMERUNHAPPY_H
+#ifndef CUSTOMER_UNHAPPY_H
+#define CUSTOMER_UNHAPPY_H
+
 #include "CustomerHappinessState.h"
+// class CustomerHappinessState;
 
 class CustomerUnhappy : public CustomerHappinessState {
 
-public:
+private:
 	float _happy;
 
-	bool handle(Customer* c);
+public:
+  CustomerUnhappy(float h);
 
-	bool getHappiness();
+  bool handle(Customer *c);
+
+  bool getHappiness();
 };
 
 #endif

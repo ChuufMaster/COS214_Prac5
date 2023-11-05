@@ -1,8 +1,9 @@
 #ifndef OPENRESTAURANT_H
 #define OPENRESTAURANT_H
 #include "MaitreD.h"
+#include "Command.h"
 
-class OpenRestaurant : MaitreD {
+class OpenRestaurant : Command {
 
 public:
 	bool Restaurant;

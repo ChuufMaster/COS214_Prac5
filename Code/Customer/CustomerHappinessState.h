@@ -1,6 +1,6 @@
-#ifndef CUSTOMERHAPPINESSSTATE_H
-#define CUSTOMERHAPPINESSSTATE_H
-#include "Customer.h"
+#ifndef CUSTOMER_HAPPINESS_STATE_H
+#define CUSTOMER_HAPPINESS_STATE_H
+//#include "Customer.h"
 
 class Customer;
 class CustomerHappinessState {
@@ -13,9 +13,9 @@ public:
 
   virtual ~CustomerHappinessState();
 
-  virtual bool getHappiness();
+  virtual bool getHappiness() = 0;
 
-  virtual bool handle(Customer *c);
+  virtual bool handle(Customer *c) = 0;
 };
 
 #endif

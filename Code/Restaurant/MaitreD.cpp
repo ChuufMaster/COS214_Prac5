@@ -5,8 +5,8 @@ MaitreD::MaitreD() {
 	//throw "Not yet implemented";
 }
 
-TableIterator MaitreD::createTableIterator() {
-
+TableIterator* MaitreD::createTableIterator() {
+	return NULL;
 }
 
 void MaitreD::seatCustomer(bool reserved, Customer* Customer) {

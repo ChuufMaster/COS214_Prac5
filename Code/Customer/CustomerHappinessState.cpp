@@ -4,7 +4,7 @@ CustomerHappinessState::CustomerHappinessState(float h) {
   
   // TODO - implement CustomerHappinessState::CustomerHappinessState
   this->_happy = h;
-  throw "Not yet implemented";
+  //throw "Not yet implemented";
 }
 
 CustomerHappinessState::~CustomerHappinessState() {

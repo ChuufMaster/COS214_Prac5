@@ -1,8 +1,8 @@
 #ifndef CLOSERESTAURANT_H
 #define CLOSERESTAURANT_H
-#include "MaitreD.h"
+#include "Command.h"
 
-class CloseRestaurant : MaitreD {
+class CloseRestaurant : Command {
 
 public:
 	bool Restaurant;

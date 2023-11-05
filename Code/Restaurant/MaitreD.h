@@ -2,21 +2,23 @@
 #define MAITRED_H
 #include "../Floor/TableIterator.h"
 #include "../Floor/Tile.h"
+#include "Command.h"
 #include "Customer.h"
 
+
 class MaitreD : public Tile {
-private :
-_OpenCommand : Command*;
-_CloseCommand : Command*;
-_Iterator : TableIterator*;
+private:
+  Command *_OpenCommand;
+  Command *_CloseCommand;
+  TableIterator *_Iterator;
+
 public:
   Table *_head;
   std::vector<Customer *> Customers;
 
-
   MaitreD();
 
-  TableIterator createTableIterator();
+  TableIterator* createTableIterator();
 
   void seatCustomer(bool reserved, Customer *Customer);
 

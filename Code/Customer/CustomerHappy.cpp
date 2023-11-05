@@ -1,14 +1,8 @@
 #include "CustomerHappy.h"
+
 /// @brief The code that will execute when the customer is happy.
+CustomerHappy::CustomerHappy(float h) : CustomerHappinessState(h) {}
 
-CustomerHappy::CustomerHappy(float h):CustomerHappinessState(h){
-  
-}
-
-bool CustomerHappy::handle(Customer *c) {
-  // TODO - implement CustomerHappy::handle
-  // throw "Not yet implemented";
-  return true;
-}
+bool CustomerHappy::handle(Customer *c) { return true; }
 
 bool CustomerHappy::getHappiness() { return this->_happy; }
