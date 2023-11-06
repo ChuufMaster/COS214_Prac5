@@ -14,12 +14,16 @@ Table::Table(int numChairs, int x, int y) : Tile(x, y) {
 }
 
 void Table::addCustomers(std::vector<Customer *> c) {
+  //std::cout << "adding a custoemr" << std::endl;
   numOccupied = 0;
-  for (auto customer : c) {
-    customer->table = this;
-    numOccupied++;
+
+  for(int i = 0; i < 4; i++){
+    this->customers[i] = c[i];
+    if(c[i] != nullptr){
+      numOccupied++;
+    }
   }
-  this->customers = c;
+  //this->customers = c;
 }
 
 

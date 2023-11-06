@@ -24,9 +24,11 @@ MaitreD::MaitreD(Command *openCommand, Command *closeCommand)
  */
 void MaitreD::seatCustomer(bool reserved, std::vector<Customer *> Customers) {
   TableIterator i;
-  for (i = begin(); !(i == end()); ++i) {
-    if ((*i)._isOpen) {
-      (*i).addCustomers(Customers);
+  for (i = this->begin(); !(i == this->end()); ++i) {
+    if ((*i)->_isOpen) {
+      (*i)->_isOpen = false;
+      (*i)->addCustomers(Customers);
+      return;
     }
   }
 }
@@ -46,7 +48,6 @@ void MaitreD::openRestaurant() { _OpenCommand->executeRestaurant(); }
 
 Customer *MaitreD::spawnCustomer() {
   int randomVal = randomNum(1, 3);
-
   switch (randomVal) {
   case 1: {
     Customer *karen = new KarenCustomer();
@@ -76,6 +77,7 @@ Customer *MaitreD::spawnCustomer() {
  * @param newTable The table to be added
  */
 void MaitreD::addTable(Table *newTable) {
+  //std::cout << newTable->getx() << std::endl;
   if (isEmpty()) {
     newTable->next = newTable;
     newTable->previous = newTable;
@@ -172,8 +174,9 @@ std::vector<std::vector<std::string>> MaitreD::toString() {
 void MaitreD::notify() {
   std::vector<Customer *> customers(4, nullptr);
   int randomNumGuest = randomNum(1, 4);
-  for (int i = 0; i < 4; i++)
-    customers.push_back(spawnCustomer());
+
+  for (int i = 0; i < randomNumGuest; i++)
+    customers[i] = spawnCustomer();
 
   seatCustomer(false, customers);
 }

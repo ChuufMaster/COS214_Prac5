@@ -18,8 +18,10 @@ TableIterator::TableIterator() : head(0), current(0) {}
  * @param source The MaitreD that holds all of the tables
  * @param table The table to be set to the current table
  */
-TableIterator::TableIterator(const MaitreD &source, Table *table)
-    : head(source._head), current(table) {}
+TableIterator::TableIterator(const MaitreD& source, Table *table)
+    : head(source._head), current(table) {
+      //std::cout << table->getx() << table->gety() << std::endl;
+    }
 
 /** @brief Will find and return an open table
  *
@@ -47,9 +49,9 @@ Table *TableIterator::findSpecificTable(int tableNum) { return head; }
  * This is used for iterating over the tables so that the current table can be
  * accessed
  *
- * @return Table& of the current table
+ * @return Table of the current table
  */
-Table &TableIterator::operator*() { return *current; }
+Table* TableIterator::operator*() { return current; }
 
 /**
  * @brief Used for iterating over the tables in a for loop
@@ -79,9 +81,9 @@ TableIterator TableIterator::operator++() {
  * @return false if the two current tables have different table numbers
  */
 bool TableIterator::operator==(const TableIterator &rhs) const {
-  return current->tableNumber == rhs.current->tableNumber;
+  return current->getx() == rhs.current->getx() && current->gety() == rhs.current->gety();
 }
 
-bool TableIterator::operator==(int tableNumber) const {
+/*bool TableIterator::operator==(int tableNumber) const {
   return current->tableNumber == tableNumber;
-}
+}*/
