@@ -42,37 +42,37 @@ enum Side {
 // Define menu items with their names and prices
 // CHECK IF THE TYPES AND PREP TIME IS CORRECT
 /*  MealComponent meatOptions[] = {
-        {20, 65.0, "Chicken", 1},
-        {25, 85.0, "Beef", 1},
-        {30, 75.0, "Pork", 1},
-        {20, 95.0, "Fish", 1},
-        {15, 70.0, "Plant-Based Meat", 1}
+        {2, 65.0, "Chicken", 1},
+        {1, 85.0, "Beef", 1},
+        {1, 75.0, "Pork", 1},
+        {2, 95.0, "Fish", 1},
+        {1, 70.0, "Plant-Based Meat", 1}
     };
 
     MealComponent starchOptions[] = {
-        {15, 40.0, "Garlic Butter Quinoa", 2},
-        {10, 30.0, "French Fries", 2},
-        {12, 35.0, "Sweet Potato Fries", 2},
-        {18, 40.0, "Mashed Potatoes", 2},
-        {20, 45.0, "Coconut Rice", 2},
-        {22, 35.0, "Basmati Rice", 2},
-        {14, 40.0, "Cauliflower Rice", 2},
-        {10, 35.0, "Deep-fried Potato Skins", 2},
-        {8, 25.0, "Garlic Bread", 2},
-        {16, 45.0, "Accordian Potatoes", 2}
+        {2, 40.0, "Garlic Butter Quinoa", 2},
+        {1, 30.0, "French Fries", 2},
+        {2, 35.0, "Sweet Potato Fries", 2},
+        {2, 40.0, "Mashed Potatoes", 2},
+        {2, 45.0, "Coconut Rice", 2},
+        {1, 35.0, "Basmati Rice", 2},
+        {2, 40.0, "Cauliflower Rice", 2},
+        {1, 35.0, "Deep-fried Potato Skins", 2},
+        {2, 25.0, "Garlic Bread", 2},
+        {1, 45.0, "Accordian Potatoes", 2}
     };
 
     MealComponent sideOptions[] = {
-        {5, 20.0, "Caesar Salad", 3},
-        {15, 50.0, "Cheese-Stuffed Peppers", 3},
-        {12, 35.0, "Pasta Salad", 3},
-        {10, 30.0, "Onion Rings", 3},
-        {8, 25.0, "Creamed Spinach", 3},
-        {6, 20.0, "Spicy Cabbage Slaw", 3},
-        {8, 30.0, "Fried Pickle Chips", 3},
-        {12, 40.0, "Feta Olive Salad", 3},
-        {10, 25.0, "Cole Slaw", 3},
-        {14, 45.0, "Pumpkin Fritters", 3}
+        {1, 20.0, "Caesar Salad", 3},
+        {1, 50.0, "Cheese-Stuffed Peppers", 3},
+        {1, 35.0, "Pasta Salad", 3},
+        {2, 30.0, "Onion Rings", 3},
+        {1, 25.0, "Creamed Spinach", 3},
+        {1, 20.0, "Spicy Cabbage Slaw", 3},
+        {2, 30.0, "Fried Pickle Chips", 3},
+        {2, 40.0, "Feta Olive Salad", 3},
+        {2, 25.0, "Cole Slaw", 3},
+        {1, 45.0, "Pumpkin Fritters", 3}
     };
     */
 
