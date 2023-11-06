@@ -25,9 +25,8 @@ void KitchenWindow::startCooking(MenuItem Meal)
 
 /// @brief this creates the different types of chefs.
 
-KitchenWindow::KitchenWindow(Chef *Chefs)
+KitchenWindow::KitchenWindow()
 {
-  this->Chefs = Chefs;
   this->Chefs = new MichelinChef(new MeatMaster(new FryCook(new BasicChef())));
   this->currentWaiters = 0;
 }
