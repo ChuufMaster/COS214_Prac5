@@ -38,7 +38,7 @@ int main() {
   restaurant.setFloor(new Floor(maitreD));
 
   std::string str = restaurant.getFloor();
-  while (true) {
+  while (false) {
     maitreD->notify();
 
     str = restaurant.getFloor();
