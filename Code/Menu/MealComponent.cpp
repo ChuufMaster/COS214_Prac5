@@ -1,7 +1,8 @@
 #include "MealComponent.h"
 using namespace std;
 
-enum Meat {
+// JUST CHECK, I GOT AN ERROR THAT THE RUN FAILED, BUT IM SURE THE ENUM'S ARE CORRECT
+/*enum Meat {
     Chicken,
     Beef,
     Pork,
@@ -36,7 +37,17 @@ enum Side {
     ColeSlaw,
     PumpkinFritters,
     SideCount
-};
+};*/
+
+// Define menu items with their names and prices
+// CHECK IF THE TYPES AND PREP TIME IS CORRECT
+/*MealComponent meatOptions[] = {
+        {20, 65.0, "Chicken", 1},
+        {25, 85.0, "Beef", 1},
+        {30, 75.0, "Pork", 1},
+        {20, 95.0, "Fish", 1},
+        {15, 70.0, "Plant-Based Meat", 1}
+    };*/
 
 /// @brief function to return the cost of the meal component.
 /// @return the cost.
