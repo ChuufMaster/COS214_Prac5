@@ -38,16 +38,13 @@ int main() {
   restaurant.setFloor(new Floor(maitreD));
 
   std::string str = restaurant.getFloor();
-  if (true) {
+  while (true) {
     maitreD->notify();
-    maitreD->notify();
-    maitreD->notify();
-    maitreD->notify();
+
     str = restaurant.getFloor();
-    // std::cout << str << std::endl;
-    //  return 0;
+    std::cout << str << std::endl;
+    // return 0;
   }
-  //  std::cout << test->toString() << std::endl;
   ITEM **my_items;
   int c;
   MENU *my_menu_items;

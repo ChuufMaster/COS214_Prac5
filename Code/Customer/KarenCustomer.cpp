@@ -2,15 +2,9 @@
 #include <cstdlib>
 #include <ctime>
 
-KarenCustomer::KarenCustomer(MenuItem m) : Customer(m) {
-
-  // CustomerUnhappy *karenState = new CustomerUnhappy(4);
+KarenCustomer::KarenCustomer() : Customer() {
   CustomerHappinessState *happiness = new CustomerHappy();
   this->setState(happiness);
-
   std::srand(static_cast<unsigned>(std::time(nullptr)));
-
-  this->readyTime = std::rand() % 3 + 1;
+  this->readyTime = std::rand() % 2 + 1;
 }
-
-KarenCustomer::KarenCustomer() {}

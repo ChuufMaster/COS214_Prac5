@@ -11,7 +11,7 @@ Table::Table(int numChairs, int x, int y) : Tile(x, y) {
 
 void Table::addCustomers(std::vector<Customer *> c) {
   numOccupied = 0;
-
+  _isOpen = false;
   for (int i = 0; i < 4; i++) {
     this->customers[i] = c[i];
     if (c[i] != nullptr) {
@@ -25,15 +25,21 @@ void Table::attach(Waiter *waiter) { this->waiter = waiter; }
 void Table::detach(Waiter *waiter) { this->waiter = NULL; }
 
 void Table::notify() {
+  if (_isOpen)
+    return;
   bool sendOrder = false;
   bool happiness = false;
-  for (int i = 0; i < numOccupied; i++) {
-    sendOrder = !sendOrder ? customers[i]->getReadyToOrder() : sendOrder;
+
+  for (int i = 0; i < 4; i++) {
+    if (customers[i] != nullptr) {
+      sendOrder = !sendOrder ? customers[i]->getReadyToOrder() : sendOrder;
+    }
   }
 
   if (sendOrder) {
-    for (int i = 0; i < numOccupied; i++)
-      happiness = !happiness ? customers[i]->getHappiness() : happiness;
+    for (int i = 0; i < 4; i++)
+      if (customers[i] != nullptr)
+        happiness = !happiness ? customers[i]->getHappiness() : happiness;
     std::vector<MenuItem> theOrder;
     for (int i = 0; i < numOccupied; i++) {
       theOrder.push_back(customers[i]->order);
@@ -41,7 +47,6 @@ void Table::notify() {
     Order *order = new Order(this, waiter, theOrder);
     waiter->placeOrder(order);
   }
-
   if (happiness) {
     _isOpen = true;
     for (int i = 0; i < numOccupied; i++)

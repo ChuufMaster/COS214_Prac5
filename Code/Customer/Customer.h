@@ -14,7 +14,7 @@ class Customer {
 
 private:
   CustomerHappinessState *_happyState;
-  CustomerReadyState *_readyState;
+  CustomerReadyState *_readyState ;
   Table *table;
   friend class Table;
 

@@ -187,6 +187,7 @@ void MaitreD::notify() {
     if (!((*i)->_isOpen))
       (*i)->notify();
   }
+  std::cout << "poese" << std::endl;
   kitchen->notifyRound();
 }
 
