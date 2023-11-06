@@ -8,7 +8,10 @@ CustomerHappy::CustomerHappy() {}
 bool CustomerHappy::handle(Customer *c) { return true; }
 
 bool CustomerHappy::getHappiness(Customer *c) {
-  if (c->customerHappiness-- == 0) {
+  if (c == nullptr) {
+    return false;
+  }
+  if (c->customerHappiness-- <= 0) {
     CustomerUnhappy *unhappy = new CustomerUnhappy();
     c->setState(unhappy);
   }
