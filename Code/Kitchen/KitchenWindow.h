@@ -21,8 +21,10 @@ public:
 
 private:
   std::queue<Order*> waitingOrders;
+  std::vector<Order*> currentOrders;
   int maxWaiters;
   int currentWaiters;
+  int roundCounter;
 public:
   void notifyWaiter();
 
@@ -32,7 +34,7 @@ public:
 
   void makeOrder(Order *order);
 
-  void detach(Waiter *waiter);
+  void incRound();
 
   void enqueue(Order *order);
 };

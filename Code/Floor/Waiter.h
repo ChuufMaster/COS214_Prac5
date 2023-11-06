@@ -13,13 +13,14 @@ private:
   std::vector<Table> _tables;
   bool _readyState;
   Table *subject;
+  KitchenWindow *window;
 
 public:
   void placeOrder(KitchenWindow *window, Order *order);
 
-  Waiter();
+  Waiter(KitchenWindow *k);
 
-  void update();
+  void update(Table *t);
 
   bool available;
 };

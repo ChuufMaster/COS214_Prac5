@@ -5,12 +5,10 @@ void Waiter::placeOrder(KitchenWindow *window, Order *order) {
   window->enqueue(order);
 }
 
-Waiter::Waiter() {
-  // TODO - implement Waiter::Waiter
-  throw "Not yet implemented";
+Waiter::Waiter(KitchenWindow *k) {
+  this->window = k;
 }
 
-void Waiter::update() {
-  // TODO - implement Waiter::update
-  throw "Not yet implemented";
+void Waiter::update(Table * T) {
+  T->isServed = true;
 }
