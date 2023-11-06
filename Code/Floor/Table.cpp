@@ -39,7 +39,7 @@ void Table::notify() {
 
     this->order = new Order(this, this->waiter, theOrder);
 
-    this->waiter->placeOrder(this->waiter->w, order);
+    this->waiter->placeOrder(this->waiter->window, order);
     // notify can happen by round, checking if the readyToROder number is equal
     // to the chairs at the table
   } else {

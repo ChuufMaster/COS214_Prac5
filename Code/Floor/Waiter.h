@@ -13,7 +13,6 @@ private:
   std::vector<Table> _tables;
   bool _readyState;
   Table *subject;
-  KitchenWindow *window;
 
 public:
   void placeOrder(KitchenWindow *window, Order *order);
@@ -23,6 +22,9 @@ public:
   void update(Table *t);
 
   bool available;
+
+  KitchenWindow *window;
+
 };
 
 #endif
