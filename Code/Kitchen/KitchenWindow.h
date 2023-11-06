@@ -1,6 +1,6 @@
 #ifndef KITCHENWINDOW_H
 #define KITCHENWINDOW_H
-#include "../Floor/Order.h"
+#include "Order.h"
 #include "BasicChef.h"
 #include "Chef.h"
 #include "FryCook.h"
@@ -8,6 +8,7 @@
 #include "MenuItem.h"
 #include "MichelinChef.h"
 #include "Waiter.h"
+#include <queue>
 
 class Waiter;
 class Order;
@@ -19,8 +20,9 @@ public:
   bool full;
 
 private:
-  Waiter *waitingWaiters;
-
+  std::queue<Order*> waitingOrders;
+  int maxWaiters;
+  int currentWaiters;
 public:
   void notifyWaiter();
 
@@ -30,9 +32,9 @@ public:
 
   void makeOrder(Order *order);
 
-  void attach(Waiter *waiter);
-
   void detach(Waiter *waiter);
+
+  void enqueue(Order *order);
 };
 
 #endif

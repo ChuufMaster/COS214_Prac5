@@ -1,11 +1,8 @@
 #include "Waiter copy.h"
 
 void Waiter::placeOrder(KitchenWindow window, Order *order) {
-  while (window.full == true) {
-  }
-  window.attach(this);
   this->available = false;
-  window.makeOrder(order);
+  window.enqueue(order);
 }
 
 Waiter::Waiter() {
