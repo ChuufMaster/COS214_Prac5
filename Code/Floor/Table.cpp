@@ -62,7 +62,7 @@ void Table::decAll() {
 
   for (unsigned int i = 0; i < numOccupied; i++) {
 
-    customers[i]->decReadiness();
+    customers[i]->_happyState->handle(customers[i]);
 
     customers[i]->decHappiness();
 
