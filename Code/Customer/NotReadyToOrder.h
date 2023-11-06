@@ -9,7 +9,7 @@ class NotReadyToOrder : public CustomerReadyState {
 public:
   bool _readyToOrder;
 
-  int handleWaiter(Table *c);
+  bool handleWaiter(Customer *c);
 
   bool getReadyToOrder();
 };

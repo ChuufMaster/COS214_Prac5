@@ -29,6 +29,8 @@ void Table::detach(Waiter *waiter) { this->waiter = NULL; }
 
 void Table::notify() {
 
+  decAll();
+
   if (this->readyToOrder == this->numOccupied) {
 
     std::vector<MenuItem> theOrder;
@@ -54,7 +56,7 @@ void Table::decAll() {
 
   int ready = 0;
 
-  for (unsigned int i = 0; i < customers.size(); i++) {
+  for (unsigned int i = 0; i < numOccupied; i++) {
 
     customers[i]->decReadiness();
 
@@ -62,12 +64,9 @@ void Table::decAll() {
 
   if(customers[i]->getReadyToOrder() == true){
     ready++;
+    this->readyToOrder++;
   }
 
-  }
-
-  if(ready == customers.size()){
-    this->notify();
   }
   
 }

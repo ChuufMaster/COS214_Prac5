@@ -17,7 +17,7 @@ public:
 
   virtual bool getReadyToOrder() = 0;
 
-  virtual int handleWaiter(Table *c) = 0;
+  virtual bool handleWaiter(Customer *c) = 0;
 };
 
 #endif

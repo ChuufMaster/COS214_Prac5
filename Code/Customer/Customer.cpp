@@ -26,13 +26,13 @@ void Customer::setState(CustomerHappinessState *state) {
 void Customer::setState(CustomerReadyState *state) {
 
   this->_readyState = state;
-  readyToOrder();
+  
 }
 
 bool Customer::happy() { return this->_happyState->handle(this); }
 
-int Customer::readyToOrder() {
-  return this->_readyState->handleWaiter(this->table);
+bool Customer::readyToOrder() {
+  return this->_readyState->handleWaiter(this);
 }
 
 CustomerHappinessState *Customer::getHappinessState() {
@@ -44,14 +44,14 @@ CustomerReadyState *Customer::getReadyState() { return this->_readyState; }
 /// decrements ready time per round (with Table decAll() function), then if it
 /// reaches 0 sets readyState to readytoorder
 
-void Customer::decReadiness() {
-  if (readyTime > 0) {
-    readyTime--;
-  } else {
-    CustomerReadyState *newState = new ReadyToOrder();
-    this->setState(newState);
-  }
-}
+// void Customer::decReadiness() {
+//   if (readyTime > 0) {
+//     readyTime--;
+//   } else {
+//     CustomerReadyState *newState = new ReadyToOrder();
+//     this->setState(newState);
+//   }
+// }
 
 void Customer::decHappiness() {}
 

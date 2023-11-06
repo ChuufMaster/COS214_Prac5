@@ -40,7 +40,7 @@ public:
 
   bool happy();
 
-  int readyToOrder();
+  bool readyToOrder();
 
   void decReadiness();
 
