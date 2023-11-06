@@ -47,7 +47,21 @@ enum Side {
         {30, 75.0, "Pork", 1},
         {20, 95.0, "Fish", 1},
         {15, 70.0, "Plant-Based Meat", 1}
-    };*/
+    };
+
+    MealComponent starchOptions[] = {
+        {15, 40.0, "Garlic Butter Quinoa", 2},
+        {10, 30.0, "French Fries", 2},
+        {12, 35.0, "Sweet Potato Fries", 2},
+        {18, 40.0, "Mashed Potatoes", 2},
+        {20, 45.0, "Coconut Rice", 2},
+        {22, 35.0, "Basmati Rice", 2},
+        {14, 40.0, "Cauliflower Rice", 2},
+        {10, 35.0, "Deep-fried Potato Skins", 2},
+        {8, 25.0, "Garlic Bread", 2},
+        {16, 45.0, "Accordian Potatoes", 2}
+    };
+    */
 
 /// @brief function to return the cost of the meal component.
 /// @return the cost.
