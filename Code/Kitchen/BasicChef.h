@@ -4,7 +4,7 @@
 class BasicChef : public Chef {
 
 public:
-  void cook(MealComponent *meal);
+  std::string cook(MealComponent *meal);
 
   BasicChef();
 };

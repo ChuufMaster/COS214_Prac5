@@ -18,12 +18,15 @@ void KitchenWindow::notifyWaiter()
 /// @brief this sends the different meal components to the chefs to cook.
 /// @param Meal the Meal is split up into mealcomponents.
 
-void KitchenWindow::startCooking(MenuItem Meal)
+std::vector<std::string> KitchenWindow::startCooking(MenuItem Meal)
 {
+  std::vector<std::string> prints;
+  
   for (MealComponent *component : Meal.getComponents())
   {
-    Chefs->cook(component);
+    prints.push_back(Chefs->cook(component));
   }
+  return prints;
 }
 
 /// @brief this creates the different types of chefs.
@@ -42,7 +45,7 @@ void KitchenWindow::makeOrder(Order *order)
 {
   for (MenuItem item : order->getOrder())
   {
-    this->startCooking(item);
+    order->prints.push_back(this->startCooking(item));
   }
   // this->detach(order->waiter);
   // order->table->notify(this);

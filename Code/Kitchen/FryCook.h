@@ -4,7 +4,7 @@
 class FryCook : public Chef {
 
 public:
-  void cook(MealComponent *meal);
+  std::string cook(MealComponent *meal);
 
   FryCook(Chef *chef);
 };

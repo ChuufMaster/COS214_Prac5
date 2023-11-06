@@ -28,7 +28,7 @@ private:
 public:
   void notifyWaiter();
 
-  void startCooking(MenuItem Meal);
+  std::vector<std::string> startCooking(MenuItem Meal);
 
   KitchenWindow();
 

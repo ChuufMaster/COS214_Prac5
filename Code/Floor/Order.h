@@ -11,8 +11,9 @@ class Order {
 
 private:
   std::vector<MenuItem> order;
-
+  
 public:
+  std::vector<std::vector<std::string>> prints;
   Table *table;
   Waiter *waiter;
   std::vector<MenuItem> getOrder();

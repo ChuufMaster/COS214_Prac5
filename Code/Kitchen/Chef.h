@@ -10,7 +10,7 @@ protected:
   Chef *_successor;
 
 public:
-  virtual void cook(MealComponent *meal) = 0;
+  virtual std::string cook(MealComponent *meal) = 0;
 
   int getCookingTime();
 

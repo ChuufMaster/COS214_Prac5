@@ -6,7 +6,7 @@
 class MichelinChef : public Chef {
 
 public:
-  void cook(MealComponent *meal);
+  std::string cook(MealComponent *meal);
 
   MichelinChef(Chef *chef);
 };

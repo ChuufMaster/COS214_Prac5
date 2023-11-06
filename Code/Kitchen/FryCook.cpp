@@ -2,9 +2,9 @@
 /// @brief this just handles the 'cooking' of the food. it checks which chefs
 /// should handle this meal.
 /// @param meal we use the meal component to figure out of which type it is.
-void FryCook::cook(MealComponent *meal) {
+std::string FryCook::cook(MealComponent *meal) {
   if (meal->type == 3) {
-    std::cout<<"The Frycook is preparing the "<<meal->getName()<<std::endl;
+    return "The Frycook is preparing the " + meal->getName();
   } else {
     _successor->cook(meal);
   }
