@@ -12,8 +12,10 @@ int randomNum(int, int);
  * @param openCommand
  * @param closeCommand
  */
-MaitreD::MaitreD(Command *openCommand, Command *closeCommand)
-    : _OpenCommand(openCommand), _CloseCommand(closeCommand) {}
+MaitreD::MaitreD(Command *openCommand, Command *closeCommand,
+                 KitchenWindow *kitchen)
+    : _OpenCommand(openCommand), _CloseCommand(closeCommand), kitchen(kitchen) {
+}
 
 /**
  * @brief Seats the customers at an empty table if it finds one
@@ -77,7 +79,7 @@ Customer *MaitreD::spawnCustomer() {
  * @param newTable The table to be added
  */
 void MaitreD::addTable(Table *newTable) {
-  //std::cout << newTable->getx() << std::endl;
+  // std::cout << newTable->getx() << std::endl;
   if (isEmpty()) {
     newTable->next = newTable;
     newTable->previous = newTable;
@@ -179,6 +181,13 @@ void MaitreD::notify() {
     customers[i] = spawnCustomer();
 
   seatCustomer(false, customers);
+
+  TableIterator i;
+  for (i = this->begin(); !(i == this->end()); ++i) {
+    if (!((*i)->_isOpen))
+      (*i)->notify();
+  }
+  kitchen->notifyRound();
 }
 
 int randomNum(int first, int last) {

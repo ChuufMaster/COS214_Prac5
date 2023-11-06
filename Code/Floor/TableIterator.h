@@ -20,7 +20,7 @@ public:
 
   Table *findSpecificTable(int);
 
-  Table* operator*();
+  Table *operator*();
   TableIterator operator++();
   bool operator==(const TableIterator &) const;
   bool operator==(int) const;

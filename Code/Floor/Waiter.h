@@ -15,7 +15,7 @@ private:
   Table *subject;
 
 public:
-  void placeOrder(KitchenWindow *window, Order *order);
+  void placeOrder(Order *order);
 
   Waiter(KitchenWindow *k);
 
@@ -24,7 +24,6 @@ public:
   bool available;
 
   KitchenWindow *window;
-
 };
 
 #endif

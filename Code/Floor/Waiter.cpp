@@ -1,14 +1,10 @@
 #include "Waiter.h"
 
-void Waiter::placeOrder(KitchenWindow *window, Order *order) {
+void Waiter::placeOrder(Order *order) {
   this->available = false;
   window->enqueue(order);
 }
 
-Waiter::Waiter(KitchenWindow *k) {
-  this->window = k;
-}
+Waiter::Waiter(KitchenWindow *k) { this->window = k; }
 
-void Waiter::update(Table * T) {
-  T->isServed = true;
-}
+void Waiter::update(Table *T) { T->isServed = true; }

@@ -1,8 +1,8 @@
 #include "CustomerUnhappy.h"
 
-CustomerUnhappy::CustomerUnhappy(float h) : CustomerHappinessState(h) {}
+CustomerUnhappy::CustomerUnhappy() {}
 
 /// @brief The code that will execute when the customer is unhappy.
 bool CustomerUnhappy::handle(Customer *c) { return false; }
 
-float CustomerUnhappy::getHappiness() { return this->_happy; }
+bool CustomerUnhappy::getHappiness(Customer *c) { return true; }

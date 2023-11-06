@@ -6,7 +6,6 @@ WealthyCustomer::WealthyCustomer(MenuItem m) : Customer(m) {
   this->setState(wealthyState);
   std::srand(static_cast<unsigned>(std::time(nullptr)));
   this->readyTime = std::rand() % 2 + 1;
-
 }
 
 int WealthyCustomer::getReservedTable() {
@@ -45,6 +44,4 @@ void WealthyCustomer::decHappiness() {
   }
 }
 
-WealthyCustomer::WealthyCustomer(){
-  
-}
+WealthyCustomer::WealthyCustomer() {}

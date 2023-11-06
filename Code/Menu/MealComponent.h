@@ -1,8 +1,9 @@
 #ifndef MEALCOMPONENT_H
 #define MEALCOMPONENT_H
 #include "Menu.h"
-#include <string>
 #include <ctime>
+#include <string>
+
 
 class MealComponent {
 public:

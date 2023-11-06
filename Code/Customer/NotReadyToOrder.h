@@ -5,13 +5,11 @@
 class Table;
 
 class NotReadyToOrder : public CustomerReadyState {
+  bool _readyToOrder;
+  int _timeTillReady = 3;
 
 public:
-  bool _readyToOrder;
-
-  bool handleWaiter(Customer *c);
-
-  bool getReadyToOrder();
+  bool getReadyToOrder(Customer *c);
 };
 
 #endif

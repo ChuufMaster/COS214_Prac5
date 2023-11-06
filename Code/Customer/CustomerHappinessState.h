@@ -9,11 +9,11 @@ private:
   float _happy;
 
 public:
-  CustomerHappinessState(float h);
+  CustomerHappinessState();
 
   virtual ~CustomerHappinessState();
 
-  virtual float getHappiness() = 0;
+  virtual bool getHappiness(Customer *) = 0;
 
   virtual bool handle(Customer *c) = 0;
 };

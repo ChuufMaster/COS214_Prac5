@@ -9,11 +9,11 @@ private:
   float _happy;
 
 public:
-  CustomerHappy(float h);
+  CustomerHappy();
 
   bool handle(Customer *c);
 
-  float getHappiness();
+  bool getHappiness(Customer* c);
 };
 
 #endif

@@ -28,23 +28,17 @@ public:
 
   MenuItem order;
 
-  int readyTime;
+  int readyTime = 2;
 
-  float getHappiness();
+  int customerHappiness;
+
+  bool getHappiness();
 
   bool getReadyToOrder();
 
   void setState(CustomerHappinessState *state);
 
   void setState(CustomerReadyState *state);
-
-  bool happy();
-
-  bool readyToOrder();
-
-  void decReadiness();
-
-  void decHappiness();
 
   std::string toString();
 

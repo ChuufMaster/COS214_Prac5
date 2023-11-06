@@ -30,7 +30,9 @@ int main() {
   setlocale(LC_ALL, "");
 
   Restaurant &restaurant = Restaurant::_restaurant();
-  MaitreD *maitreD = new MaitreD(new OpenRestaurant(), new CloseRestaurant());
+  KitchenWindow *kitchen = new KitchenWindow();
+  MaitreD *maitreD =
+      new MaitreD(new OpenRestaurant(), new CloseRestaurant(), kitchen);
   maitreD->openRestaurant();
 
   restaurant.setFloor(new Floor(maitreD));
@@ -83,7 +85,7 @@ int main() {
 
   my_menu_items = new_menu((ITEM **)my_items);
 
-  menuWindow = newwin(10, 40, LINES - 15, 4);
+  menuWindow = newwin(10, 40, 26, 4);
 
   keypad(menuWindow, TRUE);
 

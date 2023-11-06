@@ -1,78 +1,53 @@
 #include "Table.h"
-#include "../Customer/Customer.h"
-#include "../Floor/Order.h"
-#include "../Kitchen/KitchenWindow.h"
+#include "Customer.h"
+#include "Order.h"
+#include "KitchenWindow.h"
 
 Table::Table(int numChairs, int x, int y) : Tile(x, y) {
-  this->numChairs = numChairs;
-  // this->setSym('T');
   customers.resize(4, nullptr);
-  /*customers = {new Customer(MenuItem()), new Customer(MenuItem()),
-               new Customer(MenuItem()), new Customer(MenuItem())};*/
 
   this->isServed = false;
 }
 
 void Table::addCustomers(std::vector<Customer *> c) {
-  //std::cout << "adding a custoemr" << std::endl;
   numOccupied = 0;
 
-  for(int i = 0; i < 4; i++){
+  for (int i = 0; i < 4; i++) {
     this->customers[i] = c[i];
-    if(c[i] != nullptr){
+    if (c[i] != nullptr) {
       numOccupied++;
     }
   }
-  //this->customers = c;
 }
-
 
 void Table::attach(Waiter *waiter) { this->waiter = waiter; }
 
 void Table::detach(Waiter *waiter) { this->waiter = NULL; }
 
 void Table::notify() {
+  bool sendOrder = false;
+  bool happiness = false;
+  for (int i = 0; i < numOccupied; i++) {
+    sendOrder = !sendOrder ? customers[i]->getReadyToOrder() : sendOrder;
+  }
 
-  decAll();
-
-  if (this->readyToOrder == this->numOccupied) {
-
+  if (sendOrder) {
+    for (int i = 0; i < numOccupied; i++)
+      happiness = !happiness ? customers[i]->getHappiness() : happiness;
     std::vector<MenuItem> theOrder;
-
-    for(unsigned int i = 0 ; i < customers.size();i++){
+    for (unsigned int i = 0; i < numOccupied; i++) {
       theOrder.push_back(customers[i]->order);
     }
-
-    this->order = new Order(this, this->waiter, theOrder);
-
-    this->waiter->placeOrder(this->waiter->window, order);
-    // notify can happen by round, checking if the readyToROder number is equal
-    // to the chairs at the table
-  } else {
-    return;
-  }
-}
-
-/// function to decrement the ready value of all customers at a table, use once
-/// per round
-
-void Table::decAll() {
-
-  int ready = 0;
-
-  for (unsigned int i = 0; i < numOccupied; i++) {
-
-    customers[i]->_happyState->handle(customers[i]);
-
-    customers[i]->decHappiness();
-
-  if(customers[i]->getReadyToOrder() == true){
-    ready++;
-    this->readyToOrder++;
+    Order* order = new Order(this, waiter, theOrder);
+    waiter->placeOrder(order);
   }
 
+  if (happiness) {
+    _isOpen = true;
+    for (int i = 0; i < numOccupied; i++)
+      delete customers[i];
+    customers.resize(4, nullptr);
   }
-  
 }
 
 std::vector<std::vector<std::string>> Table::toString() {

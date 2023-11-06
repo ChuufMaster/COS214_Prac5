@@ -2,7 +2,7 @@
 /// @brief Definition of the MenuItem class.
 
 #include "MenuItem.h"
-using namespace std;
+#include "Plating.h"
 
 /// @brief Getter for the cost of the menu item.
 /// @return The cost of the menu item.
@@ -14,11 +14,11 @@ void MenuItem::setCost(float cost) { this->_cost = cost; }
 
 /// @brief Getter for the name of the menu item.
 /// @return The name of the menu item.
-string MenuItem::getName() { return this->name; }
+std::string MenuItem::getName() { return this->name; }
 
 /// @brief Setter for the name of the menu item.
 /// @param name The name to set for the menu item.
-void MenuItem::setName(string name) { this->name = name; }
+void MenuItem::setName(std::string name) { this->name = name; }
 
 /// @brief Getter for the preparation time of the menu item.
 /// @return The preparation time of the menu item.
@@ -34,14 +34,13 @@ void MenuItem::addMenu(Menu *Menu) { nextItem.push_back(Menu); }
 
 /// @brief Print information about the menu item.
 void MenuItem::print() {
-  cout << this->name << " R" << this->_cost << ". Approximate wait time is "
-       << this->_prepTime << " round" << endl;
+  std::cout << this->name << " R" << this->_cost << ". Approximate wait time is "
+       << this->_prepTime << " round" << std::endl;
 }
 
 /// @brief Destructor for the MenuItem class.
 /// Deletes any submenus associated with the menu item.
-MenuItem::~MenuItem() {
-}
+MenuItem::~MenuItem() {}
 
 /// @brief Get the meal components that make up the menu item.
 /// @return A vector of MealComponent pointers.
@@ -54,7 +53,8 @@ std::vector<MealComponent *> MenuItem::getComponents() {
 /// information.
 MenuItem::MenuItem() {
   _prepTime = 0;
-  Plating* plating  = plating->getPlating();
+   Plating* plating  = new Plating("What");
+    //plating->getPlating();
   this->_cost = plating->getAddedCost();
 
   MealComponent *component = component->getMeatOption();
@@ -66,7 +66,8 @@ MenuItem::MenuItem() {
   this->components.push_back(component);
 
   component = component->getSideOption();
-  this->name += " with a side of " + component->getName() + " on a " + plating->getName() + " plate.";
+  this->name += " with a side of " + component->getName() + " on a " +
+                plating->getName() + " plate.";
   this->components.push_back(component);
 
   for (MealComponent *component : components) {
