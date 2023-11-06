@@ -8,6 +8,7 @@ bool NotReadyToOrder::handleWaiter(Customer *t) {
   // TODO - implement NotReadyToOrder::handleWaiter
    if (t->readyTime > 0) {
     t->readyTime--;
+    return false;
   } else {
     CustomerReadyState *newState = new ReadyToOrder();
     t->setState(newState);
