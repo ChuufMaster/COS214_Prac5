@@ -22,6 +22,7 @@ private:
 
 public:
   Customer(MenuItem);
+  Customer();
 
   ~Customer();
 

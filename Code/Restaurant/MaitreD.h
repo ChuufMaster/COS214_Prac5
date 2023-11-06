@@ -5,6 +5,8 @@
 #include "Command.h"
 #include "Customer.h"
 
+#include <random>
+
 class MaitreD : public Tile {
 
   friend class TableIterator;
