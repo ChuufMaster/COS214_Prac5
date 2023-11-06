@@ -12,7 +12,7 @@ public:
   ~MenuItem();
 
   void addMenu(Menu *menu) override;
-  void print() override;
+  std::string print() override;
 
   float getCost();
   void setCost(float cost);

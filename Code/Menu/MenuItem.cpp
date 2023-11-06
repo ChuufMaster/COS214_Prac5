@@ -33,11 +33,11 @@ void MenuItem::setPrepTime(int prepTime) { this->_prepTime = prepTime; }
 void MenuItem::addMenu(Menu *Menu) { nextItem.push_back(Menu); }
 
 /// @brief Print information about the menu item.
-void MenuItem::print() {
-  std::cout << this->name << " R" << this->_cost
-            << ". Approximate wait time is " << this->_prepTime << " round"
-            << std::endl;
+std::string MenuItem::print() {
+  return this->name + " R" + std::to_string(this->_cost)
+            + ". Approximate wait time is " + std::to_string(this->_prepTime) + " round\n";
 }
+
 
 /// @brief Destructor for the MenuItem class.
 /// Deletes any submenus associated with the menu item.

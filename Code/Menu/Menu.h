@@ -10,7 +10,7 @@ public:
   virtual ~Menu();
 
   virtual void addMenu(Menu *menu) = 0;
-  virtual void print() = 0;
+  virtual std::string print() = 0;
 
 private:
 };
