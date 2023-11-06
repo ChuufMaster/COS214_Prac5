@@ -18,7 +18,7 @@ Path::Path(int x, int y) : Tile(x, y) { symbol = '='; }
  * @return std::vector<std::vector<std::string>>
  */
 std::vector<std::vector<std::string>> Path::toString() {
-  std::vector<std::vector<std::string>> tile = {
+  std::vector<std::vector<std::string>> oldtile = {
       {"  ", "║", "  "}, /**< Top row */
       {"══", "╬", "══"}, /**< Middle row */
       {"  ", "║", "  "}  /**< Bottom row */
@@ -27,6 +27,12 @@ std::vector<std::vector<std::string>> Path::toString() {
       {"▛", "▀", "▜"}, /**< Top row */
       {"▍", "█", "▐"}, /**< Middle row */
       {"▙", "▄", "▟"}  /**< Bottom row */
+  };
+
+  std::vector<std::vector<std::string>> tile = {
+      {"  ", " ", "  "}, /**< Top row */
+      {"  ", " ", "  "}, /**< Middle row */
+      {"  ", " ", "  "}  /**< Bottom row */
   };
   return tile;
 }

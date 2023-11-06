@@ -4,7 +4,9 @@ TARGET_EXEC := final_program
 BUILD_DIR := ./build
 SRC_DIRS := ./Code
 
-CXXFLAGS = -std=c++17 -Wall
+CXXFLAGS := -std=c++17 -Wall
+
+LDFLAGS := -lncursesw -lmenu
 
 # Find all the C and C++ files we want to compile
 # Note the single quotes around the * expressions. The shell will incorrectly expand these otherwise, but we want to send the * directly to the find command.
@@ -47,7 +49,7 @@ clean:
 	rm -r $(BUILD_DIR)
 
 run:
-	$(BUILD_DIR)/$(TARGET_EXEC) < input.txt
+	$(BUILD_DIR)/$(TARGET_EXEC)
 
 # Include the .d makefiles. The - at the front suppresses the errors of missing
 # Makefiles. Initially, all the .d files will be missing, and we don't want those

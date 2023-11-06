@@ -167,7 +167,7 @@ std::string Floor::toString() {
         }
 
         for (int cell_col = 0; cell_col < 3; ++cell_col)
-          out << color << tile_out[cell_row][cell_col] << "\033[0m";
+          out  << tile_out[cell_row][cell_col];
       }
       out << std::endl;
     }

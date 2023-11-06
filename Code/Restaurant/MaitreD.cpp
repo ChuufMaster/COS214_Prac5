@@ -1,4 +1,6 @@
 #include "MaitreD.h"
+#include "Customer.h"
+#include "KarenCustomer.h"
 
 /**
  * @brief Construct a new Maitre D:: Maitre D object using the open command and
@@ -29,8 +31,15 @@ void MaitreD::closeRestaurant() { _CloseCommand->executeRestaurant(); }
 void MaitreD::openRestaurant() { _OpenCommand->executeRestaurant(); }
 
 Customer *MaitreD::spawnCustomer() {
-  // TODO - implement MaitreD::spawnCustomer
-  throw "Not yet implemented";
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<int> distribution(1,3);
+  int randomValue = distribution(gen);
+
+  //if(randomValue == 1)
+  //Customer* customer = new KarenCustomer(); 
+  return NULL;
+
 }
 
 /**
