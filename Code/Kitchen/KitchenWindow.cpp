@@ -42,6 +42,7 @@ void KitchenWindow::makeOrder(Order *order) {
 void KitchenWindow::attach(Order *order) {
   if (currentWaiters < maxWaiters) {
     currentWaiters++;
+    currentOrders.push_back(order);
     this->makeOrder(order);
   } else {
     waitingOrders.push(order);
