@@ -19,6 +19,7 @@ private:
 
   std::string symbol = "M";
 
+public:
   KitchenWindow *kitchen;
 
   float bank = 10000.00;

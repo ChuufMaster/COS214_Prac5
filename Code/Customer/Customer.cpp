@@ -6,7 +6,6 @@
 #include "ReadyToOrder.h"
 
 /// @brief All of the code relating to the customer states.
-
 Customer::Customer() {
   _happyState = new CustomerHappy();
   _readyState = new NotReadyToOrder();
@@ -17,9 +16,7 @@ Customer::~Customer() {
   delete _readyState;
 }
 
-bool Customer::getHappiness() {
-  return this->_happyState->getHappiness(this);
-}
+bool Customer::getHappiness() { return this->_happyState->getHappiness(this); }
 
 bool Customer::getReadyToOrder() {
   return this->_readyState->getReadyToOrder(this);

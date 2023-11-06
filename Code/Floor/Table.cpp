@@ -30,28 +30,29 @@ void Table::notify() {
   bool sendOrder = false;
   bool happiness = false;
 
-  for (int i = 0; i < 4; i++) {
-    if (customers[i] != nullptr) {
-      sendOrder = !sendOrder ? customers[i]->getReadyToOrder() : sendOrder;
-    }
+  for (int i = 0; i < numOccupied; i++) {
+    sendOrder = customers[i]->getReadyToOrder();
   }
 
-  if (sendOrder) {
-    for (int i = 0; i < 4; i++)
-      if (customers[i] != nullptr)
-        happiness = !happiness ? customers[i]->getHappiness() : happiness;
+  if (sendOrder && order == NULL) {
+
     std::vector<MenuItem> theOrder;
     for (int i = 0; i < numOccupied; i++) {
       theOrder.push_back(customers[i]->order);
     }
-    Order *order = new Order(this, waiter, theOrder);
+    order = new Order(this, waiter, theOrder);
     waiter->placeOrder(order);
   }
-  if (happiness) {
-    _isOpen = true;
+
+  if (sendOrder) {
     for (int i = 0; i < numOccupied; i++)
-      delete customers[i];
-    customers.resize(4, nullptr);
+      happiness = customers[i]->getHappiness();
+    if (happiness) {
+      _isOpen = true;
+      for (int i = 0; i < numOccupied; i++)
+        delete customers[i];
+      customers.resize(4, nullptr);
+    }
   }
 }
 

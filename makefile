@@ -51,6 +51,9 @@ clean:
 run:
 	$(BUILD_DIR)/$(TARGET_EXEC)
 
+debug:
+	valgrind --leak-check=full $(BUILD_DIR)/$(TARGET_EXEC)
+
 # Include the .d makefiles. The - at the front suppresses the errors of missing
 # Makefiles. Initially, all the .d files will be missing, and we don't want those
 # errors to show up.
