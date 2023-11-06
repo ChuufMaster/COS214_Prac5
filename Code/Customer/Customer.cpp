@@ -6,6 +6,8 @@
 /// @brief All of the code relating to the customer states.
 Customer::Customer(MenuItem m) { this->order = m; }
 
+Customer::Customer() {}
+
 Customer::~Customer() {
   delete _happyState;
   delete _readyState;

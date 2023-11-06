@@ -35,3 +35,7 @@ void WealthyCustomer::decHappiness() {
     // Remove customer from simulation
   }
 }
+
+WealthyCustomer::WealthyCustomer(){
+  
+}

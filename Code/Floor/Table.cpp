@@ -6,15 +6,18 @@
 Table::Table(int numChairs, int x, int y) : Tile(x, y) {
   this->numChairs = numChairs;
   // this->setSym('T');
-  customers = {new Customer(MenuItem()), new Customer(MenuItem()),
-               new Customer(MenuItem()), new Customer(MenuItem())};
+  customers.resize(4, nullptr);
+  /*customers = {new Customer(MenuItem()), new Customer(MenuItem()),
+               new Customer(MenuItem()), new Customer(MenuItem())};*/
 }
 
-void Table::addCustomer(Customer *c) {
-
-  c->table = this;
-  this->customers.insert(customers.end(), c);
-  numOccupied++;
+void Table::addCustomers(std::vector<Customer *> c) {
+  numOccupied = 0;
+  for (auto customer : c) {
+    customer->table = this;
+    numOccupied++;
+  }
+  this->customers = c;
 }
 
 void Table::attach(Waiter *waiter) { this->waiter = waiter; }
@@ -43,11 +46,18 @@ void Table::decAll() {
 }
 
 std::vector<std::vector<std::string>> Table::toString() {
+  std::string guest[4];
+  for (int i = 0; i < 4; i++) {
+    guest[i] = " ";
+    if (customers[i] != nullptr) {
+      guest[i] = customers[i]->toString();
+    }
+  }
+
   std::vector<std::vector<std::string>> tile = {
-      {"╔ ", customers[0]->toString(), " ╗"}, /**< Top row */
-      {"╣" + customers[1]->toString(), symbol,
-       customers[2]->toString() + "╠"},        /**< Middle row */
-      {"╚ ", customers[3]->toString(), " ╝"} /**< Bottom row */
+      {"╔ ", guest[0], " ╗"},                   /**< Top row */
+      {"╣" + guest[1], symbol, guest[2] + "╠"}, /**< Middle row */
+      {"╚ ", guest[3], " ╝"}                    /**< Bottom row */
   };
   return tile;
 }

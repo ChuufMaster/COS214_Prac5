@@ -2,10 +2,11 @@
 #define KARENCUSTOMER_H
 #include "Customer.h"
 
-class KarenCustomer : Customer {
+class KarenCustomer :public Customer {
 
 public:
   KarenCustomer(MenuItem m);
+  KarenCustomer();
   void decHappiness();
 };
 

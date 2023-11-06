@@ -2,9 +2,10 @@
 #define WEALTHYCUSTOMER_H
 #include "Customer.h"
 
-class WealthyCustomer : Customer {
+class WealthyCustomer : public Customer {
 
 public:
+  WealthyCustomer();
   int _reservedTable;
 
   int getReservedTable();

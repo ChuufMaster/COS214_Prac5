@@ -20,6 +20,7 @@ public:
   ~Restaurant();
 
   void setFloor(Floor *);
+  std::string getFloor();
 };
 
 #endif

@@ -36,3 +36,5 @@ void NormalCustomer::decHappiness() {
     // Remove customer from simulation
   }
 }
+
+NormalCustomer::NormalCustomer() {}

@@ -3,8 +3,6 @@
 #include <ctime>
 
 KarenCustomer::KarenCustomer(MenuItem m) : Customer(m) {
-  // TODO - implement KarenCustomer::KarenCustomer
-  throw "Not yet implemented";
 
   CustomerUnhappy *karenState = new CustomerUnhappy(4);
   this->setState(karenState);
@@ -39,3 +37,5 @@ void KarenCustomer::decHappiness() {
     // Remove customer from simulation
   }
 }
+
+KarenCustomer::KarenCustomer() {}

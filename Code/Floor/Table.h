@@ -43,7 +43,7 @@ public:
 
   Table(int numChairs, int x, int y);
 
-  void addCustomer(Customer *customer);
+  void addCustomers(std::vector<Customer *>);
 
   void attach(Waiter *waiter);
 

@@ -1,7 +1,10 @@
 #include "MaitreD.h"
 #include "Customer.h"
 #include "KarenCustomer.h"
+#include "NormalCustomer.h"
+#include "WealthyCustomer.h"
 
+int randomNum(int, int);
 /**
  * @brief Construct a new Maitre D:: Maitre D object using the open command and
  * close command
@@ -12,9 +15,20 @@
 MaitreD::MaitreD(Command *openCommand, Command *closeCommand)
     : _OpenCommand(openCommand), _CloseCommand(closeCommand) {}
 
-void MaitreD::seatCustomer(bool reserved, Customer *Customer) {
-  // TODO - implement MaitreD::seatCustomer
-  throw "Not yet implemented";
+/**
+ * @brief Seats the customers at an empty table if it finds one
+ *
+ *
+ * @param reserved boolean indicating if the table is reserved or not
+ * @param Customers A vector array of customers to be seated at a table
+ */
+void MaitreD::seatCustomer(bool reserved, std::vector<Customer *> Customers) {
+  TableIterator i;
+  for (i = begin(); !(i == end()); ++i) {
+    if ((*i)._isOpen) {
+      (*i).addCustomers(Customers);
+    }
+  }
 }
 
 /**
@@ -31,15 +45,26 @@ void MaitreD::closeRestaurant() { _CloseCommand->executeRestaurant(); }
 void MaitreD::openRestaurant() { _OpenCommand->executeRestaurant(); }
 
 Customer *MaitreD::spawnCustomer() {
-  std::random_device rd;
-  std::mt19937 gen(rd());
-  std::uniform_int_distribution<int> distribution(1,3);
-  int randomValue = distribution(gen);
+  int randomVal = randomNum(1, 3);
 
-  //if(randomValue == 1)
-  //Customer* customer = new KarenCustomer(); 
+  switch (randomVal) {
+  case 1: {
+    Customer *karen = new KarenCustomer();
+    return karen;
+    break;
+  }
+  case 2: {
+    Customer *wealthy = new WealthyCustomer();
+    return wealthy;
+    break;
+  }
+  case 3: {
+    Customer *normal = new NormalCustomer();
+    return normal;
+    break;
+  }
+  }
   return NULL;
-
 }
 
 /**
@@ -136,4 +161,37 @@ std::vector<std::vector<std::string>> MaitreD::toString() {
       {" ╘", "═", "╛ "}  /**< Bottom row */
   };
   return tile;
+}
+
+/**
+ * @brief Starts the next round
+ *
+ * @details Calls all the notify functions for all of the objects that it holds
+ *
+ */
+void MaitreD::notify() {
+  std::vector<Customer *> customers(4, nullptr);
+  int randomNumGuest = randomNum(1, 4);
+  for (int i = 0; i < 4; i++)
+    customers.push_back(spawnCustomer());
+
+  seatCustomer(false, customers);
+}
+
+int randomNum(int first, int last) {
+  std::random_device rd;  // Used to seed the random number generator
+  std::mt19937 gen(rd()); // Mersenne Twister 19937 generator
+
+  int min_value = first;
+  int max_value = last;
+
+  // Define a uniform distribution for the range [min_value, max_value]
+  std::uniform_int_distribution<int> distribution(min_value, max_value);
+
+  // Generate a random number
+  int random_number = distribution(gen);
+
+  // std::cout << "Random number: " << random_number << std::endl;
+
+  return random_number;
 }

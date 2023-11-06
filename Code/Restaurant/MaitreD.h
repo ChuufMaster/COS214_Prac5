@@ -25,7 +25,7 @@ public:
   MaitreD();
   MaitreD(Command *, Command *);
 
-  void seatCustomer(bool reserved, Customer *Customer);
+  void seatCustomer(bool reserved, std::vector<Customer *>Customers);
 
   void openRestaurant();
 
@@ -40,6 +40,8 @@ public:
   TableIterator end();
 
   std::vector<std::vector<std::string>> toString();
+
+  void notify();
 };
 
 #endif
