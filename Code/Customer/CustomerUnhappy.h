@@ -2,19 +2,17 @@
 #define CUSTOMER_UNHAPPY_H
 
 #include "CustomerHappinessState.h"
-// class CustomerHappinessState;
-
 class CustomerUnhappy : public CustomerHappinessState {
 
 private:
   float _happy;
 
 public:
-  CustomerUnhappy(float h);
+  CustomerUnhappy();
 
   bool handle(Customer *c);
 
-  float getHappiness();
+  bool getHappiness(Customer *);
 };
 
 #endif

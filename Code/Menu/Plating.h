@@ -7,31 +7,31 @@
 
 class Plating {
 public:
-    Plating(const std::string& name);
-    Plating *getPlating();
-    float getAddedCost() const;
-    const std::string& getName() const;
-    void setAddedCost(float cost);
-    virtual ~Plating() {}
+  Plating(const std::string &name);
+  Plating *getPlating();
+  float getAddedCost() const;
+  const std::string &getName() const;
+  void setAddedCost(float cost);
+  virtual ~Plating() {}
 
 private:
-    float _addedCost;
-    std::string _name;
+  float _addedCost;
+  std::string _name;
 };
 
 class Basic : public Plating {
 public:
-    Basic();
+  Basic();
 };
 
 class Luxury : public Plating {
 public:
-    Luxury();
+  Luxury();
 };
 
 class Bokke : public Plating {
 public:
-    Bokke();
+  Bokke();
 };
 
 #endif // PLATING_H

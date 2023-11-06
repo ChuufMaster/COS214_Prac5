@@ -16,7 +16,7 @@ public:
   Table *table;
   Waiter *waiter;
   std::vector<MenuItem> getOrder();
-  Order(Table* t, Waiter* w, std::vector<MenuItem> m);
+  Order(Table *t, Waiter *w, std::vector<MenuItem> m);
 };
 
 #endif

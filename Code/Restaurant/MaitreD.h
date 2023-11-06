@@ -19,13 +19,15 @@ private:
 
   std::string symbol = "M";
 
+  KitchenWindow *kitchen;
+
 public:
   std::vector<Customer *> Customers;
 
   MaitreD();
-  MaitreD(Command *, Command *);
+  MaitreD(Command *, Command *, KitchenWindow *);
 
-  void seatCustomer(bool reserved, std::vector<Customer *>Customers);
+  void seatCustomer(bool reserved, std::vector<Customer *> Customers);
 
   void openRestaurant();
 

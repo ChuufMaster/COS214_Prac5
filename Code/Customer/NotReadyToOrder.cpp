@@ -1,18 +1,16 @@
 #include "NotReadyToOrder.h"
-#include "../Floor/Table.h"
-#include "ReadyToOrder.h"
 #include "Customer.h"
-/// @brief this code that will execute when the customer is not ready to order
-/// yet.
-bool NotReadyToOrder::handleWaiter(Customer *t) {
-  // TODO - implement NotReadyToOrder::handleWaiter
-   if (t->readyTime > 0) {
-    t->readyTime--;
-    return false;
-  } else {
-    CustomerReadyState *newState = new ReadyToOrder();
-    t->setState(newState);
+#include "CustomerReadyState.h"
+#include "ReadyToOrder.h"
+#include "Table.h"
+
+bool NotReadyToOrder::getReadyToOrder(Customer *c) {
+  if (c->readyTime-- == 0) {
+    CustomerReadyState *ready = new ReadyToOrder();
+    c->setState(ready);
+    return true;
   }
+  return false;
 }
 
-bool NotReadyToOrder::getReadyToOrder() { return this->_readyToOrder; }
+NotReadyToOrder::NotReadyToOrder() {}

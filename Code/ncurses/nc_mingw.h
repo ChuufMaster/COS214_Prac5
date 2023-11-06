@@ -27,7 +27,7 @@
  ****************************************************************************/
 
 /****************************************************************************
- * Author: Thomas Dickey, 2008-on                                           * 
+ * Author: Thomas Dickey, 2008-on                                           *
  *                                                                          *
  ****************************************************************************/
 
@@ -37,28 +37,28 @@
 #define NC_MINGW_H 1
 
 #ifdef WINVER
-#  if WINVER < 0x0501
-#    error WINVER must at least be 0x0501
-#  endif  
+#if WINVER < 0x0501
+#error WINVER must at least be 0x0501
+#endif
 #else
-#  define WINVER 0x0501
+#define WINVER 0x0501
 #endif
 #include <windows.h>
 
 #undef sleep
-#define sleep(n) Sleep((n) * 1000)
+#define sleep(n) Sleep((n)*1000)
 
 #undef gettimeofday
-#define gettimeofday(tv,tz) _nc_gettimeofday(tv,tz)
+#define gettimeofday(tv, tz) _nc_gettimeofday(tv, tz)
 
-#include <sys/time.h>	/* for struct timeval */
+#include <sys/time.h> /* for struct timeval */
 
 extern int _nc_gettimeofday(struct timeval *, void *);
 
 #undef HAVE_GETTIMEOFDAY
 #define HAVE_GETTIMEOFDAY 1
 
-#define SIGHUP  1
+#define SIGHUP 1
 #define SIGKILL 9
 #define getlogin() "username"
 

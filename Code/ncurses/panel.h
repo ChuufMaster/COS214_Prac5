@@ -41,42 +41,41 @@
 
 #include <ncursesw/curses.h>
 
-typedef struct panel
-{
+typedef struct panel {
   WINDOW *win;
   struct panel *below;
   struct panel *above;
   NCURSES_CONST void *user;
 } PANEL;
 
-#if	defined(__cplusplus)
+#if defined(__cplusplus)
 extern "C" {
 #endif
 
-extern NCURSES_EXPORT(WINDOW*) panel_window (const PANEL *);
-extern NCURSES_EXPORT(void)    update_panels (void);
-extern NCURSES_EXPORT(int)     hide_panel (PANEL *);
-extern NCURSES_EXPORT(int)     show_panel (PANEL *);
-extern NCURSES_EXPORT(int)     del_panel (PANEL *);
-extern NCURSES_EXPORT(int)     top_panel (PANEL *);
-extern NCURSES_EXPORT(int)     bottom_panel (PANEL *);
-extern NCURSES_EXPORT(PANEL*)  new_panel (WINDOW *);
-extern NCURSES_EXPORT(PANEL*)  panel_above (const PANEL *);
-extern NCURSES_EXPORT(PANEL*)  panel_below (const PANEL *);
-extern NCURSES_EXPORT(int)     set_panel_userptr (PANEL *, NCURSES_CONST void *);
-extern NCURSES_EXPORT(NCURSES_CONST void*) panel_userptr (const PANEL *);
-extern NCURSES_EXPORT(int)     move_panel (PANEL *, int, int);
-extern NCURSES_EXPORT(int)     replace_panel (PANEL *,WINDOW *);
-extern NCURSES_EXPORT(int)     panel_hidden (const PANEL *);
+extern NCURSES_EXPORT(WINDOW *) panel_window(const PANEL *);
+extern NCURSES_EXPORT(void) update_panels(void);
+extern NCURSES_EXPORT(int) hide_panel(PANEL *);
+extern NCURSES_EXPORT(int) show_panel(PANEL *);
+extern NCURSES_EXPORT(int) del_panel(PANEL *);
+extern NCURSES_EXPORT(int) top_panel(PANEL *);
+extern NCURSES_EXPORT(int) bottom_panel(PANEL *);
+extern NCURSES_EXPORT(PANEL *) new_panel(WINDOW *);
+extern NCURSES_EXPORT(PANEL *) panel_above(const PANEL *);
+extern NCURSES_EXPORT(PANEL *) panel_below(const PANEL *);
+extern NCURSES_EXPORT(int) set_panel_userptr(PANEL *, NCURSES_CONST void *);
+extern NCURSES_EXPORT(NCURSES_CONST void *) panel_userptr(const PANEL *);
+extern NCURSES_EXPORT(int) move_panel(PANEL *, int, int);
+extern NCURSES_EXPORT(int) replace_panel(PANEL *, WINDOW *);
+extern NCURSES_EXPORT(int) panel_hidden(const PANEL *);
 
 #if NCURSES_SP_FUNCS
 extern NCURSES_EXPORT(PANEL *) ground_panel(SCREEN *);
 extern NCURSES_EXPORT(PANEL *) ceiling_panel(SCREEN *);
 
-extern NCURSES_EXPORT(void)    NCURSES_SP_NAME(update_panels) (SCREEN*);
+extern NCURSES_EXPORT(void) NCURSES_SP_NAME(update_panels)(SCREEN *);
 #endif
 
-#if	defined(__cplusplus)
+#if defined(__cplusplus)
 }
 #endif
 

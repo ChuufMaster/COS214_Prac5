@@ -15,9 +15,7 @@ public:
 
   virtual ~CustomerReadyState();
 
-  virtual bool getReadyToOrder() = 0;
-
-  virtual bool handleWaiter(Customer *c) = 0;
+  virtual bool getReadyToOrder(Customer *) = 0;
 };
 
 #endif

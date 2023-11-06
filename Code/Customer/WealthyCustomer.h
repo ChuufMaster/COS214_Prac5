@@ -5,6 +5,9 @@
 class WealthyCustomer : public Customer {
 
 public:
+
+  int customerHappiness = 8;
+
   WealthyCustomer();
   int _reservedTable;
 

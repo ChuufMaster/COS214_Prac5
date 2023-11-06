@@ -1,5 +1,5 @@
 #include "Customer.h"
-#include "../Menu/MenuItem.h"
+#include "MenuItem.h"
 #include "CustomerHappinessState.h"
 #include "CustomerReadyState.h"
 #include "ReadyToOrder.h"
@@ -13,10 +13,10 @@ Customer::~Customer() {
   delete _readyState;
 }
 
-float Customer::getHappiness() { return this->_happyState->getHappiness(); }
+bool Customer::getHappiness() { return this->_happyState->getHappiness(this); }
 
 bool Customer::getReadyToOrder() {
-  return this->_readyState->getReadyToOrder();
+  return this->_readyState->getReadyToOrder(this);
 }
 
 void Customer::setState(CustomerHappinessState *state) {
@@ -26,13 +26,6 @@ void Customer::setState(CustomerHappinessState *state) {
 void Customer::setState(CustomerReadyState *state) {
 
   this->_readyState = state;
-  
-}
-
-bool Customer::happy() { return this->_happyState->handle(this); }
-
-bool Customer::readyToOrder() {
-  return this->_readyState->handleWaiter(this);
 }
 
 CustomerHappinessState *Customer::getHappinessState() {
@@ -40,20 +33,6 @@ CustomerHappinessState *Customer::getHappinessState() {
 }
 
 CustomerReadyState *Customer::getReadyState() { return this->_readyState; }
-
-/// decrements ready time per round (with Table decAll() function), then if it
-/// reaches 0 sets readyState to readytoorder
-
-// void Customer::decReadiness() {
-//   if (readyTime > 0) {
-//     readyTime--;
-//   } else {
-//     CustomerReadyState *newState = new ReadyToOrder();
-//     this->setState(newState);
-//   }
-// }
-
-void Customer::decHappiness() {}
 
 /**
  * @brief Returns the Customers Representation

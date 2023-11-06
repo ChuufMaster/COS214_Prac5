@@ -9,9 +9,9 @@ class ReadyToOrder : public CustomerReadyState {
 public:
   bool _readyToOrder;
 
-  bool handleWaiter(Customer *c);
+  ReadyToOrder();
 
-  bool getReadyToOrder();
+  bool getReadyToOrder(Customer *);
 };
 
 #endif

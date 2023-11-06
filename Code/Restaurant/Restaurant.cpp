@@ -17,7 +17,6 @@ Restaurant &Restaurant::_restaurant() {
 
 void Restaurant::setFloor(Floor *floor) { _floor = floor; }
 
-
 /**
  * @brief Returns the string representation of the floor
  * @return A string representation of the floor

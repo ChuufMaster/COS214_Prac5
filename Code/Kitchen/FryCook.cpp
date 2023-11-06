@@ -4,7 +4,8 @@
 /// @param meal we use the meal component to figure out of which type it is.
 void FryCook::cook(MealComponent *meal) {
   if (meal->type == 3) {
-    std::cout<<"The Frycook is preparing the "<<meal->getName()<<std::endl;
+    std::cout << "The Frycook is preparing the " << meal->getName()
+              << std::endl;
   } else {
     _successor->cook(meal);
   }
