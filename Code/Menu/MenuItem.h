@@ -25,11 +25,18 @@ public:
 
   std::vector<MealComponent *> getComponents();
 
+  float getAddedCost() const;
+  const std::string &getName() const;
+  void setAddedCost(float cost);
+  
+  Plating *getPlating();
 private:
   float _cost;
   int _prepTime;
+  float _addedCost;
   std::vector<Menu *> nextItem;
   std::vector<MealComponent *> components;
+  std::string _name;
 };
 
 #endif // MENUITEM_H
