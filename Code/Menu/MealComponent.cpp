@@ -1,5 +1,43 @@
 #include "MealComponent.h"
 using namespace std;
+
+enum Meat {
+    Chicken,
+    Beef,
+    Pork,
+    Fish,
+    Plantbased_Meat,
+    MeatCount
+};
+
+enum Starch {
+    Garlic_Butter_Quinoa,
+    FrenchFries,
+    Sweetpotato_Fries,
+    Mashed_Potatoes,
+    Coconut_Rice,
+    Basmati_Rice,
+    Cauliflower_Rice,
+    Deepfried_PotatoSkins,
+    GarlicBread,
+    Accordian_Potatoes,
+    StarchCount
+};
+
+enum Side {
+    Caesar_Salad,
+    CheeseStuffed_Peppers,
+    Pasta_Salad,
+    Onion_Rings,
+    Creamed_Spinach,
+    Spicy_Cabbage_Slaw,
+    Fried_Pickle_Chips,
+    Feta_Olive_Salad,
+    ColeSlaw,
+    PumpkinFritters,
+    SideCount
+};
+
 /// @brief function to return the cost of the meal component.
 /// @return the cost.
 float MealComponent::getCost() { return this->_cost; }
