@@ -2,19 +2,24 @@
 #include "CustomerHappinessState.h"
 #include "CustomerReadyState.h"
 #include "MenuItem.h"
+#include "NotReadyToOrder.h"
 #include "ReadyToOrder.h"
 
 /// @brief All of the code relating to the customer states.
-Customer::Customer(MenuItem m) { this->order = m; }
 
-Customer::Customer() {}
+Customer::Customer() {
+  _happyState = new CustomerHappy();
+  _readyState = new NotReadyToOrder();
+}
 
 Customer::~Customer() {
   delete _happyState;
   delete _readyState;
 }
 
-bool Customer::getHappiness() { return this->_happyState->getHappiness(this); }
+bool Customer::getHappiness() {
+  return this->_happyState->getHappiness(this);
+}
 
 bool Customer::getReadyToOrder() {
   return this->_readyState->getReadyToOrder(this);
@@ -25,7 +30,6 @@ void Customer::setState(CustomerHappinessState *state) {
 }
 
 void Customer::setState(CustomerReadyState *state) {
-
   this->_readyState = state;
 }
 

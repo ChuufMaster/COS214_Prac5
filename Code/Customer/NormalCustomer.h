@@ -6,8 +6,6 @@ class NormalCustomer : public Customer {
 
 public:
   int customerHappiness = 12;
-
-  NormalCustomer(MenuItem m);
   NormalCustomer();
 };
 

@@ -8,15 +8,11 @@ public:
   int customerHappiness = 8;
 
   WealthyCustomer();
-  int _reservedTable;
+  int _reservedTable = 0;
 
   int getReservedTable();
 
   void setReservedTable(int reservedTable);
-
-  void decHappiness();
-
-  WealthyCustomer(MenuItem m);
 };
 
 #endif

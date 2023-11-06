@@ -6,7 +6,7 @@ std::string FryCook::cook(MealComponent *meal) {
   if (meal->type == 3) {
     return "The Frycook is preparing the " + meal->getName();
   } else {
-    _successor->cook(meal);
+    return _successor->cook(meal);
   }
 }
 /// @brief this just sets the successor of the chef.

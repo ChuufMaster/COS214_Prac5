@@ -187,6 +187,7 @@ void MaitreD::notify() {
     if (!((*i)->_isOpen))
       (*i)->notify();
   }
+  std::cout << "poese" << std::endl;
   kitchen->notifyRound();
 }
 
@@ -206,4 +207,12 @@ int randomNum(int first, int last) {
   // std::cout << "Random number: " << random_number << std::endl;
 
   return random_number;
+}
+
+void MaitreD::pay(Table *T)
+{
+  for (Customer *customer : T->customers)
+  {
+    bank += customer->order.getCost();
+  }
 }
