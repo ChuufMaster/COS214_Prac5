@@ -41,7 +41,8 @@ void MenuItem::print() {
 
 /// @brief Destructor for the MenuItem class.
 /// Deletes any submenus associated with the menu item.
-MenuItem::~MenuItem() {}
+MenuItem::~MenuItem() {
+}
 
 /// @brief Get the meal components that make up the menu item.
 /// @return A vector of MealComponent pointers.
@@ -76,6 +77,7 @@ MenuItem::MenuItem() {
       this->_prepTime = component->getPrepTime();
     }
   }
+  delete plating;
 }
 
 void Plating::setAddedCost(float cost) { _addedCost = cost; }

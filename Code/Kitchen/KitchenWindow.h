@@ -29,7 +29,7 @@ private:
 public:
   void detach();
 
-  std::vector<std::string> startCooking(MenuItem Meal);
+  std::vector<std::string> startCooking(MenuItem *Meal);
 
   KitchenWindow();
 
@@ -38,6 +38,8 @@ public:
   void attach(Order *order);
 
   void notifyRound();
+
+  ~KitchenWindow();
 };
 
 #endif

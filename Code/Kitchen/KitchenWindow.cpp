@@ -14,9 +14,9 @@ void KitchenWindow::detach() {
 /// @brief this sends the different meal components to the chefs to cook.
 /// @param Meal the Meal is split up into mealcomponents.
 
-std::vector<std::string> KitchenWindow::startCooking(MenuItem Meal) {
+std::vector<std::string> KitchenWindow::startCooking(MenuItem *Meal) {
   std::vector<std::string> prints;
-  for (MealComponent *component : Meal.getComponents()) {
+  for (MealComponent *component : Meal->getComponents()) {
     prints.push_back(Chefs->cook(component));
   }
   return prints;
@@ -33,16 +33,12 @@ KitchenWindow::KitchenWindow() {
 /// @param order the order that the menuitem is taken from.
 
 void KitchenWindow::makeOrder(Order *order) {
-  for (MenuItem item : order->getOrder()) {
+  for (MenuItem *item : order->getOrder()) {
 
     order->prints.push_back(this->startCooking(item));
   }
-  // this->detach(order->waiter);
-  // order->table->notify(this);
 }
 
-/// @brief
-/// @param order
 void KitchenWindow::attach(Order *order) {
   if (currentWaiters < maxWaiters) {
     currentWaiters++;
@@ -65,4 +61,8 @@ void KitchenWindow::notifyRound() {
   }
   this->currentWaiters = 0;
   this->detach();
+}
+
+KitchenWindow::~KitchenWindow(){
+  delete Chefs;
 }
