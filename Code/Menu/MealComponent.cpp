@@ -41,7 +41,7 @@ enum Side {
 
 // Define menu items with their names and prices
 // CHECK IF THE TYPES AND PREP TIME IS CORRECT
-/*MealComponent meatOptions[] = {
+/*  MealComponent meatOptions[] = {
         {20, 65.0, "Chicken", 1},
         {25, 85.0, "Beef", 1},
         {30, 75.0, "Pork", 1},
@@ -60,6 +60,19 @@ enum Side {
         {10, 35.0, "Deep-fried Potato Skins", 2},
         {8, 25.0, "Garlic Bread", 2},
         {16, 45.0, "Accordian Potatoes", 2}
+    };
+
+    MealComponent sideOptions[] = {
+        {5, 20.0, "Caesar Salad", 3},
+        {15, 50.0, "Cheese-Stuffed Peppers", 3},
+        {12, 35.0, "Pasta Salad", 3},
+        {10, 30.0, "Onion Rings", 3},
+        {8, 25.0, "Creamed Spinach", 3},
+        {6, 20.0, "Spicy Cabbage Slaw", 3},
+        {8, 30.0, "Fried Pickle Chips", 3},
+        {12, 40.0, "Feta Olive Salad", 3},
+        {10, 25.0, "Cole Slaw", 3},
+        {14, 45.0, "Pumpkin Fritters", 3}
     };
     */
 
