@@ -8,7 +8,7 @@
 class Plating {
 public:
   Plating(const std::string &name);
-  Plating *getPlating();
+  
   float getAddedCost() const;
   const std::string &getName() const;
   void setAddedCost(float cost);

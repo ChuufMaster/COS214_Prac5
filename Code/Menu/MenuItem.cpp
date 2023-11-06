@@ -54,8 +54,7 @@ std::vector<MealComponent *> MenuItem::getComponents() {
 /// information.
 MenuItem::MenuItem() {
   _prepTime = 0;
-  Plating *plating = new Plating("What");
-  // plating->getPlating();
+  Plating *plating = this->getPlating();
   this->_cost = plating->getAddedCost();
 
   MealComponent *component = component->getMeatOption();
@@ -76,5 +75,24 @@ MenuItem::MenuItem() {
     if (component->getPrepTime() > _prepTime) {
       this->_prepTime = component->getPrepTime();
     }
+  }
+}
+
+void Plating::setAddedCost(float cost) { _addedCost = cost; }
+
+float Plating::getAddedCost() const { return _addedCost; }
+
+Plating *MenuItem::getPlating() {
+  std::srand(static_cast<unsigned>(std::time(nullptr)));
+  int randomIndex = std::rand() % 3;
+  switch (randomIndex) {
+  case 0:
+    return new Basic();
+  case 1:
+    return new Luxury();
+  case 2:
+    return new Bokke();
+  default:
+    return nullptr;
   }
 }
