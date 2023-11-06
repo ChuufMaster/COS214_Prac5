@@ -9,6 +9,8 @@
 Customer::Customer() {
   _happyState = new CustomerHappy();
   _readyState = new NotReadyToOrder();
+  order = new MenuItem();
+  symbol = "☺";
 }
 
 Customer::~Customer() {
@@ -44,4 +46,4 @@ CustomerReadyState *Customer::getReadyState() { return this->_readyState; }
  *
  * @return A string that represents the customer visually
  */
-std::string Customer::toString() { return symbol; }
+std::string Customer::toString() { return "☺"; }

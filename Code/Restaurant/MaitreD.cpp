@@ -188,6 +188,12 @@ void MaitreD::notify() {
       (*i)->notify();
     }
   }
+
+  for (i = this->begin(); !(i == this->end()); ++i) {
+    if (((*i)->isServed)) {
+      this->pay(*i);
+    }
+  }
   kitchen->notifyRound();
 }
 
@@ -209,10 +215,11 @@ int randomNum(int first, int last) {
   return random_number;
 }
 
-void MaitreD::pay(Table *T)
-{
-  for (Customer *customer : T->customers)
-  {
-    bank += customer->order.getCost();
+void MaitreD::pay(Table *T) {
+  for (int i = 0; i < T->numOccupied; i++) {
+    bank += T->customers[i]->order->getCost();
+    delete T->customers[i];
   }
+  T->customers.resize(4, nullptr);
+  T->_isOpen = true;
 }

@@ -18,15 +18,15 @@ private:
   Table *table;
   friend class Table;
 
-  std::string symbol = "☺";
+  std::string symbol ;
+  //std::string symbol = "C";
 
 public:
-  Customer(MenuItem);
   Customer();
 
   ~Customer();
 
-  MenuItem order;
+  MenuItem* order;
 
   int readyTime = 2;
 

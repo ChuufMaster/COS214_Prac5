@@ -64,6 +64,16 @@ void KitchenWindow::notifyRound() {
   this->detach();
 }
 
-KitchenWindow::~KitchenWindow(){
-  delete Chefs;
+KitchenWindow::~KitchenWindow() { delete Chefs; }
+
+std::string KitchenWindow::toString() {
+  std::string out = "";
+  for (Order *order : currentOrders) {
+    for (std::vector<std::string> middle : order->prints) {
+      for (std::string s : middle) {
+        out += s + "\n";
+      }
+    }
+  }
+  return out;
 }
