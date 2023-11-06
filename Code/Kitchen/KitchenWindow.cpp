@@ -45,13 +45,6 @@ void KitchenWindow::makeOrder(Order *order)
   // order->table->notify(this);
 }
 
-/// @brief this finishes the cooking process by opening up a new slot for a
-/// waiter.
-/// @param waiter the waiter being released to finish the order.
-void KitchenWindow::notifyWaiter() {
-  
-}
-
 /// @brief
 /// @param order
 void KitchenWindow::attach(Order *order) {
