@@ -8,8 +8,7 @@
 class MenuItem : public Menu {
 public:
   std::string name;
-  MenuItem(std::string name, std::vector<MealComponent *> mealComponent,
-           Plating *plating);
+  MenuItem();
   MenuItem();
   ~MenuItem();
 

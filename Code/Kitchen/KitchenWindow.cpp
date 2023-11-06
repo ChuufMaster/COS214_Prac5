@@ -21,7 +21,6 @@ void KitchenWindow::startCooking(MenuItem Meal)
     Chefs->cook(component);
   }
   // wait for prep time
-  
 }
 
 /// @brief this creates the different types of chefs.
@@ -57,8 +56,8 @@ void KitchenWindow::detach(Waiter *waiter)
   this->notifyWaiter();
 }
 
-/// @brief 
-/// @param order 
+/// @brief
+/// @param order
 
 void KitchenWindow::enqueue(Order *order)
 {

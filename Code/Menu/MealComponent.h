@@ -16,6 +16,10 @@ public:
   int getPrepTime();
   void setPrepTime(int prepTime);
 
+  MealComponent *getMeatOption();
+  MealComponent *getSideOption();
+  MealComponent *getStarchOption();
+
   ~MealComponent() {}
 
   std::string name;

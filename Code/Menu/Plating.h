@@ -1,10 +1,12 @@
 #ifndef PLATING_H
 #define PLATING_H
+#include <cstdlib>
 
 class Plating {
 public:
   Plating();
   float getAddedCost();
+  Plating *getPlating();
   void setAddedCost(float cost);
   virtual ~Plating() {}
 
