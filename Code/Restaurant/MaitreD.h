@@ -21,6 +21,8 @@ private:
 
   KitchenWindow *kitchen;
 
+  float bank = 10000.00;
+
 public:
   std::vector<Customer *> Customers;
 
@@ -44,6 +46,8 @@ public:
   std::vector<std::vector<std::string>> toString();
 
   void notify();
+
+  void pay(Table *T);
 };
 
 #endif

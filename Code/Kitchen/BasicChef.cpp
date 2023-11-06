@@ -6,6 +6,7 @@ std::string BasicChef::cook(MealComponent *meal) {
   if (meal->type == 4) {
     return "The Basic Chef is preparing the " + meal->getName();
   }
+  return nullptr;
 }
 /// @brief this just sets the successor of the chef.
 BasicChef::BasicChef() { _successor = nullptr; }

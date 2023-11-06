@@ -6,7 +6,7 @@ std::string MichelinChef::cook(MealComponent *meal) {
   if (meal->type == 1) {
     return "The Michelin Chef is preparing the " + meal->getName();
   } else {
-    _successor->cook(meal);
+    return _successor->cook(meal);
   }
 }
 /// @brief this just sets the successor of the chef.

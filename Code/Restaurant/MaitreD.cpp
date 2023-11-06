@@ -207,3 +207,11 @@ int randomNum(int first, int last) {
 
   return random_number;
 }
+
+void MaitreD::pay(Table *T)
+{
+  for (Customer *customer : T->customers)
+  {
+    bank += customer->order.getCost();
+  }
+}
