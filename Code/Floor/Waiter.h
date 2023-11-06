@@ -17,11 +17,14 @@ private:
 public:
   void placeOrder(KitchenWindow *window, Order *order);
 
-  Waiter();
+  Waiter(KitchenWindow *k);
 
-  void update();
+  void update(Table *t);
 
   bool available;
+
+  KitchenWindow *window;
+
 };
 
 #endif

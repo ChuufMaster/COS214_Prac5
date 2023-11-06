@@ -21,6 +21,8 @@ public:
 
   Order *order;
 
+  bool isServed;
+
   //std::string symbol = "☐ ";
   //std::string symbol = "⛒";
   //std::string symbol = "⚪";
@@ -49,7 +51,7 @@ public:
 
   void detach(Waiter *waiter);
 
-  void notify(KitchenWindow *k);
+  void notify();
 
   void decAll();
 

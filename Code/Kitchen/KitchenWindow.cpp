@@ -4,10 +4,14 @@
 
 void KitchenWindow::notifyWaiter()
 {
-  if (!waitingOrders.empty())
+  for(int i = 0; i < maxWaiters; i++)
   {
-    this->makeOrder(waitingOrders.front());
-    waitingOrders.pop();
+    if (!waitingOrders.empty())
+    {
+      this->makeOrder(waitingOrders.front());
+      this->currentOrders.push_back(waitingOrders.front());
+      waitingOrders.pop();
+    }
   }
 }
 
@@ -20,7 +24,6 @@ void KitchenWindow::startCooking(MenuItem Meal)
   {
     Chefs->cook(component);
   }
-  // wait for prep time
 }
 
 /// @brief this creates the different types of chefs.
@@ -41,17 +44,21 @@ void KitchenWindow::makeOrder(Order *order)
   {
     this->startCooking(item);
   }
-  this->detach(order->waiter);
-  order->table->notify(this);
+  // this->detach(order->waiter);
+  // order->table->notify(this);
 }
 
 /// @brief this finishes the cooking process by opening up a new slot for a
 /// waiter.
 /// @param waiter the waiter being released to finish the order.
 
-void KitchenWindow::detach(Waiter *waiter)
+void KitchenWindow::incRound()
 {
-  this->currentWaiters--;
+  for (Order *order : currentOrders)
+  {
+    order->waiter->update(order->table);
+  }
+  this->currentWaiters = 0;
   this->notifyWaiter();
 }
 

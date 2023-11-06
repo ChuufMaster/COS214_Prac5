@@ -9,6 +9,8 @@ Table::Table(int numChairs, int x, int y) : Tile(x, y) {
   customers.resize(4, nullptr);
   /*customers = {new Customer(MenuItem()), new Customer(MenuItem()),
                new Customer(MenuItem()), new Customer(MenuItem())};*/
+
+  this->isServed = false;
 }
 
 void Table::addCustomers(std::vector<Customer *> c) {
@@ -29,7 +31,7 @@ void Table::attach(Waiter *waiter) { this->waiter = waiter; }
 
 void Table::detach(Waiter *waiter) { this->waiter = NULL; }
 
-void Table::notify(KitchenWindow *k) {
+void Table::notify() {
 
   if (this->readyToOrder == this->numOccupied) {
 
@@ -41,7 +43,7 @@ void Table::notify(KitchenWindow *k) {
 
     this->order = new Order(this, this->waiter, theOrder);
 
-    this->waiter->placeOrder(k, order);
+    this->waiter->placeOrder(this->waiter->window, order);
     // notify can happen by round, checking if the readyToROder number is equal
     // to the chairs at the table
   } else {
@@ -53,10 +55,25 @@ void Table::notify(KitchenWindow *k) {
 /// per round
 
 void Table::decAll() {
+
+  int ready = 0;
+
   for (unsigned int i = 0; i < customers.size(); i++) {
+
     customers[i]->decReadiness();
+
     customers[i]->decHappiness();
+
+  if(customers[i]->getReadyToOrder() == true){
+    ready++;
   }
+
+  }
+
+  if(ready == customers.size()){
+    this->notify();
+  }
+  
 }
 
 std::vector<std::vector<std::string>> Table::toString() {
