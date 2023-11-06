@@ -1,5 +1,14 @@
 #include "WealthyCustomer.h"
 
+WealthyCustomer::WealthyCustomer(MenuItem m) : Customer(m) {
+
+  CustomerHappy *wealthyState = new CustomerHappy(8);
+  this->setState(wealthyState);
+  std::srand(static_cast<unsigned>(std::time(nullptr)));
+  this->readyTime = std::rand() % 2 + 1;
+
+}
+
 int WealthyCustomer::getReservedTable() {
   // TODO - implement WealthyCustomer::getReservedTable
   return this->_reservedTable;

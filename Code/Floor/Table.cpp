@@ -17,6 +17,7 @@ void Table::addCustomer(Customer *c) {
   numOccupied++;
 }
 
+
 void Table::attach(Waiter *waiter) { this->waiter = waiter; }
 
 void Table::detach(Waiter *waiter) { this->waiter = NULL; }
@@ -24,6 +25,15 @@ void Table::detach(Waiter *waiter) { this->waiter = NULL; }
 void Table::notify(KitchenWindow *k) {
 
   if (this->readyToOrder == this->numOccupied) {
+
+    std::vector<MenuItem> theOrder;
+
+    for(unsigned int i = 0 ; i < customers.size();i++){
+      theOrder.push_back(customers[i]->order);
+    }
+
+    this->order = new Order(this, this->waiter, theOrder);
+
     this->waiter->placeOrder(k, order);
     // notify can happen by round, checking if the readyToROder number is equal
     // to the chairs at the table

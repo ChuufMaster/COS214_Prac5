@@ -4,7 +4,6 @@
 
 KarenCustomer::KarenCustomer(MenuItem m) : Customer(m) {
   // TODO - implement KarenCustomer::KarenCustomer
-  throw "Not yet implemented";
 
   CustomerUnhappy *karenState = new CustomerUnhappy(4);
   this->setState(karenState);
