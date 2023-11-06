@@ -2,6 +2,7 @@
 
 void Waiter::placeOrder(Order *order) {
   this->available = false;
+
   window->attach(order);
 }
 

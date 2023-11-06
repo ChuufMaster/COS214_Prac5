@@ -22,8 +22,8 @@ public:
 private:
   std::queue<Order *> waitingOrders;
   std::vector<Order *> currentOrders;
-  int maxWaiters;
-  int currentWaiters;
+  int maxWaiters = 5;
+  int currentWaiters = 0;
   int roundCounter = 0;
 
 public:

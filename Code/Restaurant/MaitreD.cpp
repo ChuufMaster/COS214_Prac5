@@ -184,10 +184,10 @@ void MaitreD::notify() {
 
   TableIterator i;
   for (i = this->begin(); !(i == this->end()); ++i) {
-    if (!((*i)->_isOpen))
+    if (!((*i)->_isOpen)) {
       (*i)->notify();
+    }
   }
-  std::cout << "poese" << std::endl;
   kitchen->notifyRound();
 }
 

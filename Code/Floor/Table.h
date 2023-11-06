@@ -20,7 +20,6 @@ public:
   bool _isReserved = false;
 
   bool isServed;
-
   // std::string symbol = "☐ ";
   // std::string symbol = "⛒";
   // std::string symbol = "⚪";
@@ -34,6 +33,8 @@ public:
   Table *next;
 
   Table *previous;
+
+  Order *order = NULL;
 
   int numOccupied = 0;
 

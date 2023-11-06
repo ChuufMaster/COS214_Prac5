@@ -3,6 +3,7 @@
 /// should handle this meal.
 /// @param meal we use the meal component to figure out of which type it is.
 std::string BasicChef::cook(MealComponent *meal) {
+
   if (meal->type == 4) {
     return "The Basic Chef is preparing the " + meal->getName();
   }

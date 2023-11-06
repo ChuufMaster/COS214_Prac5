@@ -14,12 +14,9 @@ void KitchenWindow::detach() {
 /// @brief this sends the different meal components to the chefs to cook.
 /// @param Meal the Meal is split up into mealcomponents.
 
-std::vector<std::string> KitchenWindow::startCooking(MenuItem Meal)
-{
+std::vector<std::string> KitchenWindow::startCooking(MenuItem Meal) {
   std::vector<std::string> prints;
-  
-  for (MealComponent *component : Meal.getComponents())
-  {
+  for (MealComponent *component : Meal.getComponents()) {
     prints.push_back(Chefs->cook(component));
   }
   return prints;
@@ -35,10 +32,9 @@ KitchenWindow::KitchenWindow() {
 /// to the start cooking function.
 /// @param order the order that the menuitem is taken from.
 
-void KitchenWindow::makeOrder(Order *order)
-{
-  for (MenuItem item : order->getOrder())
-  {
+void KitchenWindow::makeOrder(Order *order) {
+  for (MenuItem item : order->getOrder()) {
+
     order->prints.push_back(this->startCooking(item));
   }
   // this->detach(order->waiter);
@@ -62,7 +58,7 @@ void KitchenWindow::attach(Order *order) {
  * Is called by MaitreD to let the KitchenWindow know that a new round has
  * started
  */
-void KitchenWindow::notifyRound() { 
+void KitchenWindow::notifyRound() {
   roundCounter++;
   for (Order *order : currentOrders) {
     order->waiter->update(order->table);

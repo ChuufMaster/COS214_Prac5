@@ -23,12 +23,19 @@ Floor::Floor(MaitreD *maitreDTile) {
       floor[row][0] = new Path(row, 0);
   }
 
+  std::vector<Waiter *> waiters = {new Waiter(maitreDTile->kitchen),
+                                   new Waiter(maitreDTile->kitchen),
+                                   new Waiter(maitreDTile->kitchen)};
+
   for (int row = 0; row < rowSize; row++) {
     for (int column = 1; column < colSize; column++) {
+      int tableRow = 0;
       if (row % 2 > 0 && column % 2 == 0) {
         Table *newTable = new Table(4, row, column);
+        newTable->attach(waiters[tableRow]);
         floor[row][column] = newTable;
         maitreDTile->addTable(newTable);
+        tableRow++;
       } else
         floor[row][column] = new Path(row, column);
     }
