@@ -13,11 +13,11 @@ class Order;
 class Table : public Tile {
 
 public:
-  bool _isOpen;
+  bool _isOpen = true;
 
   Waiter *waiter;
 
-  bool _isReserved;
+  bool _isReserved = false;
 
   Order *order;
 
@@ -35,9 +35,9 @@ public:
 
   Table *previous;
 
-  int numChairs;
+  int numChairs = 4;
 
-  int numOccupied;
+  int numOccupied = 0;
 
   int readyToOrder;
 

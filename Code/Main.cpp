@@ -19,6 +19,11 @@ void print_in_middle(WINDOW *win, int starty, int startx, int width,
 
 void func(char *name);
 
+void destroy_win(WINDOW *local_win);
+
+WINDOW *create_newwin(int height, int width, int starty, int startx,
+                      std::string str);
+
 int main() {
   char *choices[] = {"Next Round", "Open Restaurant", "Close Restaurant",
                      "EXIT", (char *)NULL};
@@ -31,8 +36,16 @@ int main() {
   restaurant.setFloor(new Floor(maitreD));
 
   std::string str = restaurant.getFloor();
+  if (true) {
+    maitreD->notify();
+    maitreD->notify();
+    maitreD->notify();
+    maitreD->notify();
+    str = restaurant.getFloor();
+    // std::cout << str << std::endl;
+    //  return 0;
+  }
   //  std::cout << test->toString() << std::endl;
-
   ITEM **my_items;
   int c;
   MENU *my_menu_items;
@@ -44,28 +57,33 @@ int main() {
 
   initscr();
   noecho();
+  cbreak();
   refresh();
 
   start_color();
 
-  cbreak();
   keypad(stdscr, TRUE);
 
   init_pair(1, COLOR_RED, COLOR_BLACK);
+
+  floor = newwin(23, 37, 0, 4);
+
+  wprintw(floor, "%s", str.c_str());
+  box(floor, 0, 0);
+  wrefresh(floor);
 
   n_choices = ARRAY_SIZE(choices);
   //  n_choices = 5;
   my_items = (ITEM **)calloc(n_choices + 1, sizeof(ITEM *));
   for (i = 0; i < n_choices; ++i) {
     my_items[i] = new_item(choices[i], choices[i]);
-    //set_item_userptr(my_items[i], func);
+    // set_item_userptr(my_items[i], func);
   }
   my_items[n_choices] = (ITEM *)NULL;
 
   my_menu_items = new_menu((ITEM **)my_items);
 
   menuWindow = newwin(10, 40, LINES - 15, 4);
-  floor = newwin(23, 37, 0, 4);
 
   keypad(menuWindow, TRUE);
 
@@ -88,10 +106,6 @@ int main() {
   post_menu(my_menu_items);
   wrefresh(menuWindow);
 
-  wprintw(floor, "%s", str.c_str());
-  box(floor, 0, 0);
-  wrefresh(floor);
-
   while ((c = wgetch(menuWindow)) != KEY_F(1)) {
     switch (c) {
     case KEY_DOWN:
@@ -108,13 +122,17 @@ int main() {
 
       if (cur == my_items[0]) {
         maitreD->notify();
+        str = restaurant.getFloor();
+
+        destroy_win(floor);
+        floor = create_newwin(23, 37, 0, 4, str);
       }
     }
     }
 
-    wprintw(floor, "%s", restaurant.getFloor().c_str());
+    // wprintw(floor, "%s", restaurant.getFloor().c_str());
     wrefresh(menuWindow);
-    wrefresh(floor);
+    // wrefresh(floor);
   }
 
   unpost_menu(my_menu_items);
@@ -153,4 +171,20 @@ void func(char *name) {
   move(20, 0);
   clrtoeol();
   mvprintw(20, 0, "Item selected is : %s", name);
+}
+
+WINDOW *create_newwin(int height, int width, int starty, int startx,
+                      std::string str) {
+  WINDOW *local_win;
+  local_win = newwin(height, width, starty, startx);
+  wprintw(local_win, "%s", str.c_str());
+  box(local_win, 0, 0);
+  wrefresh(local_win);
+  return local_win;
+}
+void destroy_win(WINDOW *local_win) {
+  wborder(local_win, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+
+  wrefresh(local_win);
+  delwin(local_win);
 }

@@ -8,8 +8,8 @@ class TableIterator {
   friend class MaitreD;
 
 protected:
-  Table *head;
-  Table *current;
+  Table *head = 0;
+  Table *current = 0;
 
   TableIterator(const MaitreD &, Table *);
 
@@ -20,7 +20,7 @@ public:
 
   Table *findSpecificTable(int);
 
-  Table &operator*();
+  Table* operator*();
   TableIterator operator++();
   bool operator==(const TableIterator &) const;
   bool operator==(int) const;
