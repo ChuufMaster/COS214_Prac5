@@ -35,8 +35,6 @@ public:
 
   void makeOrder(Order *order);
 
-  void notifyWaiter();
-
   void attach(Order *order);
 
   void notifyRound();
