@@ -1,8 +1,8 @@
 #include "Waiter.h"
 
 void Waiter::placeOrder(KitchenWindow *window, Order *order) {
-  // TODO - implement Waiter::placeOrder
-  throw "Not yet implemented";
+  this->available = false;
+  window->enqueue(order);
 }
 
 Waiter::Waiter() {

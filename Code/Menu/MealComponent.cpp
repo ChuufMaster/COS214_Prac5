@@ -107,6 +107,7 @@ void MealComponent::setPrepTime(int prepTime) { this->_preptime = prepTime; }
 /// it)
 
 MealComponent *MealComponent::getMeatOption() {
+    std::srand(static_cast<unsigned>(std::time(nullptr)));
     int randomIndex = std::rand() % (MeatCount*2);
     MealComponent *meat = new MealComponent(meatOptions[randomIndex]);
     return meat;
@@ -114,6 +115,7 @@ MealComponent *MealComponent::getMeatOption() {
 
 // Function to get a side option
 MealComponent *MealComponent::getSideOption() {
+    std::srand(static_cast<unsigned>(std::time(nullptr)));
     int randomIndex = std::rand() % SideCount;
     MealComponent *side = new MealComponent(sideOptions[randomIndex]);
     return side;
@@ -121,6 +123,7 @@ MealComponent *MealComponent::getSideOption() {
 
 // Function to get a starch option
 MealComponent *MealComponent::getStarchOption() {
+    std::srand(static_cast<unsigned>(std::time(nullptr)));
     int randomIndex = std::rand() % StarchCount;
     MealComponent *starch = new MealComponent(starchOptions[randomIndex]);
     return starch;

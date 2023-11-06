@@ -34,16 +34,13 @@ void MenuItem::addMenu(Menu *Menu) { nextItem.push_back(Menu); }
 
 /// @brief Print information about the menu item.
 void MenuItem::print() {
-  cout << this->name << " R" << this->_cost << " Approximate wait time is "
-       << this->_prepTime << endl;
+  cout << this->name << " R" << this->_cost << ". Approximate wait time is "
+       << this->_prepTime << " round" << endl;
 }
 
 /// @brief Destructor for the MenuItem class.
 /// Deletes any submenus associated with the menu item.
 MenuItem::~MenuItem() {
-  for (Menu *menu : nextItem) {
-    delete menu;
-  }
 }
 
 /// @brief Get the meal components that make up the menu item.
@@ -56,6 +53,7 @@ std::vector<MealComponent *> MenuItem::getComponents() {
 /// Initializes the menu item with a name, meal components, and plating
 /// information.
 MenuItem::MenuItem() {
+  _prepTime = 0;
   Plating* plating  = plating->getPlating();
   this->_cost = plating->getAddedCost();
 
@@ -68,7 +66,7 @@ MenuItem::MenuItem() {
   this->components.push_back(component);
 
   component = component->getSideOption();
-  this->name += " with a side of " + component->getName();
+  this->name += " with a side of " + component->getName() + " on a " + plating->getName() + " plate.";
   this->components.push_back(component);
 
   for (MealComponent *component : components) {

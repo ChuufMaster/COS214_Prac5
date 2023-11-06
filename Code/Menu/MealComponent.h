@@ -2,6 +2,7 @@
 #define MEALCOMPONENT_H
 #include "Menu.h"
 #include <string>
+#include <ctime>
 
 class MealComponent {
 public:

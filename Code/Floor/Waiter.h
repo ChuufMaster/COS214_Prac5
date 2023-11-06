@@ -1,6 +1,6 @@
 #ifndef WAITER_H
 #define WAITER_H
-#include "../Kitchen/KitchenWindow.h"
+#include "KitchenWindow.h"
 #include "Order.h"
 #include "Table.h"
 

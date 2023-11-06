@@ -9,7 +9,6 @@ class MenuItem : public Menu {
 public:
   std::string name;
   MenuItem();
-  MenuItem();
   ~MenuItem();
 
   void addMenu(Menu *menu) override;
