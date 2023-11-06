@@ -17,9 +17,7 @@ public:
 
   Waiter *waiter;
 
-  bool _isReserved = false;
-
-  bool isServed;
+  bool isServed = false;
   // std::string symbol = "☐ ";
   // std::string symbol = "⛒";
   // std::string symbol = "⚪";

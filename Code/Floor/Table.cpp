@@ -25,6 +25,7 @@ void Table::attach(Waiter *waiter) { this->waiter = waiter; }
 void Table::detach(Waiter *waiter) { this->waiter = NULL; }
 
 void Table::notify() {
+
   if (_isOpen)
     return;
   bool sendOrder = false;
@@ -36,7 +37,7 @@ void Table::notify() {
 
   if (sendOrder && order == NULL) {
 
-    std::vector<MenuItem> theOrder;
+    std::vector<MenuItem *> theOrder;
     for (int i = 0; i < numOccupied; i++) {
       theOrder.push_back(customers[i]->order);
     }
@@ -57,12 +58,9 @@ void Table::notify() {
 }
 
 std::vector<std::vector<std::string>> Table::toString() {
-  std::string guest[4];
-  for (int i = 0; i < 4; i++) {
-    guest[i] = " ";
-    if (customers[i] != nullptr) {
-      guest[i] = customers[i]->toString();
-    }
+  std::string guest[4] = {" ", " ", " ", " "};
+  for (int i = 0; i < numOccupied; i++) {
+    guest[i] = customers[i]->toString();
   }
 
   std::vector<std::vector<std::string>> tile = {

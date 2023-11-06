@@ -41,7 +41,7 @@ $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 # Build step for C++ source
 $(BUILD_DIR)/%.cpp.o: %.cpp
 	mkdir -p $(dir $@)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -g -o $@
 
 
 .PHONY: clean
@@ -53,6 +53,9 @@ run:
 
 debug:
 	valgrind --leak-check=full $(BUILD_DIR)/$(TARGET_EXEC)
+
+gdb:
+	gdb $(BUILD_DIR)/$(TARGET_EXEC)
 
 # Include the .d makefiles. The - at the front suppresses the errors of missing
 # Makefiles. Initially, all the .d files will be missing, and we don't want those

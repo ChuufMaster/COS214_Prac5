@@ -8,7 +8,7 @@
 #include <ncurses/curses.h>
 #include <ncurses/menu.h>
 #include <stdio.h>
-#include <stdlib.h>
+//#include <stdlib.h>
 #include <string.h>
 
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
@@ -38,12 +38,12 @@ int main() {
   restaurant.setFloor(new Floor(maitreD));
 
   std::string str = restaurant.getFloor();
-  while (false) {
+  while (true) {
     maitreD->notify();
 
     str = restaurant.getFloor();
-    std::cout << str << std::endl;
-    // return 0;
+    //std::cout << str << std::endl;
+    std::cout << kitchen->toString() << std::endl;
   }
   ITEM **my_items;
   int c;

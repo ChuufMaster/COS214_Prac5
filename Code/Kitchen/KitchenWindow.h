@@ -39,6 +39,8 @@ public:
 
   void notifyRound();
 
+  std::string toString();
+
   ~KitchenWindow();
 };
 
