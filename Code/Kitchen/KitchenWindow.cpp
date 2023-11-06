@@ -1,7 +1,7 @@
 #include "KitchenWindow.h"
 
 /// @brief this will notify the waiter when the order is complete.
-void KitchenWindow::notifyWaiter() {
+void KitchenWindow::detach() {
   for (int i = 0; i < maxWaiters; i++) {
     if (!waitingOrders.empty()) {
       this->makeOrder(waitingOrders.front());
@@ -48,17 +48,13 @@ void KitchenWindow::makeOrder(Order *order)
 /// @brief this finishes the cooking process by opening up a new slot for a
 /// waiter.
 /// @param waiter the waiter being released to finish the order.
-void KitchenWindow::incRound() {
-  for (Order *order : currentOrders) {
-    order->waiter->update(order->table);
-  }
-  this->currentWaiters = 0;
-  this->notifyWaiter();
+void KitchenWindow::notifyWaiter() {
+  
 }
 
 /// @brief
 /// @param order
-void KitchenWindow::enqueue(Order *order) {
+void KitchenWindow::attach(Order *order) {
   if (currentWaiters < maxWaiters) {
     currentWaiters++;
     this->makeOrder(order);
@@ -73,4 +69,11 @@ void KitchenWindow::enqueue(Order *order) {
  * Is called by MaitreD to let the KitchenWindow know that a new round has
  * started
  */
-void KitchenWindow::notifyRound() { roundCounter++; }
+void KitchenWindow::notifyRound() { 
+  roundCounter++;
+  for (Order *order : currentOrders) {
+    order->waiter->update(order->table);
+  }
+  this->currentWaiters = 0;
+  this->detach();
+}

@@ -27,7 +27,7 @@ private:
   int roundCounter = 0;
 
 public:
-  void notifyWaiter();
+  void detach();
 
   std::vector<std::string> startCooking(MenuItem Meal);
 
@@ -35,9 +35,9 @@ public:
 
   void makeOrder(Order *order);
 
-  void incRound();
+  void notifyWaiter();
 
-  void enqueue(Order *order);
+  void attach(Order *order);
 
   void notifyRound();
 };

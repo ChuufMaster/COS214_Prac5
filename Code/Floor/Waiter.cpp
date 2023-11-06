@@ -2,7 +2,7 @@
 
 void Waiter::placeOrder(Order *order) {
   this->available = false;
-  window->enqueue(order);
+  window->attach(order);
 }
 
 Waiter::Waiter(KitchenWindow *k) { this->window = k; }
