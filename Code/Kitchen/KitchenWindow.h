@@ -10,7 +10,6 @@
 #include "Waiter.h"
 #include <queue>
 
-
 class Waiter;
 class Order;
 

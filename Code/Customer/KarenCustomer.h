@@ -9,7 +9,6 @@ public:
 
   KarenCustomer(MenuItem m);
   KarenCustomer();
-  void decHappiness();
 };
 
 #endif

@@ -1,7 +1,7 @@
 #include "Table.h"
 #include "Customer.h"
-#include "Order.h"
 #include "KitchenWindow.h"
+#include "Order.h"
 
 Table::Table(int numChairs, int x, int y) : Tile(x, y) {
   customers.resize(4, nullptr);
@@ -35,10 +35,10 @@ void Table::notify() {
     for (int i = 0; i < numOccupied; i++)
       happiness = !happiness ? customers[i]->getHappiness() : happiness;
     std::vector<MenuItem> theOrder;
-    for (unsigned int i = 0; i < numOccupied; i++) {
+    for (int i = 0; i < numOccupied; i++) {
       theOrder.push_back(customers[i]->order);
     }
-    Order* order = new Order(this, waiter, theOrder);
+    Order *order = new Order(this, waiter, theOrder);
     waiter->placeOrder(order);
   }
 

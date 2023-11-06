@@ -34,8 +34,9 @@ void MenuItem::addMenu(Menu *Menu) { nextItem.push_back(Menu); }
 
 /// @brief Print information about the menu item.
 void MenuItem::print() {
-  std::cout << this->name << " R" << this->_cost << ". Approximate wait time is "
-       << this->_prepTime << " round" << std::endl;
+  std::cout << this->name << " R" << this->_cost
+            << ". Approximate wait time is " << this->_prepTime << " round"
+            << std::endl;
 }
 
 /// @brief Destructor for the MenuItem class.
@@ -53,8 +54,8 @@ std::vector<MealComponent *> MenuItem::getComponents() {
 /// information.
 MenuItem::MenuItem() {
   _prepTime = 0;
-   Plating* plating  = new Plating("What");
-    //plating->getPlating();
+  Plating *plating = new Plating("What");
+  // plating->getPlating();
   this->_cost = plating->getAddedCost();
 
   MealComponent *component = component->getMeatOption();

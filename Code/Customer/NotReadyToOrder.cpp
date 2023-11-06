@@ -13,4 +13,4 @@ bool NotReadyToOrder::getReadyToOrder(Customer *c) {
   return false;
 }
 
-NotReadyToOrder::NotReadyToOrder() {}
+// NotReadyToOrder::NotReadyToOrder() {}

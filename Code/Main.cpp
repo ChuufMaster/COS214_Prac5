@@ -15,7 +15,7 @@
 #define CTRLD 4
 
 void print_in_middle(WINDOW *win, int starty, int startx, int width,
-                     char *string, chtype color);
+                     const char *string, chtype color);
 
 void func(char *name);
 
@@ -25,8 +25,8 @@ WINDOW *create_newwin(int height, int width, int starty, int startx,
                       std::string str);
 
 int main() {
-  char *choices[] = {"Next Round", "Open Restaurant", "Close Restaurant",
-                     "EXIT", (char *)NULL};
+  const char *choices[] = {"Next Round", "Open Restaurant", "Close Restaurant",
+                           "EXIT", (char *)NULL};
   setlocale(LC_ALL, "");
 
   Restaurant &restaurant = Restaurant::_restaurant();
@@ -148,7 +148,7 @@ int main() {
 }
 
 void print_in_middle(WINDOW *win, int starty, int startx, int width,
-                     char *string, chtype color) {
+                     const char *string, chtype color) {
   int length, x, y;
   float temp;
   if (win == NULL)
