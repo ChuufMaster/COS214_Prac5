@@ -1196,7 +1196,7 @@ extern NCURSES_EXPORT(int)
 extern NCURSES_EXPORT(int)
     NCURSES_SP_NAME(keyok)(SCREEN *, int, bool); /* implemented:EXT_SP_FUNC */
 extern NCURSES_EXPORT(void) NCURSES_SP_NAME(nofilter)(SCREEN *);
-    /* implemented */ /* implemented:EXT_SP_FUNC */
+/* implemented */ /* implemented:EXT_SP_FUNC */
 extern NCURSES_EXPORT(int)
     NCURSES_SP_NAME(resize_term)(SCREEN *, int,
                                  int); /* implemented:EXT_SP_FUNC */

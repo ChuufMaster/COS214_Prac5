@@ -9,7 +9,6 @@ public:
 
   NormalCustomer(MenuItem m);
   NormalCustomer();
-  void decHappiness();
 };
 
 #endif

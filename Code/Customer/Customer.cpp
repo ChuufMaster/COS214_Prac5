@@ -1,8 +1,9 @@
 #include "Customer.h"
-#include "MenuItem.h"
 #include "CustomerHappinessState.h"
 #include "CustomerReadyState.h"
+#include "MenuItem.h"
 #include "ReadyToOrder.h"
+
 /// @brief All of the code relating to the customer states.
 Customer::Customer(MenuItem m) { this->order = m; }
 
