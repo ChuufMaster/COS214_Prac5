@@ -34,16 +34,13 @@ void MenuItem::addMenu(Menu *Menu) { nextItem.push_back(Menu); }
 
 /// @brief Print information about the menu item.
 void MenuItem::print() {
-  cout << this->name << " R" << this->_cost << " Approximate wait time is "
-       << this->_prepTime << endl;
+  cout << this->name << " R" << this->_cost << ". Approximate wait time is "
+       << this->_prepTime << " round" << endl;
 }
 
 /// @brief Destructor for the MenuItem class.
 /// Deletes any submenus associated with the menu item.
 MenuItem::~MenuItem() {
-  for (Menu *menu : nextItem) {
-    delete menu;
-  }
 }
 
 /// @brief Get the meal components that make up the menu item.
@@ -55,23 +52,27 @@ std::vector<MealComponent *> MenuItem::getComponents() {
 /// @brief Constructor for the MenuItem class.
 /// Initializes the menu item with a name, meal components, and plating
 /// information.
-/// @param name The name of the menu item.
-/// @param mealComponent A vector of MealComponent pointers that make up the
-/// menu item.
-/// @param plating A Plating object representing the presentation and cost of
-/// the menu item.
-MenuItem::MenuItem(std::string name, std::vector<MealComponent *> mealComponent,
-                   Plating *plating) {
-  this->name = name;
+MenuItem::MenuItem() {
+  _prepTime = 0;
+  Plating* plating  = plating->getPlating();
   this->_cost = plating->getAddedCost();
-  this->_prepTime = 0;
-  this->components = mealComponent;
-  for (MealComponent *component : mealComponent) {
+
+  MealComponent *component = component->getMeatOption();
+  this->name = component->getName();
+  this->components.push_back(component);
+
+  component = component->getStarchOption();
+  this->name += " and " + component->getName();
+  this->components.push_back(component);
+
+  component = component->getSideOption();
+  this->name += " with a side of " + component->getName() + " on a " + plating->getName() + " plate.";
+  this->components.push_back(component);
+
+  for (MealComponent *component : components) {
     this->_cost += component->getCost();
     if (component->getPrepTime() > _prepTime) {
       this->_prepTime = component->getPrepTime();
     }
   }
 }
-
-MenuItem::MenuItem() {}

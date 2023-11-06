@@ -4,7 +4,6 @@
 
 NormalCustomer::NormalCustomer(MenuItem m) : Customer(m) {
   // TODO - implement NormalCustomer::NormalCustomer
-  throw "Not yet implemented";
   CustomerHappy *normalState = new CustomerHappy(7);
   this->setState(normalState);
   std::srand(static_cast<unsigned>(std::time(nullptr)));

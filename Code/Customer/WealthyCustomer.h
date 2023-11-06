@@ -13,6 +13,8 @@ public:
   void setReservedTable(int reservedTable);
 
   void decHappiness();
+
+  WealthyCustomer(MenuItem m);
 };
 
 #endif

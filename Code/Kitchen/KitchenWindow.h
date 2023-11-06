@@ -28,7 +28,7 @@ public:
 
   void startCooking(MenuItem Meal);
 
-  KitchenWindow(Chef *Chefs);
+  KitchenWindow();
 
   void makeOrder(Order *order);
 

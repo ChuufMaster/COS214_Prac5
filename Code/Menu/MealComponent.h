@@ -2,6 +2,7 @@
 #define MEALCOMPONENT_H
 #include "Menu.h"
 #include <string>
+#include <ctime>
 
 class MealComponent {
 public:
@@ -15,6 +16,10 @@ public:
 
   int getPrepTime();
   void setPrepTime(int prepTime);
+
+  MealComponent *getMeatOption();
+  MealComponent *getSideOption();
+  MealComponent *getStarchOption();
 
   ~MealComponent() {}
 
