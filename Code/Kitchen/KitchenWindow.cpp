@@ -59,6 +59,7 @@ void KitchenWindow::notifyRound() {
   roundCounter++;
   for (Order *order : currentOrders) {
     order->waiter->update(order->table);
+    currentOrders.pop_back();
   }
   this->currentWaiters = 0;
   this->detach();
