@@ -26,8 +26,10 @@ void Table::detach(Waiter *waiter) { this->waiter = NULL; }
 
 void Table::notify() {
 
-  if (_isOpen)
+  if(isServed){
+    isServed = false;
     return;
+  }
   bool sendOrder = false;
   bool happiness = false;
 
