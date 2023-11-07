@@ -4,10 +4,11 @@
 void KitchenWindow::detach() {
   for (int i = 0; i < maxWaiters; i++) {
     if (!waitingOrders.empty()) {
+      
+      // currentWaiters++;
+      this->makeOrder(waitingOrders.front());
       this->currentOrders.push_back(waitingOrders.front());
       waitingOrders.pop();
-      currentWaiters++;
-      this->makeOrder(waitingOrders.front());
     }
   }
 }
@@ -59,7 +60,7 @@ void KitchenWindow::notifyRound() {
   roundCounter++;
   for (Order *order : currentOrders) {
     order->waiter->update(order->table);
-    currentOrders.pop_back();
+    // currentOrders.pop_back();
   }
   this->currentWaiters = 0;
   this->detach();
