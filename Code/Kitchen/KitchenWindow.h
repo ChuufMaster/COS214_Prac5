@@ -17,7 +17,6 @@ class KitchenWindow {
 
 public:
   Chef *Chefs;
-  bool full;
 
 private:
   std::queue<Order *> waitingOrders;
