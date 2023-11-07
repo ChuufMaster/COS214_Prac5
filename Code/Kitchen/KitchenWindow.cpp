@@ -4,9 +4,10 @@
 void KitchenWindow::detach() {
   for (int i = 0; i < maxWaiters; i++) {
     if (!waitingOrders.empty()) {
-      this->makeOrder(waitingOrders.front());
       this->currentOrders.push_back(waitingOrders.front());
       waitingOrders.pop();
+      currentWaiters++;
+      this->makeOrder(waitingOrders.front());
     }
   }
 }
@@ -34,7 +35,6 @@ KitchenWindow::KitchenWindow() {
 
 void KitchenWindow::makeOrder(Order *order) {
   for (MenuItem *item : order->getOrder()) {
-
     order->prints.push_back(this->startCooking(item));
   }
 }
