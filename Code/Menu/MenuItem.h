@@ -28,8 +28,9 @@ public:
   float getAddedCost() const;
   const std::string &getName() const;
   void setAddedCost(float cost);
-  
+
   Plating *getPlating();
+
 private:
   float _cost = 10.0;
   int _prepTime;

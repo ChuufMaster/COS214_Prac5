@@ -4,7 +4,7 @@
 void KitchenWindow::detach() {
   for (int i = 0; i < maxWaiters; i++) {
     if (!waitingOrders.empty()) {
-      
+
       // currentWaiters++;
       this->makeOrder(waitingOrders.front());
       this->currentOrders.push_back(waitingOrders.front());
@@ -73,11 +73,11 @@ std::string KitchenWindow::toString() {
   for (Order *order : currentOrders) {
     if (order != nullptr)
       for (std::vector<std::string> middle : order->prints) {
-          for (std::string s : middle) {
-            out += s + "\n";
-          }
+        for (std::string s : middle) {
+          out += s + "\n";
+        }
       }
-      currentOrders.pop_back();
+    currentOrders.pop_back();
   }
   return out;
 }

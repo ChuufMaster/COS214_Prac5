@@ -26,7 +26,7 @@ void Table::detach(Waiter *waiter) { this->waiter = NULL; }
 
 void Table::notify() {
 
-  if(isServed){
+  if (isServed) {
     isServed = false;
     return;
   }

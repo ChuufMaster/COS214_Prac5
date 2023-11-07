@@ -34,15 +34,14 @@ void MenuItem::addMenu(Menu *Menu) { nextItem.push_back(Menu); }
 
 /// @brief Print information about the menu item.
 std::string MenuItem::print() {
-  return this->name + " R" + std::to_string(this->_cost)
-            + ". Approximate wait time is " + std::to_string(this->_prepTime) + " round\n";
+  return this->name + " R" + std::to_string(this->_cost) +
+         ". Approximate wait time is " + std::to_string(this->_prepTime) +
+         " round\n";
 }
-
 
 /// @brief Destructor for the MenuItem class.
 /// Deletes any submenus associated with the menu item.
-MenuItem::~MenuItem() {
-}
+MenuItem::~MenuItem() {}
 
 /// @brief Get the meal components that make up the menu item.
 /// @return A vector of MealComponent pointers.
