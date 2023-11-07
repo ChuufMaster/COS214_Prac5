@@ -77,6 +77,7 @@ std::string KitchenWindow::toString() {
             out += s + "\n";
           }
       }
+      currentOrders.pop_back();
   }
   return out;
 }
