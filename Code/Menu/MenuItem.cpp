@@ -6,7 +6,7 @@
 
 /// @brief Getter for the cost of the menu item.
 /// @return The cost of the menu item.
-float MenuItem::getCost() { return this->_cost; }
+float MenuItem::getCost() { return 10.10; }
 
 /// @brief Setter for the cost of the menu item.
 /// @param cost The cost to set for the menu item.

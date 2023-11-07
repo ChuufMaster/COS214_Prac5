@@ -218,7 +218,6 @@ int randomNum(int first, int last) {
 void MaitreD::pay(Table *T) {
   for (int i = 0; i < T->numOccupied; i++) {
     bank += T->customers[i]->order->getCost();
-    delete T->customers[i];
   }
   T->customers.resize(4, nullptr);
   T->_isOpen = true;
