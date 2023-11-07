@@ -93,7 +93,6 @@ MealComponent *MealComponent::getMeatOption() {
   return new MealComponent(meatOptions[randomIndex]);
 }
 
-
 // Function to get a side option
 MealComponent *MealComponent::getSideOption() {
   std::srand(static_cast<unsigned>(std::time(nullptr)));

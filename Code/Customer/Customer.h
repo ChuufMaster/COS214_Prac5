@@ -14,19 +14,19 @@ class Customer {
 
 private:
   CustomerHappinessState *_happyState;
-  CustomerReadyState *_readyState ;
+  CustomerReadyState *_readyState;
   Table *table;
   friend class Table;
 
-  std::string symbol ;
-  //std::string symbol = "C";
+  std::string symbol;
+  // std::string symbol = "C";
 
 public:
   Customer();
 
   ~Customer();
 
-  MenuItem* order;
+  MenuItem *order;
 
   int readyTime = 2;
 

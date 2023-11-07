@@ -5,8 +5,8 @@
 /**
  * @brief KarenCustomer constructor
  *
- * @details Sets the state of the Customer to happy by default, and assigns a randomly generated number
- * between 1 and 3 to Customers readyTime
+ * @details Sets the state of the Customer to happy by default, and assigns a
+ * randomly generated number between 1 and 3 to Customers readyTime
  *
  */
 

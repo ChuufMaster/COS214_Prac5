@@ -10,14 +10,14 @@ class Waiter;
 class Order {
 
 private:
-  std::vector<MenuItem*> order;
-  
+  std::vector<MenuItem *> order;
+
 public:
   std::vector<std::vector<std::string>> prints;
   Table *table;
   Waiter *waiter;
-  std::vector<MenuItem*> getOrder();
-  Order(Table *t, Waiter *w, std::vector<MenuItem*> m);
+  std::vector<MenuItem *> getOrder();
+  Order(Table *t, Waiter *w, std::vector<MenuItem *> m);
 };
 
 #endif
