@@ -8,7 +8,7 @@
 #include <ncurses/curses.h>
 #include <ncurses/menu.h>
 #include <stdio.h>
-//#include <stdlib.h>
+// #include <stdlib.h>
 #include <string.h>
 
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
@@ -38,13 +38,12 @@ int main() {
   restaurant.setFloor(new Floor(maitreD));
 
   std::string str = restaurant.getFloor();
-  while (true) {
+  while (false) {
     maitreD->notify();
-
     str = restaurant.getFloor();
-    //std::cout << str << std::endl;
     std::cout << kitchen->toString() << std::endl;
   }
+
   ITEM **my_items;
   int c;
   MENU *my_menu_items;
@@ -53,6 +52,8 @@ int main() {
   WINDOW *menuWindow;
 
   WINDOW *floor;
+
+  WINDOW *kitchenWin;
 
   initscr();
   noecho();
@@ -71,12 +72,14 @@ int main() {
   box(floor, 0, 0);
   wrefresh(floor);
 
+  kitchenWin = newwin(30, 55, 0, 45);
+  box(kitchenWin, 0, 0);
+  wrefresh(kitchenWin);
+
   n_choices = ARRAY_SIZE(choices);
-  //  n_choices = 5;
   my_items = (ITEM **)calloc(n_choices + 1, sizeof(ITEM *));
   for (i = 0; i < n_choices; ++i) {
     my_items[i] = new_item(choices[i], choices[i]);
-    // set_item_userptr(my_items[i], func);
   }
   my_items[n_choices] = (ITEM *)NULL;
 
@@ -125,13 +128,13 @@ int main() {
 
         destroy_win(floor);
         floor = create_newwin(23, 37, 0, 4, str);
+
+        destroy_win(kitchenWin);
+        kitchenWin = create_newwin(30, 55, 0, 45, kitchen->toString());
       }
     }
     }
-
-    // wprintw(floor, "%s", restaurant.getFloor().c_str());
     wrefresh(menuWindow);
-    // wrefresh(floor);
   }
 
   unpost_menu(my_menu_items);

@@ -31,7 +31,7 @@ public:
   
   Plating *getPlating();
 private:
-  float _cost;
+  float _cost = 10.0;
   int _prepTime;
   float _addedCost;
   std::vector<Menu *> nextItem;

@@ -4,7 +4,7 @@
 /// @param meal we use the meal component to figure out of which type it is.
 std::string MeatMaster::cook(MealComponent *meal) {
   if (meal->type == 2) {
-    return "The MeatMaster is preparing the " + meal->getName();
+    return " The MeatMaster is preparing the " + meal->getName();
   } else {
     return _successor->cook(meal);
   }

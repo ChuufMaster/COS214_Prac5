@@ -14,8 +14,8 @@ Customer::Customer() {
 }
 
 Customer::~Customer() {
-  delete _happyState;
-  delete _readyState;
+/*  delete _happyState;
+  delete _readyState;*/
 }
 
 bool Customer::getHappiness() { return this->_happyState->getHappiness(this); }

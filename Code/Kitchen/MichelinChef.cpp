@@ -4,7 +4,7 @@
 /// @param meal we use the meal component to figure out of which type it is.
 std::string MichelinChef::cook(MealComponent *meal) {
   if (meal->type == 1) {
-    return "The Michelin Chef is preparing the " + meal->getName();
+    return " The Michelin Chef is preparing the " + meal->getName();
   } else {
     return _successor->cook(meal);
   }

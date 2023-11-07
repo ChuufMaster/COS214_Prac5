@@ -5,7 +5,7 @@
 std::string BasicChef::cook(MealComponent *meal) {
 
   if (meal->type == 4) {
-    return "The Basic Chef is preparing the " + meal->getName();
+    return " The Basic Chef is preparing the " + meal->getName();
   }
   return nullptr;
 }
